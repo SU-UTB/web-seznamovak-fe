@@ -1,0 +1,199 @@
+<svg width="312px" height="312px" viewBox="0 0 312 312" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+	    <style id="style1">
+		    .back{
+			    fill: #231F20;
+				opacity: 0;
+		    }
+            .back-first{
+	            animation-delay: 2s;
+	            -webkit-animation-name: back-first;
+	                    animation-name: back-first;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;					
+            }
+            
+            .front-first{	            
+	            animation-delay: 2s;
+	            -webkit-animation-name: front-first;
+	                    animation-name: front-first;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;
+            }
+            
+            .back-second{
+	            animation-delay: 2.25s;
+	            -webkit-animation-name: back-second;
+	                    animation-name: back-second;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;					
+            }
+            
+            .front-second{	            
+	            animation-delay: 2.25s;
+	            -webkit-animation-name: front-second;
+	                    animation-name: front-second;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;
+            }
+            
+            .back-third{
+	            animation-delay: 2.5s;
+	            -webkit-animation-name: back-third;
+	                    animation-name: back-third;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;					
+            }
+            
+            .front-third{	            
+	            animation-delay: 2.5s;
+	            -webkit-animation-name: front-third;
+	                    animation-name: front-third;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;
+            }
+            
+             .back-fourth{
+	            animation-delay: 2.75s;
+	            -webkit-animation-name: back-fourth;
+	                    animation-name: back-fourth;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;					
+            }
+            
+            .front-fourth{	            
+	            animation-delay: 2.75s;
+	            -webkit-animation-name: front-fourth;
+	                    animation-name: front-fourth;
+				-webkit-animation-duration: 1s;
+				        animation-duration: 1s;				
+				-webkit-animation-iteration-count: 1;				
+				        animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;
+            }
+                     
+            
+            @keyframes back-first {
+			  0% { opacity: 0; transform:  translate(67.802810px, 151.275000px) scale(-1, 1) translate(-67.802810px, -151.275000px)}
+			  30% {opacity: 0;}			  
+			  31% {opacity: 1;}
+			  100% { opacity: 1; transform: translate(67.802810px, 151.275000px) scale(1, 1) translate(-67.802810px, -151.275000px)}
+			}
+			
+			
+			
+			@keyframes front-first {
+			  0% { opacity: 1; transform: translate(63.150000px, 151.225000px) scale(-1, 1) translate(-63.150000px, -151.225000px)}
+			  30% {opacity: 1;}			  
+			  31% { opacity: 0;}
+			  100% { opacity: 0; transform: translate(63.150000px, 151.225000px) scale(1, 1) translate(-63.150000px, -151.225000px)}
+			}
+			
+			
+			@keyframes back-second {
+			  0% { opacity: 0; transform:  translate(131.600000px, 151.240000px) scale(-1, 1) translate(-131.600000px, -151.240000px)}
+			  30% {opacity: 0;}			  
+			  31% {opacity: 1;}
+			  100% { opacity: 1; transform:  translate(131.600000px, 151.240000px) scale(1, 1) translate(-131.600000px, -151.240000px)}
+			}
+			
+			
+			
+			@keyframes front-second {
+			  0% { opacity: 1; transform: translate(122.655000px, 151.275000px) scale(-1, 1) translate(-122.655000px, -151.275000px)}
+			  30% {opacity: 1;}			  
+			  31% { opacity: 0;}
+			  100% { opacity: 0; transform: translate(122.655000px, 151.275000px) scale(1, 1) translate(-122.655000px, -151.275000px)}
+			}
+			
+			@keyframes back-third {
+			  0% { opacity: 0; transform: translate(192.255000px, 151.025000px) scale(-1, 1) translate(-192.255000px, -151.025000px)}
+			  30% {opacity: 0;}			  
+			  31% {opacity: 1;}
+			  100% { opacity: 1; transform: translate(192.255000px, 151.025000px) scale(1, 1) translate(-192.255000px, -151.025000px)}
+			}
+			
+			@keyframes front-third {
+			  0% { opacity: 1; transform: translate(189.620000px, 151.420000px) scale(-1, 1) translate(-189.620000px, -151.420000px)}
+			  30% {opacity: 1;}			  
+			  31% { opacity: 0;}
+			  100% { opacity: 0; transform: translate(189.620000px, 151.420000px) scale(1, 1) translate(-189.620000px, -151.420000px)}
+			}
+			
+			@keyframes back-fourth {
+			  0% { opacity: 0; transform: translate(248.150000px, 151.175000px) scale(-1, 1) translate(-248.150000px, -151.175000px)}
+			  30% {opacity: 0;}			  
+			  31% {opacity: 1;}
+			  100% { opacity: 1; transform: translate(248.150000px, 151.175000px) scale(1, 1) translate(-248.150000px, -151.175000px)}
+			}
+			
+			@keyframes front-fourth {
+			  0% { opacity: 1; transform: translate(251.837190px, 151.420000px) scale(-1, 1) translate(-251.837190px, -151.420000px)}
+			  30% {opacity: 1;}			  
+			  31% { opacity: 0;}
+			  100% { opacity: 0; transform: translate(251.837190px, 151.420000px) scale(1, 1) translate(-251.837190px, -151.420000px)}
+			}
+        </style>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SVG-Layer" fill-rule="nonzero">
+            <g id="logo-bumerang-zlute">
+                <polygon id="Shape" fill="#FFDE17" points="311.25 311.25 0 311.25 0 0 311.25 0 311.25 311.25"></polygon>
+                <path d="M42.67,268.16 C42.5712404,266.830302 43.2971731,265.575875 44.4992717,264.998979 C45.7013702,264.422083 47.1341464,264.64053 48.1097121,265.549442 C49.0852778,266.458354 49.4044066,267.872117 48.913882,269.11197 C48.4233574,270.351823 47.2233525,271.164568 45.89,271.16 C45.0569704,271.221257 44.2361179,270.932442 43.6249782,270.363057 C43.0138385,269.793672 42.6677508,268.995276 42.67,268.16 Z" id="Shape" fill="#231F20"></path>
+                <path d="M55,255.69 L51.54,255.69 L51.54,251.84 L55.08,251.84 L55.08,249.47 C55.08,243.91 58.08,241.97 62.23,241.97 C63.8891505,241.992072 65.5363161,242.25481 67.12,242.75 L66.58,246.64 C65.5431084,246.271766 64.4503282,246.085689 63.35,246.09 C61.53,246.09 60.25,247.09 60.25,249.59 L60.25,251.84 L66.15,251.84 L66.15,255.69 L60.25,255.69 L60.25,270.53 L55,270.53 L55,255.69 Z" id="Shape" fill="#231F20"></path>
+                <path d="M75.19,246.01 C75.19,250.01 68.81,250.01 68.81,246.01 C68.81,242.01 75.19,242.01 75.19,246.01 Z M74.72,270.53 L69.28,270.53 L69.28,251.88 L74.72,251.88 L74.72,270.53 Z" id="Shape" fill="#231F20"></path>
+                <path d="M85,242.11 L85,263.28 C85,266.16 86.13,266.74 88.74,266.28 L88.93,270.36 C83.14,271.36 79.64,269.98 79.64,263.25 L79.64,242.11 L85,242.11 Z" id="Shape" fill="#231F20"></path>
+                <path d="M116.6,270.53 L116.6,259.69 C116.72,257.2 115.43,255.69 113.6,255.77 C111.77,255.85 110.18,257.24 110.14,259.77 L110.14,270.57 L104.78,270.57 L104.78,259.77 C104.78,257.24 103.54,255.77 101.56,255.77 C100.518224,255.791672 99.5313251,256.241303 98.8313413,257.013177 C98.1313576,257.785051 97.7800436,258.811071 97.86,259.85 L97.86,270.53 L92.46,270.53 L92.46,257.53 C92.46,255.71 92.35,255.16 90.68,255.28 L90.68,251.97 C93.12,251.28 97.44,250.66 97.44,254.39 C98.44,252.25 101.13,251.39 103.44,251.39 C106.7,251.39 108.26,252.47 109.15,254.77 C110.28,252.47 113.04,251.39 115.64,251.39 C120.96,251.39 122.21,255.11 122.09,259.66 L122.09,270.5 L116.6,270.53 Z" id="Shape" fill="#231F20"></path>
+                <path d="M78.33,72.99 C84.05,75.36 87.14,80.38 87.14,86.72 C87.14,97.55 79.92,104.95 67.58,104.95 L39,104.95 L39,43.39 L65.16,43.39 C76.44,43.39 84.53,50.09 84.53,61.62 C84.5509626,66.2127366 82.2286778,70.4991618 78.37,72.99 L78.33,72.99 Z M52.09,54.67 L52.09,68.67 L64.16,68.67 C68.64,68.67 71.46,66.2 71.55,62.06 C71.63,57.57 68.73,54.67 64.16,54.67 L52.09,54.67 Z M52.09,79.41 L52.09,93.5 L66.71,93.5 C71.2,93.5 73.84,90.86 74.1,86.72 C74.2682256,84.3658008 73.2472394,82.0835964 71.38,80.64 C69.7899371,79.6837854 67.9388143,79.2533731 66.09,79.41 L52.09,79.41 Z" id="Shape" fill="#231F20"></path>
+                <path d="M97.56,84.52 L97.56,43.31 L110.77,43.31 L110.77,84.26 C110.77,90.86 116.14,94.2 122.22,94.2 C128.3,94.2 133.58,90.86 133.58,84.26 L133.58,43.31 L146.58,43.31 L146.58,84.52 C146.58,98.35 135.21,105.83 122.18,105.83 C109.15,105.83 97.52,98.35 97.52,84.52 L97.56,84.52 Z" id="Shape" fill="#231F20"></path>
+                <polygon id="Shape" fill="#231F20" points="214.71 43.13 219.47 43.13 219.47 104.95 206.26 104.95 206.26 71.57 190.76 90.95 189.09 90.95 173.59 71.57 173.59 104.95 160.38 104.95 160.38 43.13 165.22 43.13 189.97 72.46 214.71 43.13"></polygon>
+                <polygon id="Shape" fill="#231F20" points="271.56 54.84 247.07 54.84 247.07 67.35 269.97 67.35 269.97 78.88 247.07 78.88 247.07 92.97 272.26 92.97 272.26 104.95 233.78 104.95 233.78 43.31 271.56 43.31 271.56 54.84"></polygon>
+
+                <path class="back back-first" d="M66.89,121.23 C55.29,121.23 43.7,126.82 40.35,140.43 L52.62,140.43 C55.54,134.75 60.21,132.5 66.89,132.5 C77.83,132.5 84,140.84 84,151.28 C84,162.38 77.32,169.97 66.89,169.97 C58.89,169.97 53.04,167.47 50.54,158.71 L66.47,158.71 L66.47,148.44 L39.1,148.44 C38.77,154.03 38.94,159.2 40.85,164.54 C45.28,176.31 55.71,181.32 66.85,181.32 C82.29,181.32 96.64,170.64 96.64,151.32 C96.64,132 82.21,121.27 66.85,121.27 L66.89,121.23 Z" id="Shape" transform="translate(67.802810, 151.275000) scale(-1, 1) translate(-67.802810, -151.275000) "></path>
+                <path class="back back-third" d="M204.41,170.8 L208.91,180.48 L221.91,180.48 L221.91,178.81 L195.04,121.57 L189.3,121.57 L162.6,178.81 L162.6,180.48 L175.53,180.48 L180.12,170.8 L204.41,170.8 Z M200.32,160.29 L184.12,160.29 L192.22,141.01 L200.32,160.29 Z" id="Shape" transform="translate(192.255000, 151.025000) scale(-1, 1) translate(-192.255000, -151.025000) "></path>                
+                <polygon class="back back-second" id="Shape" transform="translate(131.600000, 151.240000) scale(-1, 1) translate(-131.600000, -151.240000) " points="143.78 147.11 143.78 180.49 156.22 180.49 156.22 121.82 152.3 121.82 119.5 155.2 119.5 122.07 106.98 122.07 106.98 180.66 110.74 180.66 143.78 147.11"></polygon>
+                <path class="back back-fourth" d="M224,178.65 L224,180.4 L237.36,180.4 L249.36,161.13 L259.79,161.13 L259.79,180.4 L272.3,180.4 L272.3,121.99 C263.96,121.99 255.7,121.9 247.35,121.99 C234,121.99 226.74,131.66 226.74,141.99 C226.548083,149.268692 230.625415,155.988667 237.17,159.18 L224,178.65 Z M247.45,150.86 C242.19,150.86 238.78,146.77 238.86,141.77 C238.94,136.77 242.11,132.92 247.45,132.92 L259.97,132.92 L259.97,150.86 L247.45,150.86 Z" id="Shape" transform="translate(248.150000, 151.175000) scale(-1, 1) translate(-248.150000, -151.175000) "></path>
+                                
+                <path class="front front-first" d="M39,178.7 L39,180.45 L52.36,180.45 L64.36,161.18 L74.79,161.18 L74.79,180.45 L87.3,180.45 L87.3,122.04 C78.96,122.04 70.7,121.95 62.35,122.04 C49,122.04 41.74,131.71 41.74,142.04 C41.5480829,149.318692 45.6254151,156.038667 52.17,159.23 L39,178.7 Z M62.45,150.91 C57.19,150.91 53.78,146.82 53.86,141.82 C53.94,136.82 57.11,132.97 62.45,132.97 L74.97,132.97 L74.97,150.91 L62.45,150.91 Z" id="Shape" fill="#231F20" transform="translate(63.150000, 151.225000) scale(-1, 1) translate(-63.150000, -151.225000) "></path>
+                <path class="front front-second" fill="#231F20" d="M134.81,171.05 L139.31,180.73 L152.31,180.73 L152.31,179.06 L125.44,121.82 L119.7,121.82 L93,179.06 L93,180.73 L105.93,180.73 L110.52,171.05 L134.81,171.05 Z M130.72,160.54 L114.52,160.54 L122.62,141.26 L130.72,160.54 Z" id="Shape" transform="translate(122.655000, 151.275000) scale(-1, 1) translate(-122.655000, -151.275000) "></path>                
+                <polygon class="front front-third" id="Shape" fill="#231F20" transform="translate(189.620000, 151.420000) scale(-1, 1) translate(-189.620000, -151.420000) " points="201.8 147.29 201.8 180.67 214.24 180.67 214.24 122 210.32 122 177.52 155.38 177.52 122.25 165 122.25 165 180.84 168.76 180.84 201.8 147.29"></polygon>
+                <path class="front front-fourth" d="M250.924381,121.375 C239.324381,121.375 227.734381,126.965 224.384381,140.575 L236.654381,140.575 C239.574381,134.895 244.244381,132.645 250.924381,132.645 C261.864381,132.645 268.034381,140.985 268.034381,151.425 C268.034381,162.525 261.354381,170.115 250.924381,170.115 C242.924381,170.115 237.074381,167.615 234.574381,158.855 L250.504381,158.855 L250.504381,148.585 L223.134381,148.585 C222.804381,154.175 222.974381,159.345 224.884381,164.685 C229.314381,176.455 239.744381,181.465 250.884381,181.465 C266.324381,181.465 280.674381,170.785 280.674381,151.465 C280.674381,132.145 266.244381,121.415 250.884381,121.415 L250.924381,121.375 Z" id="Shape" fill="#231F20" transform="translate(251.837190, 151.420000) scale(-1, 1) translate(-251.837190, -151.420000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

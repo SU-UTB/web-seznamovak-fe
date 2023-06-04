@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 100px;
+  /* margin: -100px 0 0; */
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #222B45;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Instruktori */
+
+.instruktors_pic{
+  background-color: transparent;
+  width: 100%;
+  height: 16rem;
+  perspective: 1000px;
+}
+
+.instruktors_flip_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.instruktors_pic:hover .instruktors_flip_inner {
+  transform: rotateY(180deg);
+}
+
+.instruktors_flip_front, .instruktors_flip_back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.instruktors_flip_back {
+  transform: rotateY(180deg);
+}
+
+/* Manazeri */
+
+.manazers_pic{
+  background-color: transparent;
+  /* width: 100%;
+  height: 16rem; */
+  perspective: 1000px;
+}
+
+.manazers_flip_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.manazers_pic:hover .manazers_flip_inner {
+  transform: rotateY(180deg);
+}
+
+.manazers_flip_front, .manazers_flip_back {
+  /* position: absolute; */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.manazers_flip_back {
+  transform: rotateY(180deg);
+}
+
+.managersFront, .managersBack{
+  /* position: absolute; */
+
+}

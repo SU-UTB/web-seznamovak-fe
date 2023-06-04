@@ -1,0 +1,22 @@
+
+.button {
+  padding: 50px;
+  background-color: #F3A548;
+  color: white;
+  transition: transform .2s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 20px;
+  font-size: 30pt;
+  font-weight: bold;
+
+  @media all and (max-width: 768px) {
+    font-size: 15pt;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}

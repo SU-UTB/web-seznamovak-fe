@@ -1,0 +1,18 @@
+#prihlaska {
+  background: url("../assets/img/bg_app_info.webp") no-repeat bottom;
+  background-size: cover;
+
+  @media screen and (max-width: 1024px) {
+    background: url("../assets/img/blu_bg.webp") repeat-y center;
+  }
+
+  @media screen and (max-width: 768px) {
+    background: url("../assets/img/bg_app_info_mob.webp") no-repeat center;
+    background-size: cover;
+  }
+  
+
+  .info-text {
+    background-color: rgba(48, 55, 79, 0.50);
+  }
+}

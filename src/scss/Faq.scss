@@ -1,0 +1,8 @@
+#faq {
+  background: url("../assets/img/bg_faq.webp") no-repeat center;
+  background-size: cover;
+
+  @media screen and (max-width: 576px) {    
+    background: url("../assets/img/bg_faq_mob.webp") no-repeat center;
+  }
+}

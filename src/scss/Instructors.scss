@@ -1,0 +1,33 @@
+#instruktori {
+  background: url("./../assets/img/bg_instructors.webp") no-repeat center;
+  background-size: cover;
+
+  .swiper {
+    z-index: 30;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    width: 433px;
+  }
+
+  .swiper-button-prev {
+    left: 20px;
+  }
+
+  .swiper-button-next {
+    right: 20px;
+  }
+  
+  .swiper-button-prev, .swiper-button-next {
+    color: #FDECBE;
+    height: 20px;
+    &:after {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}

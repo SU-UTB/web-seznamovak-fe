@@ -1,0 +1,17 @@
+.navbutton {
+  color: #FDECBE;
+  font-weight: 600;
+  font-size: 22px;
+  transition: transform .2s;
+  -webkit-animation: 0.2s ease 0.5s normal forwards 1 fadein;
+  opacity:0;
+
+  &:hover {
+    font-weight: 800;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

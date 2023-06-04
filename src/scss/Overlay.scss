@@ -1,0 +1,213 @@
+.pattern-mobile {
+  background-repeat: repeat-y;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: fixed;
+  mix-blend-mode: overlay;
+  z-index: 20;
+  pointer-events: none;
+
+  @media only screen and (max-width: 768px) {
+    background-image: url("../assets/img/pattern_mobile.png");
+  }
+}
+
+.pattern {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 40%;
+  mix-blend-mode: overlay;
+  z-index: 12;
+  pointer-events: none;
+
+  @media only screen and (min-width: 769px) {
+    background-image: url("../assets/img/pattern.png");
+  }
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.overlay {
+  height: 900px;
+  width: 100%;
+
+  @media only screen and (max-width: 768px) {
+    position: bottom;
+    height: 100vh;
+    background: url("../assets/img/banner/uvod-mob.webp") no-repeat center;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 75vh;
+  }
+
+  .lay1 {
+    width: 100%;
+    height: 100%;
+    background-position: 80%;
+    background-size: cover;
+    position: absolute;
+    z-index: 10;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/1.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay2 {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/2.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay3 {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index: 8;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/3.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay4 {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/34.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay5 {
+    width: 100%;
+    height: 100%;
+    background-position: bottom left;
+    background-size: cover;
+    position: absolute;
+    z-index: 6;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/5.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay6 {
+    width: 100%;
+    height: 100%;
+    background-position: bottom left;
+    background-size: cover;
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/6.webp");
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .lay7 {
+    width: 100%;
+    height: 100%;
+    background-position: bottom left;
+    background-size: cover;
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/7.webp");
+    }
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  .cursorzone {
+    width: 100%;
+    height: 95vh;
+    background-position: left;
+    background-size: cover;
+    position: absolute;
+    z-index:30;
+    top: 0;
+    left:0;
+    opacity: 0;
+    cursor: url('stamp.svg'), pointer;
+
+    @media only screen and (min-width: 769px) {
+      background-image: url("../assets/img/banner/7.webp");
+    }
+}
+
+  .logo {
+    position: absolute;
+    z-index: 8;
+    width: 300px;
+    top: 100px;
+    left: 50%;
+    margin-left: -150px;
+    -webkit-animation: 0.5s ease 1s normal forwards 1 fadein;
+    opacity:0;
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media only screen and (min-width: 2100px) {
+      z-index: 20;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      top: 120px;
+      left: 74%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
