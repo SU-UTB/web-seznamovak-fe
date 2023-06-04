@@ -44,10 +44,8 @@ const Instructors = () => {
             <SwiperSlide key={instructor.pic}>
               <Picture
                 imgSrc={instructor.pic}
-                webpImgSrc={instructor.webPic}
                 imgAlt={instructor.name}
                 backImgSrc={instructor.backPic}
-                backWebpImgSrc={instructor.webBackPic}
               />
               <h5 className="my-4 text-xl font-bold md:text-3xl xl:text-4xl text-beige">
                 {instructor.name}
