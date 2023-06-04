@@ -4,7 +4,6 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import instructors from '../../data/instructorsList'
 import '../../scss/Instructors.scss'
-import Picture from '../atoms/Picture'
 import SectionTitle from '../atoms/SectionTitle'
 
 const Instructors = () => {
@@ -18,7 +17,7 @@ const Instructors = () => {
       </div>
       <div className="pb-16 mx-4">
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           spaceBetween={20}
           slidesPerGroup={1}
           navigation={true}
@@ -28,28 +27,30 @@ const Instructors = () => {
           className="mx-8"
           breakpoints={{
             768: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 30,
-              slidesPerGroup: 2,
             },
 
             1280: {
               slidesPerView: 5,
               spaceBetween: 40,
-              slidesPerGroup: 5,
             },
           }}
         >
           {instructors.map((instructor) => (
             <SwiperSlide key={instructor.pic}>
-              <Picture
-                imgSrc={instructor.pic}
-                imgAlt={instructor.name}
-                backImgSrc={instructor.backPic}
-              />
-              <h5 className="my-4 text-xl font-bold md:text-3xl xl:text-4xl text-beige">
-                {instructor.name}
-              </h5>
+              {/* TODO: create custom component (InstructorFlipCard) */}
+              <div className="flex flex-col instructor-card gap-y-4">
+                <img
+                  className="instruktorsFront"
+                  src={instructor.pic}
+                  type="image/webp"
+                  alt={instructor.name}
+                />
+                <h5 className="text-xl font-bold md:text-3xl xl:text-4xl text-beige">
+                  {instructor.name}
+                </h5>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
