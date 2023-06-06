@@ -1,38 +1,16 @@
-import TurnusItem from '../moleculs/TurnusItem'
 import '../../scss/Application.scss'
-import useGoogleSheets from 'use-google-sheets'
-import Information from './Information'
 import InfoText from '../InfoText'
 import Notification from '../moleculs/Notification'
 import TurnusHeadline from '../moleculs/TurnusHeadline'
+import TurnusItem from '../moleculs/TurnusItem'
+import Information from './Information'
 
 const Application = () => {
   // year:month(0-11):day:hour:minute:second
   const startDate = new Date(2022, 6, 5, 15, 0, 0)
   const shouldStartRegistration = Date.now() >= startDate
 
-  const {
-    data: turnusOneData,
-    loading: isLoadingTurnusOne,
-    error: errorTurnusOne,
-  } = shouldStartRegistration
-    ? useGoogleSheets({
-        apiKey: import.meta.env.VITE_SHEETS_API_KEY,
-        sheetId: import.meta.env.VITE_SHEET_TURNUS_ONE_ID,
-      })
-    : { data: null, loading: false, error: null }
-
-  const {
-    data: turnusTwoData,
-    loading: isLoadingTurnusTwo,
-    error: errorTurnusTwo,
-  } = shouldStartRegistration
-    ? useGoogleSheets({
-        apiKey: import.meta.env.VITE_SHEETS_API_KEY,
-        sheetId: import.meta.env.VITE_SHEET_TURNUS_TWO_ID,
-      })
-    : { data: null, loading: false, error: null }
-
+  // TODO: get real data from database by an api call (useEffect)
   const turnusList = [
     {
       title: '1. Turnus',
@@ -40,9 +18,9 @@ const Application = () => {
       range: '(pondělí – čtvrtek)',
       totalPlaces: 100,
       color: '#E25525',
-      data: turnusOneData,
-      isLoading: isLoadingTurnusOne,
-      error: errorTurnusOne,
+      data: {},
+      isLoading: false,
+      error: 'Error',
       regLink: 'https://forms.gle/qaEwv6kxMw4oHnQK6',
       subRegLink: 'https://forms.gle/qaEwv6kxMw4oHnQK6',
       outOfStock: true,
@@ -53,9 +31,9 @@ const Application = () => {
       range: '(pondělí – čtvrtek)',
       totalPlaces: 100,
       color: '#F3A548',
-      data: turnusTwoData,
-      isLoading: isLoadingTurnusTwo,
-      error: errorTurnusTwo,
+      data: {},
+      isLoading: false,
+      error: 'Error',
       regLink: 'https://forms.gle/F5k6XBFayw5TzZZFA',
       subRegLink: 'https://forms.gle/F5k6XBFayw5TzZZFA',
       outOfStock: true,
@@ -64,11 +42,11 @@ const Application = () => {
 
   return (
     <section id="prihlaska">
-      <div className="w-full lg:w-4/5 mx-auto flex justify-around flex-wrap pt-32 lg:pb-16">
+      <div className="flex flex-wrap justify-around w-full pt-32 mx-auto lg:w-4/5 lg:pb-16">
         {!shouldStartRegistration && (
-          <div className="notify-headline w-full">
+          <div className="w-full notify-headline">
             <Notification />
-            <div className="flex justify-around flex-wrap w-full lg:w-4/5 mx-auto pt-16">
+            <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5">
               {turnusList.map(({ title, date, color, range }) => (
                 <TurnusHeadline
                   key={title}
