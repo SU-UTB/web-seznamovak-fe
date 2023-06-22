@@ -9,7 +9,15 @@ import '../../scss/Instructors.scss'
 import SectionTitle from '../atoms/SectionTitle'
 
 const Instructors = () => {
-  const [flipped, setFlipped] = useState(false)
+  const [flippedIndex, setFlippedIndex] = useState(null)
+
+  const handleCardFlip = (index) => {
+    if (flippedIndex === index) {
+      setFlippedIndex(null)
+    } else {
+      setFlippedIndex(index)
+    }
+  }
 
   return (
     <section id="instruktori">
@@ -41,14 +49,14 @@ const Instructors = () => {
             },
           }}
         >
-          {instructors.map((instructor) => (
+          {instructors.map((instructor, index) => (
             <SwiperSlide key={instructor.pic}>
               <div
                 className="flex flex-col instructor-card gap-y-4"
-                onMouseEnter={() => setFlipped(true)}
-                onMouseLeave={() => setFlipped(false)}
+                onMouseEnter={() => handleCardFlip(index)}
+                onMouseLeave={() => handleCardFlip(index)}
               >
-                <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
+                <ReactCardFlip isFlipped={flippedIndex === index} flipDirection="horizontal">
                   <img
                     className="instruktorsFront"
                     src={instructor.pic}
@@ -58,7 +66,7 @@ const Instructors = () => {
                   {/* TODO: change the second image src, use the same width and height proportions */}
                   <img
                     className="instruktorsFront"
-                    src="https://images.pexels.com/photos/17060790/pexels-photo-17060790/free-photo-of-fashion-people-woman-street.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    src={instructor.backPic}
                     type="image/webp"
                     alt={instructor.name}
                   />

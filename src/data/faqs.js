@@ -6,7 +6,7 @@ export const faqs = [
   },
   { 
     question: 'JAKÁ JE CENA A CO JE V NÍ ZAHRNUTO?', 
-    answer: 'Celková cena za turnus je 2 599 kč. Nevratnou zálohu 1 599 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.', 
+    answer: 'Celková cena za turnus je 3 399 kč. Nevratnou zálohu 2 399 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.', 
     showed: false 
   },
   { 

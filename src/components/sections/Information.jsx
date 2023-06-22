@@ -2,7 +2,7 @@ import Link from '../atoms/Link'
 import '../../scss/Information.scss'
 
 const Information = () => {
-  const totalPriceCZK = 2599
+  const totalPriceCZK = 3399
   const depositCZK = totalPriceCZK - 1000
 
   const links = [
@@ -18,8 +18,8 @@ const Information = () => {
         <div className="info-table w-full lg:flex lg:flex-col lg:items-end md:px-16 lg:px-32 2xl:px-52 3xl:px-16 py-12">
           <div className="info-price mb-8 lg:w-1/2 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-yellow_orange lg:text-browny text-2xl uppercase font-extrabold">Kolik to stojí?</h4>
-            <p className="text-3xl font-bold mb-2 text-white lg:text-dark_blu">{totalPriceCZK.toString()} Kč / 105€</p>
-            <p className="text-white lg:text-dark_blu">Zálohu {depositCZK.toString()} Kč pošleš při přihlášení a zbylých<br />1 000 Kč zaplatíš až na místě.</p>
+            <p className="text-3xl font-bold mb-2 text-white lg:text-dark_blu">{totalPriceCZK.toString()} Kč / 145€</p>
+            <p className="text-white lg:text-dark_blu">Zálohu {depositCZK.toString()} Kč / 145€ pošleš při přihlášení a zbylých<br />1 000 Kč zaplatíš až na místě.</p>
           </div>
           <div className="info-place mb-8 lg:w-1/2 xl:w-2/5 3xl:w-full 3xl:max-w-md">
           <h4 className="text-yellow_orange lg:text-browny text-2xl uppercase font-extrabold">KDE BUDU?</h4>

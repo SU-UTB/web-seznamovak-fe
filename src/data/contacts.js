@@ -1,18 +1,19 @@
 import fbSU from '../assets/img/contact/fbSU.png'
 import igSU from '../assets/img/contact/igSU.png'
-import fbAlenka from '../assets/img/contact/fbAlenka.png'
-import igAlenka from '../assets/img/contact/igAlenka.png'
-import fbDave from '../assets/img/contact/fbDave.png'
-import igDave from '../assets/img/contact/igDave.png'
 import fbSUWebp from '../assets/img/contact/fbSU.webp'
 import igSUWebp from '../assets/img/contact/igSU.webp'
-import fbAlenkaWebp from '../assets/img/contact/fbAlenka.webp'
-import igAlenkaWebp from '../assets/img/contact/igAlenka.webp'
-import fbDaveWebp from '../assets/img/contact/fbDave.webp'
-import igDaveWebp from '../assets/img/contact/igDave.webp'
 
-import fbBack from '../assets/img/contact/fbBack.png'
-import fbBackWebp from '../assets/img/contact/fbBack.webp'
+import fb_klarka_front from "../assets/img/contact/fb_klarka_front.png"
+import ig_klarka_front from "../assets/img/contact/ig_klarka_front.png"
+
+import fb_klarka_back from "../assets/img/contact/fb_klarka_back.png"
+import ig_klarka_back from "../assets/img/contact/ig_klarka_back.png"
+
+import fb_jirka_front from "../assets/img/contact/fb_jirka_front.png"
+import ig_jirka_front from "../assets/img/contact/ig_jirka_front.png"
+
+import fb_jirka_back from "../assets/img/contact/fb_jirka_back.png"
+import ig_jirka_back from "../assets/img/contact/ig_jirka_back.png"
 
 export const suSocials = {
     name: 'STUDENTSKÁ UNIE',
@@ -31,33 +32,34 @@ export const managersSocials = [
   {
     name: 'KLÁRKA',
     fbLink: 'https://www.facebook.com/klarka.hrdlickova.7',
-    fbImg: fbAlenka,
-    fbImgWebp: fbAlenkaWebp,
+    fbImg: fb_klarka_front,
+    fbImgWebp: '',
 
-    backFbImg: fbBack,
-    backFbImgWebp: fbBackWebp,
+    backFbImg: fb_klarka_back,
+    backFbImgWebp: '',
 
     igLink: 'https://www.instagram.com/klarka.hrdlickova/',
-    igImg: igAlenka,
-    igImgWebp: igAlenkaWebp,
-    backIgImg: fbBack,
-    backIgImgWebp: fbBackWebp
+    igImg: ig_klarka_front,
+    igImgWebp: '',
+
+    backIgImg: ig_klarka_back,
+    backIgImgWebp: ''
   },
   {
     name: 'JIRKA',
     fbLink: 'https://www.facebook.com/jiri.pernica.10',
-    fbImg: fbDave,
-    fbImgWebp: fbDaveWebp,
+    fbImg: fb_jirka_front,
+    fbImgWebp: '',
 
-    backFbImg: fbBack,
-    backFbImgWebp: fbBackWebp,
+    backFbImg: fb_jirka_back,
+    backFbImgWebp: '',
 
     igLink: 'https://www.instagram.com/pernicaphoto/',
-    igImg: igDave,
-    igImgWebp: igDaveWebp,
+    igImg: ig_jirka_front,
+    igImgWebp: '',
 
-    backIgImg: fbBack,
-    backIgImgWebp: fbBackWebp
+    backIgImg: ig_jirka_back,
+    backIgImgWebp: ''
   }
 ]
 
