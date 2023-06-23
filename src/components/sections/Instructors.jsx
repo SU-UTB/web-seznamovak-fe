@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import ReactCardFlip from 'react-card-flip'
 import { Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -7,6 +9,12 @@ import '../../scss/Instructors.scss'
 import SectionTitle from '../atoms/SectionTitle'
 
 const Instructors = () => {
+  const [flippedIndex, setFlippedIndex] = useState(null)
+
+  const handleCardFlip = (index) => {
+    flippedIndex === index ? setFlippedIndex(null) : setFlippedIndex(index)
+  }
+
   return (
     <section id="instruktori">
       <div className="mx-auto text-left lg:w-3/5">
@@ -37,20 +45,33 @@ const Instructors = () => {
             },
           }}
         >
-          {instructors.map((instructor) => (
+          {instructors.map((instructor, index) => (
             <SwiperSlide key={instructor.pic}>
-              {/* TODO: create custom component (InstructorFlipCard) */}
-              <div className="flex flex-col instructor-card gap-y-4">
-                <img
-                  className="instruktorsFront"
-                  src={instructor.pic}
-                  type="image/webp"
-                  alt={instructor.name}
-                />
+              <div
+                className="flex flex-col instructor-card gap-y-4"
+                onMouseEnter={() => handleCardFlip(index)}
+                onMouseLeave={() => handleCardFlip(index)}
+              >
+                <ReactCardFlip isFlipped={flippedIndex === index} flipDirection="horizontal">
+                  <img
+                    className="instruktorsFront"
+                    src={instructor.pic}
+                    type="image/webp"
+                    alt={instructor.name}
+                  />
+                  {/* TODO: change the second image src, use the same width and height proportions */}
+                  <img
+                    className="instruktorsFront"
+                    src={instructor.backPic}
+                    type="image/webp"
+                    alt={instructor.name}
+                  />
+                </ReactCardFlip>
                 <h5 className="text-xl font-bold md:text-3xl xl:text-4xl text-beige">
                   {instructor.name}
                 </h5>
               </div>
+              {/* TODO: create custom component (InstructorFlipCard) */}
             </SwiperSlide>
           ))}
         </Swiper>

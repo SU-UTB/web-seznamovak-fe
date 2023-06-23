@@ -38,14 +38,12 @@ const Contact = () => {
                 fbImgWebp={manager.fbImgWebp}
 
                 backFbImg={manager.backFbImg}
-                backFbImgWebp={manager.backFbImgWebp}
 
                 igLink={manager.igLink}
                 igImg={manager.igImg}
                 igImgWebp={manager.igImgWebp}
 
-                backIgImg={manager.backFbImg}
-                backIgImgWebp={manager.backFbImgWebp}
+                backIgImg={manager.backIgImg}
               />
             ))
           }
