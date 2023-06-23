@@ -12,11 +12,7 @@ const Instructors = () => {
   const [flippedIndex, setFlippedIndex] = useState(null)
 
   const handleCardFlip = (index) => {
-    if (flippedIndex === index) {
-      setFlippedIndex(null)
-    } else {
-      setFlippedIndex(index)
-    }
+    flippedIndex === index ? setFlippedIndex(null) : setFlippedIndex(index)
   }
 
   return (
