@@ -7,23 +7,23 @@ import Faq from './components/sections/Faq'
 import Map from './components/sections/Map'
 import Partners from './components/sections/Partners'
 import Overlay from './components/sections/Overlay'
-import {AnalyticsEvents, Firebase} from "./utils/firebase";
+import { AnalyticsEvents, Firebase } from './utils/firebase'
 
 const App = () => {
-    Firebase.instance.aLog(AnalyticsEvents.webLoaded);
-    return (
-        <div className="App">
-            <Navbar/>
-            <Overlay/>
-            <Application/>
-            <Aftermovie/>
-            <Map/>
-            <Instructors/>
-            <Faq/>
-            <Partners/>
-            <Contact/>
-        </div>
-    )
+  Firebase.instance.aLog(AnalyticsEvents.webLoaded)
+  return (
+    <div className="App">
+      <Navbar />
+      <Overlay />
+      <Application />
+      <Aftermovie />
+      <Map />
+      <Instructors />
+      <Faq />
+      <Partners />
+      <Contact />
+    </div>
+  )
 }
 
 export default App
