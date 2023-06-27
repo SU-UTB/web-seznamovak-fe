@@ -37,7 +37,7 @@ export class Firebase {
 }
 
 export class AnalyticsEvents {
-    static web_loaded = 'web_loaded';
+    static webLoaded = 'web_loaded';
     static navClicked = 'nav_clicked';
     static partnerClicked = 'partner_clicked';
     static contactFbClicked = 'contact_fb_clicked';

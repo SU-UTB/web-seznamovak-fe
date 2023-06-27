@@ -10,7 +10,7 @@ import Overlay from './components/sections/Overlay'
 import {AnalyticsEvents, Firebase} from "./utils/firebase";
 
 const App = () => {
-    Firebase.instance.aLog(AnalyticsEvents.web_loaded);
+    Firebase.instance.aLog(AnalyticsEvents.webLoaded);
     return (
         <div className="App">
             <Navbar/>
