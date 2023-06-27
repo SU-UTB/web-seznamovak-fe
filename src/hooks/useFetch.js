@@ -23,7 +23,7 @@ const useFetch = (url) => {
     getData()
     return () => abortController.abort()
   }, [url])
-  
+
   return { data, error, isLoading }
 }
 
