@@ -13,17 +13,12 @@ jobs:
         uses: actions/checkout@v3
       - run: yarn install && yarn build
 
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Sync files  
+        uses: wangyucode/sftp-upload-action@v2.0.2
         with:
-          server: ${{ secrets.FTP }}
+          host: ${{ secrets.FTP }}  
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          server-dir: www/frontend/
-          local-dir: ./dist/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.idea*
-            **/.idea*/**
+          localDir: '/dist/' 
+          remoteDir: '/www/frontend/' 
+          exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store' 
