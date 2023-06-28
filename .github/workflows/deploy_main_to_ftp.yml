@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+name: Deploy website on main push
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3
+      - run: npm ci && npm run build
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: www/frontend/
+          local-dir: ./dist
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.idea*
+            **/.idea*/**
