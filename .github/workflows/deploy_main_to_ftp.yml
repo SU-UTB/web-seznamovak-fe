@@ -19,6 +19,6 @@ jobs:
           host: ${{ secrets.FTP }}  
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: '/dist/' 
-          remoteDir: '/www/frontend/' 
+          localDir: './dist/' 
+          remoteDir: './www/frontend/' 
           exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store' 
