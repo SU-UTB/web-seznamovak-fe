@@ -11,7 +11,6 @@ import SuSocials from '../moleculs/SuSocials'
 import '../../scss/Contact.scss'
 
 const Contact = () => {
-
   return (
     <section id="kontakt" className="bg-dark_beige px-4 lg:px-0">
       <SectionTitle title="kontakt" />
@@ -60,13 +59,11 @@ const Contact = () => {
         <div className="documents lg:col-span-2">
           <ContactTitle title="dokumenty" />
           <div className="document-list py-4">
-            {
-              documents.map(doc => (
-                <div className="doc-link mb-2" key={doc.desc}>
-                  <Link linkTo={doc.file} linkName={doc.desc} />
-                </div>
-              ))
-            }
+            {documents.map((doc) => (
+              <div className="doc-link mb-2" key={doc.desc}>
+                <Link linkTo={doc.file} linkName={doc.desc} />
+              </div>
+            ))}
           </div>
         </div>
       </div>

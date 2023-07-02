@@ -1,5 +1,5 @@
 #instruktori {
-  background: url("./../assets/img/bg_instructors.webp") no-repeat center;
+  background: url('./../assets/img/bg_instructors.webp') no-repeat center;
   background-size: cover;
 
   .swiper {
@@ -21,9 +21,10 @@
   .swiper-button-next {
     right: 20px;
   }
-  
-  .swiper-button-prev, .swiper-button-next {
-    color: #FDECBE;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fdecbe;
     height: 20px;
     &:after {
       font-size: 20px;

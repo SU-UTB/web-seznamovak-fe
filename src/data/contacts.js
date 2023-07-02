@@ -16,17 +16,16 @@ import fb_jirka_back from "../assets/img/contact/fb_jirka_back.webp"
 import ig_jirka_back from "../assets/img/contact/ig_jirka_back.webp"
 
 export const suSocials = {
-    name: 'STUDENTSKÁ UNIE',
-    desc: 'Jsme tu pro tebe, pokud se budeš chtít na cokoliv zeptat, ozvi se nám na profil.',
-    fbLink: 'https://www.facebook.com/studentskaunieutb',
-    fbImg: fbSU,
-    fbImgWebp: fbSUWebp,
+  name: 'STUDENTSKÁ UNIE',
+  desc: 'Jsme tu pro tebe, pokud se budeš chtít na cokoliv zeptat, ozvi se nám na profil.',
+  fbLink: 'https://www.facebook.com/studentskaunieutb',
+  fbImg: fbSU,
+  fbImgWebp: fbSUWebp,
 
-    igLink: 'https://www.instagram.com/studentskaunieutb/',
-    igImg: igSU,
-    igImgWebp: igSUWebp
-  }
-
+  igLink: 'https://www.instagram.com/studentskaunieutb/',
+  igImg: igSU,
+  igImgWebp: igSUWebp,
+}
 
 export const managersSocials = [
   {
@@ -46,5 +45,5 @@ export const managersSocials = [
     igLink: 'https://www.instagram.com/pernicaphoto/',
     igImg: ig_jirka_front,
     backIgImg: ig_jirka_back,
-  }
+  },
 ]
