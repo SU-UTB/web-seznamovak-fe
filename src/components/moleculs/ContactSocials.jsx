@@ -27,7 +27,7 @@ const ContactSocials = ({
       </div>
       <p className="mb-4">{desc}</p>
       <div 
-        className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:gap-x-0 lg:justify-between lg:max-w-xs"
+        className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs"
         onMouseEnter={() => handleCardFlip(index)}
         onMouseLeave={() => handleCardFlip(index)}
       >
