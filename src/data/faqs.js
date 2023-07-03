@@ -5,11 +5,10 @@ export const faqs = [
       'Jedinečná akce, která propojuje studenty všech fakult Univerzity Tomáše Bati ve Zlíně! Potkáš tam nové kámoše, spolužáky a získáš potřebné informace a užitečné rady od starších mazáků. A hlavně zažiješ spousta (ne)zapomenutelných zážitků. Po Seznamováku už nebude Zlín “velkou neznámou”, ale stane se pro tebe domovem. Jdeš do toho s námi? Podej si přihlášku. Začíná to UTeBe na Seznamováku!',
     showed: false,
   },
-  {
-    question: 'JAKÁ JE CENA A CO JE V NÍ ZAHRNUTO?',
-    answer:
-      'Celková cena za turnus je 3 399 kč. Nevratnou zálohu 2 399 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.',
-    showed: false,
+  { 
+    question: 'JAKÁ JE CENA A CO JE V NÍ ZAHRNUTO?', 
+    answer: 'Celková cena za turnus je 3 399 kč. Nevratnou zálohu 2 399 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.', 
+    showed: false 
   },
   {
     question: 'JAK SE TAM DOSTANU?',

@@ -52,10 +52,7 @@ const Instructors = () => {
                 onMouseEnter={() => handleCardFlip(index)}
                 onMouseLeave={() => handleCardFlip(index)}
               >
-                <ReactCardFlip
-                  isFlipped={flippedIndex === index}
-                  flipDirection="horizontal"
-                >
+                <ReactCardFlip isFlipped={flippedIndex === index} flipDirection="horizontal">
                   <img
                     className="instruktorsFront"
                     src={instructor.pic}

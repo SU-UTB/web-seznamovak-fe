@@ -1,19 +1,19 @@
-import fbSU from '../assets/img/contact/fbSU.png'
-import igSU from '../assets/img/contact/igSU.png'
+import fbSU from '../assets/img/contact/fbSU.webp'
+import igSU from '../assets/img/contact/igSU.webp'
 import fbSUWebp from '../assets/img/contact/fbSU.webp'
 import igSUWebp from '../assets/img/contact/igSU.webp'
 
-import fb_klarka_front from '../assets/img/contact/fb_klarka_front.png'
-import ig_klarka_front from '../assets/img/contact/ig_klarka_front.png'
+import fb_klarka_front from "../assets/img/contact/fb_klarka_front.webp"
+import ig_klarka_front from "../assets/img/contact/ig_klarka_front.webp"
 
-import fb_klarka_back from '../assets/img/contact/fb_klarka_back.png'
-import ig_klarka_back from '../assets/img/contact/ig_klarka_back.png'
+import fb_klarka_back from "../assets/img/contact/fb_klarka_back.webp"
+import ig_klarka_back from "../assets/img/contact/ig_klarka_back.webp"
 
-import fb_jirka_front from '../assets/img/contact/fb_jirka_front.png'
-import ig_jirka_front from '../assets/img/contact/ig_jirka_front.png'
+import fb_jirka_front from "../assets/img/contact/fb_jirka_front.webp"
+import ig_jirka_front from "../assets/img/contact/ig_jirka_front.webp"
 
-import fb_jirka_back from '../assets/img/contact/fb_jirka_back.png'
-import ig_jirka_back from '../assets/img/contact/ig_jirka_back.png'
+import fb_jirka_back from "../assets/img/contact/fb_jirka_back.webp"
+import ig_jirka_back from "../assets/img/contact/ig_jirka_back.webp"
 
 export const suSocials = {
   name: 'STUDENTSKÁ UNIE',
@@ -47,5 +47,3 @@ export const managersSocials = [
     backIgImg: ig_jirka_back,
   },
 ]
-
-//Předělat fotky a odkazy na ně (fbDave -> fbJirka, atd...), až budou fotky samozřejmě

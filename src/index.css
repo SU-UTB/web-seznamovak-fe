@@ -9,7 +9,7 @@ html {
 :target::before {
   content: '';
   display: block;
-  height: 100px;
+  /* height: 100px; */
   /* margin: -100px 0 0; */
 }
 
@@ -96,4 +96,30 @@ code {
 .managersFront,
 .managersBack {
   /* position: absolute; */
+}
+
+.divManagersOuter{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.divManagersInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .divManagersInner {
+    flex-wrap: wrap;
+  }
+}
+
+.divManagersTitle {
+  justify-content: center;
+  display: flex;
+  text-align: center;
 }
