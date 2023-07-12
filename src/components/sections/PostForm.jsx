@@ -114,6 +114,7 @@ function PostForm() {
     }
       
     return (
+        <div className="mainContainer">
         <div className="formContainer">
             <div className="formHead">
                 <img className="imgLogo" src={imageLogo} alt="" />
@@ -149,7 +150,7 @@ function PostForm() {
                                 <option value={0}></option>
                                 {fakulty.map((option)=> (
                                     <option key={option.value} value={option.value}>{option.label}</option>
-                                ))}
+                                    ))}
                             </select>
                         </div>
                     </div>
@@ -161,7 +162,7 @@ function PostForm() {
                                 <option value={0}></option>
                                 {rocniky.map((option)=> (
                                     <option key={option.value} value={option.value}>{option.label}</option>
-                                ))}
+                                    ))}
                             </select>
                         </div>
                         <div className="inputBox">
@@ -187,7 +188,7 @@ function PostForm() {
                             </label>
                             {/* <div className="imageLabelContainer">
                                 <label className="imageLabel" for="image">
-                                    click here to upload
+                                click here to upload
                                 </label>
                             </div> */}
                             <input onChange={(e)=>handle(e)} name="image" accept="image/jpeg, image/png, image/jpg" id="image" placeholder="" type="file"></input>
@@ -258,6 +259,7 @@ function PostForm() {
                 </form>
             </div>
         </div>
+    </div>
     );
 }
 
