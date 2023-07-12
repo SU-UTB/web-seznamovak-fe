@@ -7,7 +7,7 @@ import Information from './Information'
 
 const Application = () => {
   // year:month(0-11):day:hour:minute:second
-  const startDate = new Date(2022, 6, 5, 15, 0, 0)
+  const startDate = new Date(2021, 7, 14, 15, 0, 0)
   const shouldStartRegistration = Date.now() >= startDate
 
   // TODO: get real data from database by an api call (useEffect)

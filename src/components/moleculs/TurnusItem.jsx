@@ -15,6 +15,7 @@ const TurnusItem = ({
   subRegLink,
   outOfStock,
 }) => {
+  
   const availablePlaces = 20 // TODO: update according to real data
 
   return (
