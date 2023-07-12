@@ -1,6 +1,8 @@
 import { SpinnerCircular } from 'spinners-react'
 import { getAvailablePlaces } from '../../utils/getAvailablePlaces'
 import TurnusHeadline from './TurnusHeadline'
+import { useEffect } from 'react';
+import api from '../../api/api';
 
 const TurnusItem = ({
   title,
@@ -15,7 +17,20 @@ const TurnusItem = ({
   subRegLink,
   outOfStock,
 }) => {
-  
+
+  // const {capacity, setCapacity} = useState();
+
+  useEffect(()=>{
+    api
+    .post(endpoint, formData)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  },[])
+
   const availablePlaces = 20 // TODO: update according to real data
 
   return (

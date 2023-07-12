@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import imageLogo from '../../assets/img/banner/su_logo.webp'
 import '../../form.css'
@@ -55,11 +55,64 @@ function PostForm() {
         }
     })
 
+    const [error, setError] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        faculty_id: "",
+        year: "",
+        image: null,
+        nickname: "",
+        disability: "",
+        roomate: "",
+        billing_information:{
+            city: "",
+            street: "",
+            postal_code: "",
+            country: "",
+            phone: "",
+        }
+    })
+
+    const validate = () => {
+        
+        const errors = {};
+    
+        if (!data.name) {
+            errors.name = "Name is required";
+        }
+        if (!data.surname) {
+            errors.surname = "Surname is required";
+        }
+        if (!data.email) {
+            errors.email = "Email is required";
+        }
+        if (!data.faculty_id) {
+            errors.faculty_id = "Faculty is required";
+        }
+        if (!data.year) {
+            errors.year = "Year is required";
+        }
+    
+        setError(errors);
+    
+        // Return true if no errors, false otherwise
+        return Object.keys(errors).length === 0;
+    }
+
+    useEffect (() => {
+        console.log(error)
+    },[error])
+
     // const [error, setError] = useState (false)
 
     function submit(e){
-
+        
         e.preventDefault();
+
+        if (!validate(data)) {
+            return;
+        }
 
         const dataToPost = {
             name: data.name,
@@ -110,7 +163,7 @@ function PostForm() {
       
         setData(newdata);
       
-        console.log(newdata);
+        // console.log(newdata);
     }
       
     return (
@@ -130,12 +183,12 @@ function PostForm() {
                         <div className="inputBox">
                             <label>Jméno</label>
                             <input onChange={(e)=>handle(e)} id="name" value={data.name} placeholder="" type="text"></input>
-                            <label className="inputErrorMissing">Nutno zadat jméno</label>
+                            {error.name && <label className="inputErrorMissing">Nutno zadat jméno</label>}
                         </div>
                         <div className="inputBox">
                             <label>Přijmení</label>
                             <input onChange={(e)=>handle(e)} id="surname" value={data.surname} placeholder="" type="text"></input>
-                            <label className="inputErrorMissing">Nutno zadat přijmení</label>
+                            {error.surname && <label className="inputErrorMissing">Nutno zadat přijmení</label>}
                         </div>
                     </div>
 
