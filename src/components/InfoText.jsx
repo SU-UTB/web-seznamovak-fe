@@ -6,19 +6,18 @@ const InfoText = () => {
         FAKT!
       </p>
       <p className="mb-4">
-        {' '}
         <span className="font-bold">Celouniverzitní Seznamovák UTB</span> již 6.
         rokem přichází na scénu. Tuto nabombenou akci pod záštitou Univerzity
-        Tomáše Bati ve Zlíně pro Tebe připravuje{' '}
-        <span className="font-bold">Studentská unie UTB</span> - parta
+        Tomáše Bati ve Zlíně pro Tebe připravuje
+        <span className="font-bold">&nbsp;Studentská unie UTB</span> - parta
         pohodových lidí, kteří se postarají o nezapomenutelnou tečku za koncem
         léta.
       </p>
       <p className="mb-4">
         Je libo kamarády na celý život? Zážitky, kterými se můžeš chlubit
         kámošům u piva? Či letní lásku nečekanou? U nás můžeš dělat co chceš,
-        jít spát kdy chceš a hlavně…{' '}
-        <span className="font-bold">Být sám sebou!</span>
+        jít spát kdy chceš a hlavně...
+        <span className="font-bold">&nbsp;Být sám sebou!</span>
       </p>
       <p className="mb-4">
         Po Seznamováku zcela jistě zjistíš, že Zlín byla ta správná volba. Město

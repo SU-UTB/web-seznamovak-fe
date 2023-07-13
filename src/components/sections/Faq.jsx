@@ -1,6 +1,7 @@
-import { faqs } from '../../data/faqs'
-import SectionTitle from '../atoms/SectionTitle'
 import { useState } from 'react'
+
+import SectionTitle from '../atoms/SectionTitle'
+import { faqs } from '../../data/faqs'
 import Accordion from '../moleculs/Accordion'
 import '../../scss/Faq.scss'
 

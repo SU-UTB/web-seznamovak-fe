@@ -14,8 +14,7 @@ const Aftermovie = () => {
           className="w-full relative z-30"
           key={ytSrc}
           src={ytSrc}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           title="teaser"
           loading="lazy"

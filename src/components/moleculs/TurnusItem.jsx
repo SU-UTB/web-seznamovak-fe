@@ -12,7 +12,6 @@ const TurnusItem = ({
   isLoading,
   error,
   regLink,
-  subRegLink,
   outOfStock = false,
 }) => {
   const available = currentPlaces > 0 && !outOfStock

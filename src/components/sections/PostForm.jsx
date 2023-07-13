@@ -38,10 +38,6 @@ function PostForm() {
 
   const location = useLocation()
 
-  useEffect(() => {
-    console.log(checked)
-  }, [checked])
-
   const [data, setData] = useState({
     batch: '',
     name: '',
@@ -166,13 +162,12 @@ function PostForm() {
         phone: data.phone,
       },
     }
-    
+
     await api
       .post('reservations', dataToPost, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
-        console.log(res.data)
         setIsSuccessful(true)
       })
       .catch((e) => {
@@ -187,19 +182,12 @@ function PostForm() {
     if (e.target.type === 'file') {
       newdata[e.target.id] = e.target.files
       const file = e.target.files[0].size
-      console.log(file)
     } else {
       newdata[e.target.id] = e.target.value
     }
 
     setData(newdata)
-
-    console.log(newdata)
   }
-
-  useEffect(() => {
-    console.log(isLoading)
-  }, [isLoading])
 
   return (
     <div>
@@ -326,7 +314,9 @@ function PostForm() {
               <div className="inputBox">
                 <label>Nahrani fotografie *</label>
                 <label className="imageLabel" for="image">
-                  Stiskněte pro nahrání fotky
+                  {data?.image
+                    ? data.image[0].name
+                    : 'Stiskněte pro nahrání fotky'}
                 </label>
                 <input
                   onChange={(e) => handle(e)}
@@ -336,9 +326,6 @@ function PostForm() {
                   placeholder=""
                   type="file"
                 ></input>
-                {data.image !== null && (
-                  <label className="text-sm">{data.image[0].name}</label>
-                )}
                 {error.image && (
                   <label className="inputErrorMissing">{error.image}</label>
                 )}
@@ -446,6 +433,7 @@ function PostForm() {
                 <div className="inputCheckBox">
                   <div className="checkBox">
                     <input
+                      className="cursor-pointer"
                       onChange={handleChange}
                       id="gdpr_consent"
                       checked={checked}
@@ -473,6 +461,7 @@ function PostForm() {
                 <div className="inputCheckBox">
                   <div className="checkBox">
                     <input
+                      className="cursor-pointer"
                       onChange={secondHandleChange}
                       id="newsletter_consent"
                       checked={nwsChecked}

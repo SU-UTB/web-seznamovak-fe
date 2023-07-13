@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import { Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 import instructors from '../../data/instructorsList'
-import '../../scss/Instructors.scss'
 import SectionTitle from '../atoms/SectionTitle'
+
+import 'swiper/css/navigation'
+import 'swiper/css'
+import '../../scss/Instructors.scss'
 
 const Instructors = () => {
   const [flippedIndex, setFlippedIndex] = useState(null)
@@ -52,7 +54,10 @@ const Instructors = () => {
                 onMouseEnter={() => handleCardFlip(index)}
                 onMouseLeave={() => handleCardFlip(index)}
               >
-                <ReactCardFlip isFlipped={flippedIndex === index} flipDirection="horizontal">
+                <ReactCardFlip
+                  isFlipped={flippedIndex === index}
+                  flipDirection="horizontal"
+                >
                   <img
                     className="instruktorsFront"
                     src={instructor.pic}

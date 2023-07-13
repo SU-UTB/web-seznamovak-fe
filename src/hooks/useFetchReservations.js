@@ -11,12 +11,10 @@ const useFetchReservations = () => {
 
     const getData = async () => {
       try {
-        const {data} = await api.get('reservations')
+        const { data } = await api.get('reservations')
         setData(data)
         setError(null)
-        console.log(data)
       } catch (error) {
-        console.error(error)
         setError(error)
       } finally {
         setIsLoading(false)
