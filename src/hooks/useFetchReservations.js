@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
+import api from '../api/api'
 
-const useFetch = (url) => {
+const useFetchReservations = () => {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -10,11 +11,11 @@ const useFetch = (url) => {
 
     const getData = async () => {
       try {
-        const data = await fetch(url)
+        const {data} = await api.get('reservations')
         setData(data)
         setError(null)
       } catch (error) {
-        console.log('Fetch aborted')
+        console.error(error)
         setError(error)
       } finally {
         setIsLoading(false)
@@ -22,9 +23,9 @@ const useFetch = (url) => {
     }
     getData()
     return () => abortController.abort()
-  }, [url])
+  }, [])
 
   return { data, error, isLoading }
 }
 
-export default useFetch
+export default useFetchReservations
