@@ -29,6 +29,8 @@ function PostForm() {
     { value: 5, label: 'Pátý' },
   ]
 
+  const [fileSize, setFileSize] = useState()
+
   const handleChange = () => {
     setChecked(!checked)
   }
@@ -105,6 +107,10 @@ function PostForm() {
     if (!data.image) {
       errors.image = 'Image is required'
     }
+    console.log(data)
+    if (data.image[0].size > 2048000) {
+      errors.image = 'Image size is too big'
+    }
     if (!data.city) {
       errors.city = 'City is required'
     }
@@ -165,17 +171,6 @@ function PostForm() {
 
     console.log(dataToPost)
 
-    // Axios.post(url, dataToPost,
-    //     { headers: {
-    //         'accept': 'application/json',
-    //         'Content-Type': 'multipart/form-data'
-    //       }
-    //     })
-
-    // .then(res=>{
-    //     console.log(res.data)
-    // })
-
     api
       .post('reservations', dataToPost, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -193,9 +188,12 @@ function PostForm() {
 
     if (e.target.type === 'file') {
       newdata[e.target.id] = e.target.files
-      const file = e.target.files[0]
-      const fileName = file.name
-      console.log(fileName)
+      const file = e.target.files[0].size;
+      console.log(file);
+      if (e.target.files[0].size > 2 * 1000 * 1024) {
+        errors.image = 'Image size is too big'
+        return false;
+      }
     } else {
       newdata[e.target.id] = e.target.value
     }
@@ -371,8 +369,12 @@ function PostForm() {
               </div>
             </div>
             <div>
+              {/* {isSuccess ? (
+                <p className="inputErrorMissing">Nutno vybrat fotku</p>
+              ) : null} */}
+              {/* <p>{errorMsg}</p> */}
               {error.image && (
-                <label className="inputErrorMissing">Nutno vybrat fotku</label>
+                <label className="inputErrorMissing">{error.image}</label>
               )}
             </div>
 
