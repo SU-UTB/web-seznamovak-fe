@@ -175,7 +175,7 @@ function PostFormSecond() {
                 <img className="imgLogo" src={imageLogo} alt="" />
                 <div className="headContainer">
                     <header className="textHead">2. TURNUS</header>
-                    <header className="dateHead">28.8. - 31.8. 2023</header>
+                    <header className="dateHeadSecond">28.8. - 31.8. 2023</header>
                 </div>
             </div>
             <div className="formInput">

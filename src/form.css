@@ -54,6 +54,13 @@ label{
 .dateHead{
     font-size: 40px;
     font-weight: 700;
+    color: rgba(243, 165, 72, 1);
+    margin: 0 30px;
+}
+
+.dateHeadSecond{
+    font-size: 40px;
+    font-weight: 700;
     color: rgba(226, 85, 37, 1);
     margin: 0 30px;
 }
@@ -123,7 +130,7 @@ label{
 .formContainer .inputBox {
     width: 100%;
     margin-top: 25px;
-  }
+}
 
 .formContainer :where(.inputBox input, select) {
     position: relative;
@@ -261,5 +268,8 @@ input[type="file"]{
     display: flex;
     color: rgb(252, 40, 40);
     margin-top: 8px;
-    
+}
+
+.yearSelectInput{
+    width: 100px;
 }
