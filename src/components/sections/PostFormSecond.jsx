@@ -3,7 +3,7 @@ import Axios from "axios";
 import imageLogo from '../../assets/img/banner/su_logo.webp'
 import '../../form.css'
 
-function PostForm() {
+function PostFormSecond() {
 
     const url ="https://seznamovak.utb.cz/api/reservations"
 
@@ -116,7 +116,7 @@ function PostForm() {
         }
 
         const dataToPost = {
-            batch: 1,
+            batch: 2,
             name: data.name,
             surname: data.surname,
             email: data.email,
@@ -171,11 +171,11 @@ function PostForm() {
     return (
         <div className="mainContainer">
         <div className="formContainer">
-            <div className="formHead">
+            <div className="formHeadSecond">
                 <img className="imgLogo" src={imageLogo} alt="" />
                 <div className="headContainer">
-                    <header className="textHead">1. TURNUS</header>
-                    <header className="dateHead">21.8. - 24.8. 2023</header>
+                    <header className="textHead">2. TURNUS</header>
+                    <header className="dateHead">28.8. - 31.8. 2023</header>
                 </div>
             </div>
             <div className="formInput">
@@ -238,7 +238,7 @@ function PostForm() {
                         </div>
                         <div className="inputBox">
                             <label >Nahrani fotografie</label>
-                            <label className="imageLabel" for="image">
+                            <label className="imageLabelSecond" for="image">
                                 click here to upload
                             </label>
                             {/* <div className="imageLabelContainer">
@@ -308,7 +308,7 @@ function PostForm() {
                     </div>
 
                     <div className="submitContainer">
-                        <button className="submitButton">ODESLAT</button>
+                        <button className="submitButtonSecond" >ODESLAT</button>
                     </div>
 
                 </form>
@@ -318,4 +318,4 @@ function PostForm() {
     );
 }
 
-export default PostForm;
+export default PostFormSecond;

@@ -1,12 +1,11 @@
-import PostForm from "./PostForm";
-
+import PostForm from './PostForm'
 
 const Turnus1 = () => {
-    return (
-        <>
-            <PostForm />
-        </>
-    )
+  return (
+    <>
+      <PostForm />
+    </>
+  )
 }
 
-export default Turnus1;
+export default Turnus1

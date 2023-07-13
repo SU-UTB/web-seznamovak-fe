@@ -53,7 +53,7 @@ const Application = () => {
               color="#F3A548"
               isLoading={isLoading}
               error={error}
-              regLink=""
+              regLink="/turnus2"
               subRegLink=""
             />
           </>

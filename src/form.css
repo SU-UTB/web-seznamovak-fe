@@ -34,6 +34,16 @@ label{
     flex-direction: row;
 }
 
+.formHeadSecond{
+    background-color: rgba(243, 165, 72, 1);
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    flex-direction: row;
+}
+
 .textHead{
     font-size: 50px;
     font-weight: 700;
@@ -44,7 +54,7 @@ label{
 .dateHead{
     font-size: 40px;
     font-weight: 700;
-    color: rgba(243, 165, 72, 1);
+    color: rgba(226, 85, 37, 1);
     margin: 0 30px;
 }
 
@@ -167,8 +177,24 @@ input[type="file"]{
     margin: 30px;
 }
 
+.submitButtonSecond {
+    border: none;
+    height: 60px;
+    width: 350px;
+    background-color: rgba(243, 165, 72, 1);
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 246);
+    text-align: center;
+    margin: 30px;
+}
+
 .submitButton:hover{
     background-color: rgb(224, 137, 108);
+}
+
+.submitButtonSecond:hover{
+    background-color: rgb(243, 187, 120);
 }
 
 .submitContainer{
@@ -177,7 +203,7 @@ input[type="file"]{
     margin: 20px;
 }
 
-.imageLabel{
+.imageLabel, .imageLabelSecond{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -191,6 +217,11 @@ input[type="file"]{
 .imageLabel:hover{
     border: 3px dashed rgba(226, 85, 37, 1);
     color: rgba(226, 85, 37, 1);
+}
+
+.imageLabelSecond:hover{
+    border: 3px dashed rgba(243, 165, 72, 1);
+    color: rgba(243, 165, 72, 1);
 }
 
 .imageLabelContainer{
