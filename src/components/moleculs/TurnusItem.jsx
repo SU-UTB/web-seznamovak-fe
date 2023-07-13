@@ -12,7 +12,6 @@ const TurnusItem = ({
   isLoading,
   error,
   regLink,
-  subRegLink,
   outOfStock = false,
 }) => {
   const available = currentPlaces > 0 && !outOfStock
@@ -26,23 +25,18 @@ const TurnusItem = ({
         </div>
       )}
       {error && <p className="text-2xl text-beige">Neco se pokazilo...</p>}
-      {currentPlaces && (
-        <div>
-          <p
-            className="mb-8 text-3xl font-medium"
-            style={{ color: `${color}` }}
-          >
-            {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
-          </p>
-          <Link
-            to={available ? regLink : subRegLink}
-            className="block px-6 py-3 text-2xl font-bold text-beige"
-            style={{ backgroundColor: `${color}` }}
-          >
-            {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
-          </Link>
-        </div>
-      )}
+      <div>
+        <p className="mb-8 text-3xl font-medium" style={{ color: `${color}` }}>
+          {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
+        </p>
+        <Link
+          to={regLink}
+          className="block px-6 py-3 text-2xl font-bold text-beige"
+          style={{ backgroundColor: `${color}` }}
+        >
+          {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
+        </Link>
+      </div>
     </div>
   )
 }

@@ -37,13 +37,12 @@ const Application = () => {
             <TurnusItem
               title="1. Turnus"
               date="21. 8. - 24. 8. 2023"
-              currentPlaces={data?.firstBatchCapacity}
+              currentPlaces={0}
               totalPlaces={100}
               color="#E25525"
               isLoading={isLoading}
               error={error}
               regLink="/turnus1"
-              subRegLink=""
             />
             <TurnusItem
               title="2. Turnus"
@@ -53,8 +52,7 @@ const Application = () => {
               color="#F3A548"
               isLoading={isLoading}
               error={error}
-              regLink=""
-              subRegLink=""
+              regLink="/turnus2"
             />
           </>
         )}
