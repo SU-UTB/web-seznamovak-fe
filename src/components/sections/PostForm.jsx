@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import imageLogo from '../../assets/img/banner/su_logo.webp'
 import '../../form.css'
+import { Link } from "react-router-dom";
+import homeButton from '../../assets/img/homeButton.png'
 
 function PostForm() {
 
@@ -75,6 +77,10 @@ function PostForm() {
         }
     })
 
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
+
     const validate = () => {
         
         const errors = {};
@@ -94,6 +100,27 @@ function PostForm() {
         if (!data.year) {
             errors.year = "Year is required";
         }
+        if (!data.image) {
+            errors.image = "Image is required";
+        }
+        if (!data.city) {
+            errors.city = "City is required";
+        }
+        if (!data.street) {
+            errors.street = "Street is required";
+        }
+        if (!data.postal_code) {
+            errors.postal_code = "Postal code is required";
+        }
+        if (!data.phone) {
+            errors.phone = "Phone number is required";
+        }
+        if (!data.country) {
+            errors.country = "Country is required";
+        }
+        if (!data.gdpr_consent) {
+            errors.gdpr_consent = "GDPR is required";
+        }
     
         setError(errors);
     
@@ -104,8 +131,6 @@ function PostForm() {
     useEffect (() => {
         console.log(error)
     },[error])
-
-    // const [error, setError] = useState (false)
 
     function submit(e){
         
@@ -125,9 +150,9 @@ function PostForm() {
             gdpr_consent: checked,
             newsletter_consent: nwsChecked,
             image: data.image[0],
-            nickname: data.nickname,
-            disability: data.disability,
-            roomate: data.roomate,
+            nickname: data.nickname ? data.nickname : "",
+            disability: data.disability ? data.disability : "",
+            roomate: data.roomate ? data.roomate : "",
             billing_information:{
                 city: data.city,
                 street: data.street,
@@ -170,6 +195,13 @@ function PostForm() {
       
     return (
         <div className="mainContainer">
+            <div className="homeButtonWrapper">
+                <div className="homeButtonImg">
+                    <Link to="/">
+                        <img src={homeButton} alt="" />
+                    </Link>
+                </div>
+            </div>
         <div className="formContainer">
             <div className="formHead">
                 <img className="imgLogo" src={imageLogo} alt="" />
@@ -183,12 +215,12 @@ function PostForm() {
 
                     <div className="column">
                         <div className="inputBox">
-                            <label>Jméno</label>
+                            <label>Jméno *</label>
                             <input onChange={(e)=>handle(e)} id="name" value={data.name} placeholder="" type="text"></input>
                             {error.name && <label className="inputErrorMissing">Nutno zadat jméno</label>}
                         </div>
                         <div className="inputBox">
-                            <label>Přijmení</label>
+                            <label>Přijmení *</label>
                             <input onChange={(e)=>handle(e)} id="surname" value={data.surname} placeholder="" type="text"></input>
                             {error.surname && <label className="inputErrorMissing">Nutno zadat přijmení</label>}
                         </div>
@@ -196,29 +228,32 @@ function PostForm() {
 
                     <div className="column">
                         <div className="inputBox">
-                            <label>E-mail</label>
+                            <label>E-mail *</label>
                             <input onChange={(e)=>handle(e)} id="email" value={data.email} placeholder="" type="email"></input>
+                            {error.email && <label className="inputErrorMissing">Nutno zadat E-mail</label>}
                         </div>
                         <div className="inputBox">
-                            <label>Fakulta</label>
+                            <label>Fakulta *</label>
                             <select id="faculty_id" value={data.faculty_id} onChange={(e)=>handle(e)}>
                                 <option value={0}></option>
                                 {fakulty.map((option)=> (
                                     <option key={option.value} value={option.value}>{option.label}</option>
                                     ))}
                             </select>
+                            {error.faculty_id && <label className="inputErrorMissing">Nutno vybrat fakultu</label>}
                         </div>
                     </div>
 
                     <div className="column">
                         <div className="inputBox">
-                            <label>Do kterého ročníku nastupuješ?</label>
+                            <label>Do kterého ročníku nastupuješ? *</label>
                             <select id="year" value={data.year} onChange={(e)=>handle(e)}>
                                 <option value={0}></option>
                                 {rocniky.map((option)=> (
                                     <option key={option.value} value={option.value}>{option.label}</option>
                                     ))}
                             </select>
+                            {error.year && <label className="inputErrorMissing">Nutno vybrat ročník</label>}
                         </div>
                         <div className="inputBox">
                             <label>Jak si přeješ abychom Tě oslovovali?</label>
@@ -237,7 +272,7 @@ function PostForm() {
                             <input onChange={(e)=>handle(e)} id="roomate" value={data.roomate} placeholder="" type="text"></input>
                         </div>
                         <div className="inputBox">
-                            <label >Nahrani fotografie</label>
+                            <label >Nahrani fotografie *</label>
                             <label className="imageLabel" for="image">
                                 click here to upload
                             </label>
@@ -247,6 +282,7 @@ function PostForm() {
                                 </label>
                             </div> */}
                             <input onChange={(e)=>handle(e)} name="image" accept="image/jpeg, image/png, image/jpg" id="image" placeholder="" type="file"></input>
+                            {error.image && <label className="inputErrorMissing">Nutno vybrat fotku</label>}
                         </div>
                     </div>
 
@@ -256,12 +292,14 @@ function PostForm() {
 
                     <div className="column">
                         <div className="inputBox">
-                            <label>Obec</label>
+                            <label>Obec *</label>
                             <input onChange={(e)=>handle(e)} id="city" value={data.city} placeholder="" type="text"></input>
+                            {error.city && <label className="inputErrorMissing">Nutno zadat město</label>}
                         </div>
                         <div className="inputBox">
                             <label>Adresa (Ulice, číslo popisné)</label>
                             <input onChange={(e)=>handle(e)} id="street" value={data.street} placeholder="" type="text"></input>
+                            {error.street && <label className="inputErrorMissing">Nutno zadat ulici</label>}
                         </div>
                     </div>
 
@@ -269,16 +307,19 @@ function PostForm() {
                         <div className="inputBox">
                             <label>PSČ</label>
                             <input onChange={(e)=>handle(e)} id="postal_code" value={data.postal_code} placeholder="" type="text"></input>
+                            {error.postal_code && <label className="inputErrorMissing">Nutno vypsat PSČ</label>}
                         </div>
                         <div className="inputBox">
                             <label>Telefonní kontakt</label>
                             <input onChange={(e)=>handle(e)} id="phone" value={data.phone} placeholder="" type="text"></input>
+                            {error.phone && <label className="inputErrorMissing">Nutno zadat telefonní číslo</label>}
                         </div>
                     </div>
 
                     <div className="inputBox">
                         <label>Země</label>
                         <input onChange={(e)=>handle(e)} id="country" value={data.country} placeholder="" type="text"></input>
+                        {error.country && <label className="inputErrorMissing">Nutno zadat odkud jsi</label>}
                     </div>
                     
                     <header className="textPopis">
@@ -290,8 +331,12 @@ function PostForm() {
                             <div className="inputCheckBox">
                                 <div className="checkBox">
                                     <input onChange={handleChange} id="gdpr_consent" checked={checked} placeholder="" type="checkbox"></input>
-                                    <label>Souhlas se zpracovávním výše uvedených osobních údajů, za účelem účasti na Seznamováku UTB.</label>
+                                    <div>
+                                        <label>Souhlas se zpracovávním výše uvedených osobních údajů, za účelem účasti na Seznamováku UTB.</label>
+                                        {error.gdpr_consent && <label className="inputErrorMissing">Nutno odsouhlasit zpracování GDPR</label>}
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

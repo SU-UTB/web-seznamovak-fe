@@ -38,7 +38,7 @@ const Application = () => {
               title="1. Turnus"
               date="21. 8. - 24. 8. 2023"
               currentPlaces={data?.firstBatchCapacity}
-              totalPlaces={100}
+              totalPlaces={96}
               color="#E25525"
               isLoading={isLoading}
               error={error}
@@ -49,7 +49,7 @@ const Application = () => {
               title="2. Turnus"
               date="28. 8. - 31. 8. 2023"
               currentPlaces={data?.secondBatchCapacity}
-              totalPlaces={100}
+              totalPlaces={96}
               color="#F3A548"
               isLoading={isLoading}
               error={error}

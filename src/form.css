@@ -9,10 +9,11 @@ label{
 .mainContainer{
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(26, 31, 50, 1);
-    padding: 20px;
+    padding: 18px;
 }
 
 .formContainer{
@@ -26,7 +27,7 @@ label{
 
 .formHead{
     background-color: rgba(226, 85, 37, 1);
-    margin: 50px 0;
+    margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,6 +149,9 @@ label{
 @media screen and (max-width: 530px) {
     .formContainer .column {
       flex-wrap: wrap;
+    }
+    .formContainer :where(.inputBox input, select){
+        font-size: 14px;
     }
   }
 
@@ -272,4 +276,15 @@ input[type="file"]{
 
 .yearSelectInput{
     width: 100px;
+}
+
+.homeButtonWrapper{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.homeButtonImg{
+    width: 60px;
+    height: 60px;
 }
