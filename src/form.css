@@ -251,8 +251,8 @@ input[type="file"]{
 
 .inputCheckBox input {
     position: relative;
-    min-height: 45px;
-    min-width: 45px;
+    min-height: 40px;
+    min-width: 40px;
     margin-right: 40px;
     outline: none;
     font-size: 1rem;
