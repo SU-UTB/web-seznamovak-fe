@@ -313,7 +313,7 @@ function PostForm() {
             <div className="problem">
               <div className="inputBox">
                 <label>Nahrani fotografie *</label>
-                <label className="imageLabel" for="image">
+                <label className="imageLabel" htmlFor="image">
                   {data?.image
                     ? data.image[0].name
                     : 'Stiskněte pro nahrání fotky'}
