@@ -16,10 +16,4 @@ const Routing = () => {
   )
 }
 
-// const Root = () => (
-//   <ThemeProvider theme={theme}>
-//     <Routing />
-//   </ThemeProvider>
-// );
-
 export default Routing
