@@ -3,6 +3,7 @@ import api from '../../api/api'
 import { Oval } from 'react-loader-spinner'
 import Confirm from '../form/Confirm'
 import { useLocation } from 'react-router'
+import { useForm } from 'react-hook-form'
 
 function PostForm() {
   const [checked, setChecked] = useState(false)
@@ -439,6 +440,7 @@ function PostForm() {
                       checked={checked}
                       placeholder=""
                       type="checkbox"
+                      name="gdpr"
                     ></input>
                     <div>
                       <label className="text-sm">
@@ -467,6 +469,7 @@ function PostForm() {
                       checked={nwsChecked}
                       placeholder=""
                       type="checkbox"
+                      name="newsletter"
                     ></input>
                     <label className="text-sm">
                       Souhlas se zasíláním informačních emailů, týkajících se
