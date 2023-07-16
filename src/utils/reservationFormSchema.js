@@ -18,9 +18,17 @@ export const reservationFormSchema = yup
         'is-valid-size',
         'Přiložený soubor je příliš velký (limit 2MB)',
         (value) => {
-          return value && value.size <= MAX_FILE_SIZE
+          return value[0] && value[0].size <= MAX_FILE_SIZE
         }
       ),
+    roommate: yup.string().required('Nutno zadat spolubydlu'),
+    billing_information: yup.object({
+      city: yup.string().required('Nutno zadat obec'),
+      street: yup.string().required('Nutno zadat adresu'),
+      postal_code: yup.string().required('Nutno zadat PSČ'),
+      phone: yup.string().required('Nutno zadat kontakt'),
+      country: yup.string().required('Nutno zadat zemi'),
+    }),
     gdpr_consent: yup
       .boolean()
       .oneOf([true], 'Nutno odsouhlasit zpracování GDPR'),

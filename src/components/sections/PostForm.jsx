@@ -26,7 +26,7 @@ const PostForm = ({ batch }) => {
       nickname: '',
       disability: '',
       image: null,
-      roomate: '',
+      roommate: '',
       billing_information: {
         city: '',
         street: '',
@@ -181,7 +181,7 @@ const PostForm = ({ batch }) => {
                 <label className="imageLabel" htmlFor="image">
                   {!watch('image') || watch('image').length === 0
                     ? 'Stiskněte pro nahrání fotky'
-                    : watch('image')[0].name}
+                    : watch('image')[0].name.slice(-20)}
                 </label>
                 <input
                   accept="image/jpeg, image/png, image/jpg"
@@ -200,9 +200,11 @@ const PostForm = ({ batch }) => {
                   Chceš být na pokoji s kamarádem/kamarádkou? Napiš nám
                   jeho/její jméno!
                 </label>
-                <input {...register('roomate')} />
-                {errors.roomate && (
-                  <label className="inputErrorMissing">Nutno zadat</label>
+                <input {...register('roommate')} />
+                {errors.roommate && (
+                  <label className="inputErrorMissing">
+                    {errors.roommate.message}
+                  </label>
                 )}
               </div>
             </div>
@@ -213,10 +215,20 @@ const PostForm = ({ batch }) => {
               <div className="inputBox">
                 <label>Obec *</label>
                 <input {...register('billing_information.city')} />
+                {errors.billing_information?.city && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.city.message}
+                  </label>
+                )}
               </div>
               <div className="inputBox">
                 <label>Adresa (Ulice, číslo popisné) *</label>
                 <input {...register('billing_information.street')} />
+                {errors.billing_information?.street && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.street.message}
+                  </label>
+                )}
               </div>
             </div>
 
@@ -224,16 +236,31 @@ const PostForm = ({ batch }) => {
               <div className="inputBox">
                 <label>PSČ *</label>
                 <input {...register('billing_information.postal_code')} />
+                {errors.billing_information?.postal_code && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.postal_code.message}
+                  </label>
+                )}
               </div>
               <div className="inputBox">
                 <label>Telefonní kontakt *</label>
                 <input {...register('billing_information.phone')} />
+                {errors.billing_information?.phone && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.phone.message}
+                  </label>
+                )}
               </div>
             </div>
 
             <div className="inputBox">
               <label>Země *</label>
               <input {...register('billing_information.country')} />
+              {errors.billing_information?.country && (
+                <label className="inputErrorMissing">
+                  {errors.billing_information.country.message}
+                </label>
+              )}
             </div>
 
             <header className="textPopis">
