@@ -11,7 +11,7 @@ const Turnus2 = () => {
         <HomeButton />
         <div className="formContainer">
           <Header label="2. Turnus" date="28.8. - 31.8. 2023" />
-          <PostForm />
+          <PostForm batch={2} />
         </div>
       </div>
       <Contact />
