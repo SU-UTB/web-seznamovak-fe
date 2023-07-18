@@ -16,41 +16,32 @@ const Contact = () => {
       <SectionTitle title="kontakt" />
       <div className="lg:grid lg:grid-cols-2 lg:content-end text-center lg:text-left mx-auto lg:w-4/5 gap-x-16">
         <div>
-          <SuSocials 
+          <SuSocials
             title={suSocials.name}
             desc={suSocials.desc}
             fbLink={suSocials.fbLink}
             fbImg={suSocials.fbImg}
-            fbImgWebp={suSocials.fbImgWebp}
             igLink={suSocials.igLink}
             igImg={suSocials.igImg}
-            igImgWebp={suSocials.igImgWebp}
           />
         </div>
         <div className="divManagersOuter">
           <div className="divManagersTitle">
-            <ManagerTitle title="MANAŽEŘI PROJEKTU"/>
+            <ManagerTitle title="MANAŽEŘI PROJEKTU" />
           </div>
           <div className="divManagersInner">
-            {
-              managersSocials.map(manager => (
-                <ContactSocials
-                  key={manager.name}
-                  title={manager.name}
-                  fbLink={manager.fbLink}
-                  fbImg={manager.fbImg}
-                  fbImgWebp={manager.fbImgWebp}
-
-                  backFbImg={manager.backFbImg}
-
-                  igLink={manager.igLink}
-                  igImg={manager.igImg}
-                  igImgWebp={manager.igImgWebp}
-
-                  backIgImg={manager.backIgImg}
-                />
-              ))
-            }
+            {managersSocials.map((manager) => (
+              <ContactSocials
+                key={manager.name}
+                title={manager.name}
+                fbLink={manager.fbLink}
+                fbImg={manager.fbImg}
+                backFbImg={manager.backFbImg}
+                igLink={manager.igLink}
+                igImg={manager.igImg}
+                backIgImg={manager.backIgImg}
+              />
+            ))}
           </div>
         </div>
       </div>

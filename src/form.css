@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+label{
+    font-size: 20px;
+    color: rgb(255, 255, 246);
+    font-weight: 700;
+}
+
+.mainContainer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 31, 50, 1);
+    padding: 18px;
+    background: url('./assets/img/bckg.webp') no-repeat bottom;
+    background-size: cover;
+}
+
+.formContainer{
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 85%;
+    text-align: left;
+
+}
+
+.formHead{
+    background-color: rgba(226, 85, 37, 1);
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    flex-direction: row;
+}
+
+.formHeadSecond{
+    background-color: rgba(243, 165, 72, 1);
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    flex-direction: row;
+}
+
+.textHead{
+    font-size: 50px;
+    font-weight: 700;
+    color: rgba(26, 31, 50, 1);
+    margin: 0 30px;
+}
+
+.dateHead{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(243, 165, 72, 1);
+    margin: 0 30px;
+}
+
+.dateHeadSecond{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(226, 85, 37, 1);
+    margin: 0 30px;
+}
+
+.imgLogo {
+    margin: 0 20px;
+}
+
+.headContainer{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1165px) {
+    .imgLogo {
+        height: 90%;
+        margin: 0 20px;
+    }
+    .textHead {
+        font-size: 45px;
+        margin: 0 20px;
+    }
+    .dateHead {
+        font-size: 35px;
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .imgLogo {
+        /* display: none; */
+        height: 75%;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .textHead {
+        font-size: 40px;
+    }
+    .dateHead {
+        font-size: 30px;
+    }
+}
+
+.textPopis{
+    color: rgb(255, 255, 246);
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.column {
+    display: flex;
+    column-gap: 50px;
+}
+
+.problem {
+    display: flex;
+    gap: 50px;
+    align-items: flex-end;
+}
+
+.formContainer .inputBox {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.formContainer :where(.inputBox input, select) {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    padding: 0 15px;
+    background-color: rgba(253, 236, 190, 1);
+}
+
+@media screen and (max-width: 530px) {
+    .formContainer .column {
+      flex-wrap: wrap;
+    }
+    .formContainer :where(.inputBox input, select){
+        font-size: 14px;
+    }
+  }
+
+@media screen and (max-width: 620px) {
+    .problem{
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .imageLabel {
+        min-height: 60px;
+        padding: 2.2rem;
+    }
+    .imgLogo {
+        display: none;
+    }
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.submitButton, .imageLabel{
+    cursor: pointer;
+}
+
+.submitButton {
+    border: none;
+    height: 60px;
+    width: 350px;
+    background-color: rgba(226, 85, 37, 1);
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 246);
+    text-align: center;
+    margin: 30px;
+}
+
+.submitButtonSecond {
+    border: none;
+    height: 60px;
+    width: 350px;
+    background-color: rgba(243, 165, 72, 1);
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 246);
+    text-align: center;
+    margin: 30px;
+}
+
+.submitButton:hover{
+    background-color: rgb(224, 137, 108);
+}
+
+.submitButtonSecond:hover{
+    background-color: rgb(243, 187, 120);
+}
+
+.submitContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.imageLabel, .imageLabelSecond{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    border: 3px dashed rgba(253, 236, 190, 1);
+    min-height: 40px;
+    padding: 1rem;
+    margin-top: 1em;
+}
+
+.imageLabel:hover{
+    border: 3px dashed rgba(226, 85, 37, 1);
+    color: rgba(226, 85, 37, 1);
+}
+
+.imageLabelSecond:hover{
+    border: 3px dashed rgba(243, 165, 72, 1);
+    color: rgba(243, 165, 72, 1);
+}
+
+.imageLabelContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputCheckBoxUpper{
+    margin-top: 10px;
+}
+
+.inputCheckBoxLesser{
+    margin-top: 35px;
+}
+
+.inputCheckBox input {
+    position: relative;
+    min-height: 24px;
+    min-width: 24px;
+    margin-right: 40px;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    border: 1px solid #ddd;
+    padding: 0 15px;
+    background-color: rgba(253, 236, 190, 1);
+}
+
+.checkBox {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+}
+
+.inputErrorMissing{
+    display: flex;
+    color: rgb(252, 40, 40);
+    margin-top: 8px;
+}
+
+.yearSelectInput{
+    width: 100px;
+}
+
+.homeButtonWrapper{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.homeButtonImg{
+    width: 60px;
+    height: 60px;
+}
+
+.confirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(226, 85, 37, 1);
+    height: 20rem;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.confirmContainer{
+    display: flex;
+    text-align: center;
+    max-width: 800px;
+    width: 80%;
+}
+
+@media screen and (max-width: 1010px) {
+    .confirm{
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .confirm{
+        height: 18rem;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .confirm{
+        font-size: 25px;
+        font-weight: 700;
+        height: 16rem;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .confirm{
+        font-size: 18px;
+        font-weight: 700;
+    }
+}

@@ -4,41 +4,14 @@ import Notification from '../moleculs/Notification'
 import TurnusHeadline from '../moleculs/TurnusHeadline'
 import TurnusItem from '../moleculs/TurnusItem'
 import Information from './Information'
+import useFetchReservations from '../../hooks/useFetchReservations'
 
 const Application = () => {
   // year:month(0-11):day:hour:minute:second
-  const startDate = new Date(2022, 6, 5, 15, 0, 0)
+  const startDate = new Date(2023, 6, 14, 15, 0, 0)
   const shouldStartRegistration = Date.now() >= startDate
 
-  // TODO: get real data from database by an api call (useEffect)
-  const turnusList = [
-    {
-      title: '1. Turnus',
-      date: '21. 8. – 24. 8. 2023',
-      range: '(pondělí – čtvrtek)',
-      totalPlaces: 100,
-      color: '#E25525',
-      data: {},
-      isLoading: false,
-      error: 'Error',
-      regLink: 'https://forms.gle/qaEwv6kxMw4oHnQK6',
-      subRegLink: 'https://forms.gle/qaEwv6kxMw4oHnQK6',
-      outOfStock: true,
-    },
-    {
-      title: '2. Turnus',
-      date: '28. 8. – 31. 8. 2023',
-      range: '(pondělí – čtvrtek)',
-      totalPlaces: 100,
-      color: '#F3A548',
-      data: {},
-      isLoading: false,
-      error: 'Error',
-      regLink: 'https://forms.gle/F5k6XBFayw5TzZZFA',
-      subRegLink: 'https://forms.gle/F5k6XBFayw5TzZZFA',
-      outOfStock: true,
-    },
-  ]
+  const { data, isLoading, error } = useFetchReservations()
 
   return (
     <section id="prihlaska">
@@ -47,50 +20,43 @@ const Application = () => {
           <div className="w-full notify-headline">
             <Notification />
             <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5">
-              {turnusList.map(({ title, date, color, range }) => (
-                <TurnusHeadline
-                  key={title}
-                  title={title}
-                  date={date}
-                  range={range}
-                  color={color}
-                />
-              ))}
+              <TurnusHeadline
+                title="1. Turnus"
+                date="21. 8. - 24. 8. 2023"
+                color="#E25525"
+              />
+              <TurnusHeadline
+                title="2. Turnus"
+                date="28. 8. - 31. 8. 2023"
+                color="#F3A548"
+              />
             </div>
           </div>
         )}
-        {shouldStartRegistration &&
-          turnusList.map(
-            ({
-              title,
-              date,
-              totalPlaces,
-              linkToAssign,
-              color,
-              data,
-              isLoading,
-              error,
-              regLink,
-              subRegLink,
-              outOfStock,
-            }) => (
-              <TurnusItem
-                key={title}
-                title={title}
-                date={date}
-                totalPlaces={totalPlaces}
-                linkToAssign={linkToAssign}
-                color={color}
-                data={data}
-                isLoading={isLoading}
-                error={error}
-                regLink={regLink}
-                subRegLink={subRegLink}
-                shouldStart={shouldStartRegistration}
-                outOfStock={outOfStock}
-              />
-            )
-          )}
+        {shouldStartRegistration && (
+          <>
+            <TurnusItem
+              title="1. Turnus"
+              date="21. 8. - 24. 8. 2023"
+              currentPlaces={data?.firstBatchCapacity}
+              totalPlaces={96}
+              color="#E25525"
+              isLoading={isLoading}
+              error={error}
+              regLink="/turnus1"
+            />
+            <TurnusItem
+              title="2. Turnus"
+              date="28. 8. - 31. 8. 2023"
+              currentPlaces={data?.secondBatchCapacity}
+              totalPlaces={96}
+              color="#F3A548"
+              isLoading={isLoading}
+              error={error}
+              regLink="/turnus2"
+            />
+          </>
+        )}
       </div>
       <InfoText />
       <Information />
