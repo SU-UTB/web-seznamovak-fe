@@ -21,8 +21,8 @@ const PostForm = ({ batch }) => {
       name: '',
       surname: '',
       email: '',
-      faculty_id: '',
-      year: '',
+      faculty_id: 0,
+      year: 0,
       nickname: '',
       disability: '',
       image: null,
@@ -37,6 +37,8 @@ const PostForm = ({ batch }) => {
     },
     resolver: yupResolver(reservationFormSchema),
   })
+
+  const img = watch('image')
 
   const fakulty = [
     { value: 1, label: 'Fakulta technologická' },
@@ -60,10 +62,14 @@ const PostForm = ({ batch }) => {
   }, [])
 
   const handleSave = async (formValues) => {
-    console.log(formValues)
+    const filteredData = Object.fromEntries(
+      Object.entries({ ...formValues, image: img[0] }).filter(
+        ([_, value]) => value !== null && value.length !== 0
+      )
+    )
 
     await api
-      .post('reservations', formValues, {
+      .post('reservations', filteredData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
@@ -154,11 +160,6 @@ const PostForm = ({ batch }) => {
               <div className="inputBox">
                 <label>Jak si přeješ abychom Tě oslovovali?</label>
                 <input {...register('nickname')} />
-                {errors.nickname && (
-                  <label className="inputErrorMissing">
-                    {errors.nickname.message}
-                  </label>
-                )}
               </div>
             </div>
 
@@ -168,20 +169,15 @@ const PostForm = ({ batch }) => {
                 vegetarián, ...) Cokoliv co bychom potřebovali vědět?
               </label>
               <input {...register('disability')} />
-              {errors.disability && (
-                <label className="inputErrorMissing">
-                  {errors.disability.message}
-                </label>
-              )}
             </div>
 
             <div className="problem">
               <div className="inputBox">
                 <label>Nahrání fotografie *</label>
                 <label className="imageLabel" htmlFor="image">
-                  {!watch('image') || watch('image').length === 0
+                  {!img && img?.length !== 0
                     ? 'Stiskněte pro nahrání fotky'
-                    : watch('image')[0].name.slice(-20)}
+                    : img[0]?.name?.slice(-20)}
                 </label>
                 <input
                   accept="image/jpeg, image/png, image/jpg"
@@ -191,7 +187,7 @@ const PostForm = ({ batch }) => {
                 />
                 {errors.image && (
                   <label className="inputErrorMissing">
-                    {errors.image.message}
+                    {errors.image?.message}
                   </label>
                 )}
               </div>
@@ -201,11 +197,6 @@ const PostForm = ({ batch }) => {
                   jeho/její jméno!
                 </label>
                 <input {...register('roommate')} />
-                {errors.roommate && (
-                  <label className="inputErrorMissing">
-                    {errors.roommate.message}
-                  </label>
-                )}
               </div>
             </div>
 
