@@ -4,10 +4,11 @@ import fhs from '../assets/img/fakulty/fhs.svg'
 import flkr from '../assets/img/fakulty/flkr.svg'
 import fmk from '../assets/img/fakulty/fmk.svg'
 import ft from '../assets/img/fakulty/ft.svg'
-import alisy from '../assets/img/partneri/alisyLogo.png'
-import bumerangFilm from '../assets/img/partneri/bumerangFilm.svg'
-import captain from '../assets/img/partneri/captain.png'
-import ruzovySlon from '../assets/img/partneri/ruzovySlon.jpg'
+import jd_logo from '../assets/img/partneri/jd_logo.jpg'
+import pepsi_logo from '../assets/img/partneri/pepsi_logo.png'
+import ff_logo from '../assets/img/partneri/ff_logo.png'
+import kojetin_logo from '../assets/img/partneri/kojetin_logo.png'
+import retina_logo from '../assets/img/partneri/retina_logo.png'
 import su from '../assets/img/unie/su.png'
 import usuh from '../assets/img/unie/usuh.png'
 import utbLogo from '../assets/img/utb.svg'
@@ -29,8 +30,9 @@ export const unionList = [
 ]
 
 export const partnerList = [
-  // { pic: bumerangFilm, picAlt: 'bumerang film' },
-  // { pic: ruzovySlon, picAlt: 'růžový slon' },
-  // { pic: captain, picAlt: 'captain morgan' },
-  // { pic: alisy, picAlt: 'alisy' },
+  { pic: jd_logo, picAlt: 'Jack Daniels' },
+  { pic: pepsi_logo, picAlt: 'Pepsi' },
+  { pic: ff_logo, picAlt: 'Faency fries' },
+  { pic: kojetin_logo, picAlt: 'Pivovar kojetin' },
+  { pic: retina_logo, picAlt: 'Retina' },
 ]
