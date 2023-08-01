@@ -1,15 +1,44 @@
 import { useEffect, useState } from 'react'
 import api from '../../api/api'
 import { Oval } from 'react-loader-spinner'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+
 import Confirm from '../form/Confirm'
-import { useLocation } from 'react-router'
+import { reservationFormSchema } from '../../utils/reservationFormSchema'
 
-function PostForm() {
-  const [checked, setChecked] = useState(false)
-  const [nwsChecked, setNwsChecked] = useState(false)
+const PostForm = ({ batch }) => {
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false)
 
-  const [isLoading, setIsLoading] = useState(false)
-  const [isSuccessful, setIsSuccessful] = useState(false)
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm({
+    defaultValues: {
+      batch: batch,
+      name: '',
+      surname: '',
+      email: '',
+      faculty_id: 0,
+      year: 0,
+      nickname: '',
+      disability: '',
+      image: null,
+      roommate: '',
+      billing_information: {
+        city: '',
+        street: '',
+        postal_code: '',
+        phone: '',
+        country: 'Česko',
+      },
+    },
+    resolver: yupResolver(reservationFormSchema),
+  })
+
+  const img = watch('image')
 
   const fakulty = [
     { value: 1, label: 'Fakulta technologická' },
@@ -28,202 +57,56 @@ function PostForm() {
     { value: 5, label: 'Pátý' },
   ]
 
-  const handleChange = () => {
-    setChecked(!checked)
-  }
-
-  const secondHandleChange = () => {
-    setNwsChecked(!nwsChecked)
-  }
-
-  const location = useLocation()
-
-  const [data, setData] = useState({
-    batch: '',
-    name: '',
-    surname: '',
-    email: '',
-    faculty_id: '',
-    year: '',
-    image: null,
-    nickname: '',
-    disability: '',
-    roomate: '',
-    billing_information: {
-      city: '',
-      street: '',
-      postal_code: '',
-      country: '',
-      phone: '',
-    },
-  })
-
-  const [error, setError] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    faculty_id: '',
-    year: '',
-    image: null,
-    nickname: '',
-    disability: '',
-    roomate: '',
-    billing_information: {
-      city: '',
-      street: '',
-      postal_code: '',
-      country: '',
-      phone: '',
-    },
-  })
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const validate = () => {
-    const errors = {}
-
-    if (!data.name) {
-      errors.name = 'Name is required'
-    }
-    if (!data.surname) {
-      errors.surname = 'Surname is required'
-    }
-    if (!data.email) {
-      errors.email = 'Email is required'
-    }
-    if (!data.faculty_id) {
-      errors.faculty_id = 'Faculty is required'
-    }
-    if (!data.year) {
-      errors.year = 'Year is required'
-    }
-    if (!data.image) {
-      errors.image = 'Vyberte fotku'
-    } else {
-      if (data.image[0].size > 2040000) {
-        errors.image = 'Maximlní velikost souboru je 2MB'
-      }
-    }
-    if (!data.city) {
-      errors.city = 'City is required'
-    }
-    if (!data.street) {
-      errors.street = 'Street is required'
-    }
-    if (!data.postal_code) {
-      errors.postal_code = 'Postal code is required'
-    }
-    if (!data.phone) {
-      errors.phone = 'Phone number is required'
-    }
-    if (!data.country) {
-      errors.country = 'Country is required'
-    }
-    if (checked === false) {
-      errors.gdpr_consent = 'GDPR is required'
-    }
-
-    setError(errors)
-
-    // Return true if no errors, false otherwise
-    return Object.keys(errors).length === 0
-  }
-
-  const submit = async (e) => {
-    e.preventDefault()
-
-    setIsLoading(true)
-
-    if (!validate(data)) {
-      setIsLoading(false)
-      return
-    }
-
-    const dataToPost = {
-      batch: location.pathname.slice(-1),
-      name: data.name,
-      surname: data.surname,
-      email: data.email,
-      faculty_id: data.faculty_id,
-      year: data.year,
-      gdpr_consent: checked,
-      newsletter_consent: nwsChecked,
-      image: data.image[0],
-      nickname: data.nickname ? data.nickname : '',
-      disability: data.disability ? data.disability : '',
-      roomate: data.roomate ? data.roomate : '',
-      billing_information: {
-        city: data.city,
-        street: data.street,
-        postal_code: data.postal_code,
-        country: data.country,
-        phone: data.phone,
-      },
-    }
+  const handleSave = async (formValues) => {
+    const filteredData = Object.fromEntries(
+      Object.entries({ ...formValues, image: img[0] }).filter(
+        ([_, value]) => value !== null && value.length !== 0
+      )
+    )
 
     await api
-      .post('reservations', dataToPost, {
+      .post('reservations', filteredData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
-        setIsSuccessful(true)
+        console.log(res)
+        setIsSubmitSuccessful(true)
       })
       .catch((e) => {
         console.error(e)
+        setIsSubmitSuccessful(false)
       })
-    setIsLoading(false)
-  }
-
-  function handle(e) {
-    const newdata = { ...data }
-
-    if (e.target.type === 'file') {
-      newdata[e.target.id] = e.target.files
-      const file = e.target.files[0].size
-    } else {
-      newdata[e.target.id] = e.target.value
-    }
-
-    setData(newdata)
   }
 
   return (
     <div>
-      {isSuccessful ? (
+      {isSubmitSuccessful ? (
         <div>
           <Confirm turnus={location.pathname.slice(-1)} />
         </div>
       ) : (
         <div className="formInput">
-          <form onSubmit={(e) => submit(e)}>
+          <form onSubmit={handleSubmit(handleSave)}>
             <div className="column">
               <div className="inputBox">
                 <label>Jméno *</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="name"
-                  value={data.name}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.name && (
-                  <label className="inputErrorMissing">Nutno zadat jméno</label>
+                <input {...register('name')} />
+                {errors.name && (
+                  <label className="inputErrorMissing">
+                    {errors.name.message}
+                  </label>
                 )}
               </div>
               <div className="inputBox">
                 <label>Přijmení *</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="surname"
-                  value={data.surname}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.surname && (
+                <input {...register('surname')} />
+                {errors.surname && (
                   <label className="inputErrorMissing">
-                    Nutno zadat přijmení
+                    {errors.surname.message}
                   </label>
                 )}
               </div>
@@ -232,26 +115,16 @@ function PostForm() {
             <div className="column">
               <div className="inputBox">
                 <label>E-mail *</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="email"
-                  value={data.email}
-                  placeholder=""
-                  type="email"
-                ></input>
-                {error.email && (
+                <input {...register('email')} type="email" />
+                {errors.email && (
                   <label className="inputErrorMissing">
-                    Nutno zadat E-mail
+                    {errors.email.message}
                   </label>
                 )}
               </div>
               <div className="inputBox">
                 <label>Fakulta *</label>
-                <select
-                  id="faculty_id"
-                  value={data.faculty_id}
-                  onChange={(e) => handle(e)}
-                >
+                <select {...register('faculty_id')}>
                   <option value={0}></option>
                   {fakulty.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -259,9 +132,9 @@ function PostForm() {
                     </option>
                   ))}
                 </select>
-                {error.faculty_id && (
+                {errors.faculty_id && (
                   <label className="inputErrorMissing">
-                    Nutno vybrat fakultu
+                    {errors.faculty_id.message}
                   </label>
                 )}
               </div>
@@ -270,7 +143,7 @@ function PostForm() {
             <div className="column">
               <div className="inputBox">
                 <label>Do kterého ročníku nastupuješ? *</label>
-                <select id="year" value={data.year} onChange={(e) => handle(e)}>
+                <select {...register('year')}>
                   <option value={0}></option>
                   {rocniky.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -278,21 +151,15 @@ function PostForm() {
                     </option>
                   ))}
                 </select>
-                {error.year && (
+                {errors.year && (
                   <label className="inputErrorMissing">
-                    Nutno vybrat ročník
+                    {errors.year.message}
                   </label>
                 )}
               </div>
               <div className="inputBox">
                 <label>Jak si přeješ abychom Tě oslovovali?</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="nickname"
-                  value={data.nickname}
-                  placeholder=""
-                  type="text"
-                ></input>
+                <input {...register('nickname')} />
               </div>
             </div>
 
@@ -301,33 +168,27 @@ function PostForm() {
                 Máš nějaké potravinové (či jiné) omezení? (Alergie, vegan,
                 vegetarián, ...) Cokoliv co bychom potřebovali vědět?
               </label>
-              <input
-                onChange={(e) => handle(e)}
-                id="disability"
-                value={data.disability}
-                placeholder=""
-                type="text"
-              ></input>
+              <input {...register('disability')} />
             </div>
 
             <div className="problem">
               <div className="inputBox">
-                <label>Nahrani fotografie *</label>
-                <label className="imageLabel" for="image">
-                  {data?.image
-                    ? data.image[0].name
-                    : 'Stiskněte pro nahrání fotky'}
+                <label>Nahrání fotografie *</label>
+                <label className="imageLabel" htmlFor="image">
+                  {!img && img?.length !== 0
+                    ? 'Stiskněte pro nahrání fotky'
+                    : img[0]?.name?.slice(-20)}
                 </label>
                 <input
-                  onChange={(e) => handle(e)}
-                  name="image"
                   accept="image/jpeg, image/png, image/jpg"
-                  id="image"
-                  placeholder=""
                   type="file"
-                ></input>
-                {error.image && (
-                  <label className="inputErrorMissing">{error.image}</label>
+                  id="image"
+                  {...register('image')}
+                />
+                {errors.image && (
+                  <label className="inputErrorMissing">
+                    {errors.image?.message}
+                  </label>
                 )}
               </div>
               <div className="inputBox">
@@ -335,91 +196,60 @@ function PostForm() {
                   Chceš být na pokoji s kamarádem/kamarádkou? Napiš nám
                   jeho/její jméno!
                 </label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="roomate"
-                  value={data.roomate}
-                  placeholder=""
-                  type="text"
-                ></input>
+                <input {...register('roommate')} />
               </div>
             </div>
-            <div></div>
 
             <header className="textPopis">Fakturační údaje</header>
 
             <div className="column">
               <div className="inputBox">
                 <label>Obec *</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="city"
-                  value={data.city}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.city && (
-                  <label className="inputErrorMissing">Nutno zadat město</label>
+                <input {...register('billing_information.city')} />
+                {errors.billing_information?.city && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.city.message}
+                  </label>
                 )}
               </div>
               <div className="inputBox">
-                <label>Adresa (Ulice, číslo popisné)</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="street"
-                  value={data.street}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.street && (
-                  <label className="inputErrorMissing">Nutno zadat ulici</label>
+                <label>Adresa (Ulice, číslo popisné) *</label>
+                <input {...register('billing_information.street')} />
+                {errors.billing_information?.street && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.street.message}
+                  </label>
                 )}
               </div>
             </div>
 
             <div className="column">
               <div className="inputBox">
-                <label>PSČ</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="postal_code"
-                  value={data.postal_code}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.postal_code && (
-                  <label className="inputErrorMissing">Nutno vypsat PSČ</label>
+                <label>PSČ *</label>
+                <input {...register('billing_information.postal_code')} />
+                {errors.billing_information?.postal_code && (
+                  <label className="inputErrorMissing">
+                    {errors.billing_information.postal_code.message}
+                  </label>
                 )}
               </div>
               <div className="inputBox">
-                <label>Telefonní kontakt</label>
-                <input
-                  onChange={(e) => handle(e)}
-                  id="phone"
-                  value={data.phone}
-                  placeholder=""
-                  type="text"
-                ></input>
-                {error.phone && (
+                <label>Telefonní kontakt *</label>
+                <input {...register('billing_information.phone')} />
+                {errors.billing_information?.phone && (
                   <label className="inputErrorMissing">
-                    Nutno zadat telefonní číslo
+                    {errors.billing_information.phone.message}
                   </label>
                 )}
               </div>
             </div>
 
             <div className="inputBox">
-              <label>Země</label>
-              <input
-                onChange={(e) => handle(e)}
-                id="country"
-                value={data.country}
-                placeholder=""
-                type="text"
-              ></input>
-              {error.country && (
+              <label>Země *</label>
+              <input {...register('billing_information.country')} />
+              {errors.billing_information?.country && (
                 <label className="inputErrorMissing">
-                  Nutno zadat odkud jsi
+                  {errors.billing_information.country.message}
                 </label>
               )}
             </div>
@@ -434,20 +264,18 @@ function PostForm() {
                   <div className="checkBox">
                     <input
                       className="cursor-pointer"
-                      onChange={handleChange}
-                      id="gdpr_consent"
-                      checked={checked}
-                      placeholder=""
                       type="checkbox"
-                    ></input>
+                      name="gdpr"
+                      {...register('gdpr_consent')}
+                    />
                     <div>
                       <label className="text-sm">
                         Souhlas se zpracovávním výše uvedených osobních údajů,
-                        za účelem účasti na Seznamováku UTB.
+                        za účelem účasti na Seznamováku UTB. *
                       </label>
-                      {error.gdpr_consent && (
+                      {errors.gdpr_consent && (
                         <label className="inputErrorMissing text-sm">
-                          Nutno odsouhlasit zpracování GDPR
+                          {errors.gdpr_consent.message}
                         </label>
                       )}
                     </div>
@@ -462,12 +290,10 @@ function PostForm() {
                   <div className="checkBox">
                     <input
                       className="cursor-pointer"
-                      onChange={secondHandleChange}
-                      id="newsletter_consent"
-                      checked={nwsChecked}
-                      placeholder=""
                       type="checkbox"
-                    ></input>
+                      name="newsletter"
+                      {...register('newsletter_consent')}
+                    />
                     <label className="text-sm">
                       Souhlas se zasíláním informačních emailů, týkajících se
                       akcí pořádaných studentskou unií.
@@ -476,7 +302,7 @@ function PostForm() {
                 </div>
               </div>
             </div>
-            {isLoading ? (
+            {isSubmitting ? (
               <div className="submitContainer">
                 <Oval color="white" secondaryColor="lightblue" width="50px" />
               </div>

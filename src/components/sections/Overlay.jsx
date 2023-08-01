@@ -5,7 +5,7 @@ const Overlay = () => {
   window.addEventListener(
     'scroll',
     () => {
-      const pixels = window.pageYOffset
+      const pixels = window.scrollY
       const movingObjects = document.getElementsByClassName('moving-obj')
       for (let i = 0; i < movingObjects.length; i++) {
         movingObjects[i].style.transform = `translateY(${
@@ -26,9 +26,9 @@ const Overlay = () => {
       <div className="lay5 moving-obj"></div>
       <div className="lay6 moving-obj"></div>
       <div className="lay7 moving-obj"></div>
-      <img className="moving-obj logo" src={logo} alt="seznamovak 2022 logo" />
+      <img className="moving-obj logo" src={logo} alt="seznamovak 2023 logo" />
       <div className="pattern"></div>
-      <a className="cursorzone"></a>
+      <div className="cursorzone"></div>
       <div className="pattern-mobile"></div>
     </div>
   )

@@ -1,5 +1,5 @@
-import { SpinnerCircular } from 'spinners-react'
 import { Link } from 'react-router-dom'
+import { Oval } from 'react-loader-spinner'
 
 import TurnusHeadline from './TurnusHeadline'
 
@@ -21,7 +21,7 @@ const TurnusItem = ({
       <TurnusHeadline title={title} date={date} color={color} />
       {isLoading && (
         <div className="flex justify-center">
-          <SpinnerCircular thickness={220} color="#FDECBE" />
+          <Oval color="#FDECBE" secondaryColor="lightblue" />
         </div>
       )}
       {error && <p className="text-2xl text-beige">Neco se pokazilo...</p>}
