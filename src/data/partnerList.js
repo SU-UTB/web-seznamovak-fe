@@ -30,9 +30,9 @@ export const unionList = [
 ]
 
 export const partnerList = [
-  { pic: jd_logo, picAlt: 'Jack Daniels' },
-  { pic: pepsi_logo, picAlt: 'Pepsi' },
-  { pic: ff_logo, picAlt: 'Faency fries' },
-  { pic: kojetin_logo, picAlt: 'Pivovar kojetin' },
-  { pic: retina_logo, picAlt: 'Retina' },
+  { link: 'https://www.jackdaniels.com/cs-cz/', pic: jd_logo, picAlt: 'Jack Daniels' },
+  { link: 'https://www.pepsi.com/', pic: pepsi_logo, picAlt: 'Pepsi' },
+  { link: 'https://www.faencyfries.cz/', pic: ff_logo, picAlt: 'Faency fries' },
+  { link: 'https://pivovarkojetin.cz/cs_cz/', pic: kojetin_logo, picAlt: 'Pivovar kojetin' },
+  { link: 'https://hasicarnanovesta.hasicarnapubs.cz/', pic: retina_logo, picAlt: 'Retina' },
 ]
