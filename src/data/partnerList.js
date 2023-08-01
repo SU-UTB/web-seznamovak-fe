@@ -29,8 +29,8 @@ export const unionList = [
 ]
 
 export const partnerList = [
-  { pic: bumerangFilm, picAlt: 'bumerang film' },
-  { pic: ruzovySlon, picAlt: 'růžový slon' },
-  { pic: captain, picAlt: 'captain morgan' },
-  { pic: alisy, picAlt: 'alisy' },
+  // { pic: bumerangFilm, picAlt: 'bumerang film' },
+  // { pic: ruzovySlon, picAlt: 'růžový slon' },
+  // { pic: captain, picAlt: 'captain morgan' },
+  // { pic: alisy, picAlt: 'alisy' },
 ]

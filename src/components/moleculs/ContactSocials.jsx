@@ -1,20 +1,85 @@
-import ContactPicture from '../atoms/ContactPicture'
+import { useState } from 'react'
 import ContactTitle from '../atoms/ContactTitle'
 import Link from '../atoms/Link'
+import ReactCardFlip from 'react-card-flip'
+import { AnalyticsEvents, Firebase } from '../../utils/firebase'
 
-const ContactSocials = ({ title, desc, fbLink, fbImg, backFbImg, fbImgWebp, backFbImgWebp, igLink, igImg, backIgImg, igImgWebp, backIgImgWebp }) => {
+const ContactSocials = ({
+  title,
+  desc,
+  fbLink,
+  fbImg,
+  backFbImg,
+  igLink,
+  igImg,
+  backIgImg,
+  index,
+}) => {
+  const [flippedIndex, setFlippedIndex] = useState(null)
+
+  const handleCardFlip = (index) => {
+    flippedIndex === index ? setFlippedIndex(null) : setFlippedIndex(index)
+  }
+
   return (
-    <div className="socials lg:mt-auto relative z-30">
+    <div className="relative z-30 socials lg:mt-auto">
       <div className="text-center">
         <ContactTitle title={title} />
       </div>
       <p className="mb-4">{desc}</p>
-      <div className="img-links flex justify-center gap-x-6 lg:gap-x-0 mx-auto lg:justify-between lg:max-w-xs mb-12">
-        <Link linkTo={fbLink}>
-          <ContactPicture  imgSrc={fbImg} backImgSrc={backFbImg} webpImgSrc={fbImgWebp} backWebpImgSrc={backFbImgWebp} imgAlt={`facebook: ${title}`} />
+      <div 
+        className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs"
+        onMouseEnter={() => handleCardFlip(index)}
+        onMouseLeave={() => handleCardFlip(index)}
+      >
+        {/* TODO: create custom component (SocialContactImgLink) */}
+        <Link
+          linkTo={fbLink}
+          onClick={() =>
+            Firebase.instance.aLog(AnalyticsEvents.contactFbClicked, title)
+          }
+        >
+          <ReactCardFlip
+            isFlipped={flippedIndex === index}
+            flipDirection="horizontal"
+          >
+            <img
+              src={fbImg}
+              alt={`facebook: ${title}`}
+              width={128}
+              height={128}
+            />
+            <img
+              src={backFbImg}
+              alt={`facebook: ${title}`}
+              width={128}
+              height={128}
+            />
+          </ReactCardFlip>
         </Link>
-        <Link linkTo={igLink}>
-          <ContactPicture className="w-32 h-auto lg:px-2 xl:px-0" imgSrc={igImg} backImgSrc={backIgImg} webpImgSrc={igImgWebp} backWebpImgSrc={backIgImgWebp} imgAlt={`instagram: ${title}`} />
+        <Link
+          linkTo={igLink}
+          onClick={() =>
+            Firebase.instance.aLog(AnalyticsEvents.contactIgClicked, title)
+          }
+        >
+          <ReactCardFlip
+            isFlipped={flippedIndex === index}
+            flipDirection="horizontal"
+          >
+            <img
+              src={igImg}
+              alt={`instagram: ${title}`}
+              width={128}
+              height={128}
+            />
+            <img
+              src={backIgImg}
+              alt={`instagram: ${title}`}
+              width={128}
+              height={128}
+            />
+          </ReactCardFlip>
         </Link>
       </div>
     </div>

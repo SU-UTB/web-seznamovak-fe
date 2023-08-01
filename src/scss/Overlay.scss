@@ -9,7 +9,7 @@
   pointer-events: none;
 
   @media only screen and (max-width: 768px) {
-    background-image: url("../assets/img/pattern_mobile.png");
+    background-image: url('../assets/img/pattern_mobile.png');
   }
 }
 
@@ -23,7 +23,7 @@
   pointer-events: none;
 
   @media only screen and (min-width: 769px) {
-    background-image: url("../assets/img/pattern.png");
+    background-image: url('../assets/img/pattern.png');
   }
   @media only screen and (max-width: 768px) {
     display: none;
@@ -37,7 +37,7 @@
   @media only screen and (max-width: 768px) {
     position: bottom;
     height: 100vh;
-    background: url("../assets/img/banner/uvod-mob.webp") no-repeat center;
+    background: url('../assets/img/banner/uvod-mob.webp') no-repeat center;
     background-size: cover;
   }
 
@@ -54,7 +54,7 @@
     z-index: 10;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/1.webp");
+      background-image: url('../assets/img/banner/1.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -71,7 +71,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/2.webp");
+      background-image: url('../assets/img/banner/2.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -88,7 +88,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/3.webp");
+      background-image: url('../assets/img/banner/3.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -105,7 +105,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/34.webp");
+      background-image: url('../assets/img/banner/34.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -123,7 +123,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/5.webp");
+      background-image: url('../assets/img/banner/5.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -141,7 +141,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/6.webp");
+      background-image: url('../assets/img/banner/6.webp');
     }
 
     @media only screen and (max-width: 768px) {
@@ -159,7 +159,7 @@
     bottom: 0;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/7.webp");
+      background-image: url('../assets/img/banner/7.webp');
     }
     @media only screen and (max-width: 768px) {
       display: none;
@@ -171,16 +171,16 @@
     background-position: left;
     background-size: cover;
     position: absolute;
-    z-index:30;
+    z-index: 30;
     top: 0;
-    left:0;
+    left: 0;
     opacity: 0;
     cursor: url('stamp.svg'), pointer;
 
     @media only screen and (min-width: 769px) {
-      background-image: url("../assets/img/banner/7.webp");
+      background-image: url('../assets/img/banner/7.webp');
     }
-}
+  }
 
   .logo {
     position: absolute;
@@ -190,11 +190,15 @@
     left: 50%;
     margin-left: -150px;
     -webkit-animation: 0.5s ease 1s normal forwards 1 fadein;
-    opacity:0;
+    opacity: 0;
 
     @keyframes fadein {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     @media only screen and (min-width: 2100px) {
