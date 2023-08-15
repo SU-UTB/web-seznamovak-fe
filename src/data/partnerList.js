@@ -9,6 +9,8 @@ import pepsi_logo from '../assets/img/partneri/pepsi_logo.png'
 import ff_logo from '../assets/img/partneri/ff_logo.png'
 import kojetin_logo from '../assets/img/partneri/kojetin_logo.png'
 import retina_logo from '../assets/img/partneri/retina_logo.png'
+import rossman_logo from '../assets/img/partneri/rossman_logo.jpg'
+import xpark_logo from '../assets/img/partneri/xpark_logo.png'
 import su from '../assets/img/unie/su.png'
 import usuh from '../assets/img/unie/usuh.png'
 import utbLogo from '../assets/img/utb.svg'
@@ -32,7 +34,9 @@ export const unionList = [
 export const partnerList = [
   { link: 'https://www.jackdaniels.com/cs-cz/', pic: jd_logo, picAlt: 'Jack Daniels' },
   { link: 'https://www.pepsi.com/', pic: pepsi_logo, picAlt: 'Pepsi' },
+  { link: 'https://www.rossmann.cz/', pic: rossman_logo, picAlt: 'Rossman' },
   { link: 'https://www.faencyfries.cz/', pic: ff_logo, picAlt: 'Faency fries' },
   { link: 'https://pivovarkojetin.cz/cs_cz/', pic: kojetin_logo, picAlt: 'Pivovar kojetin' },
-  { link: 'https://hasicarnanovesta.hasicarnapubs.cz/', pic: retina_logo, picAlt: 'Retina' },
+  { link: 'https://hasicarnanovesta.hasicarnapubs.cz/', pic: retina_logo, picAlt: 'Novesta' },
+  { link: 'https://www.x-park.cz/', pic: xpark_logo, picAlt: 'X-park' },
 ]
