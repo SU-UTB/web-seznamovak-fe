@@ -25,7 +25,7 @@ const Contact = () => {
             igImg={suSocials.igImg}
           />
         </div>
-        <div className="divManagersOuter">
+        {/* <div className="divManagersOuter">
           <div className="divManagersTitle">
             <ManagerTitle title="MANAŽEŘI PROJEKTU" />
           </div>
@@ -43,7 +43,7 @@ const Contact = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="lg:grid lg:grid-flow-col lg:gap-x-8 2xl:gap-x-20 text-center lg:text-left mx-auto lg:w-4/5 pb-12">
         <Organiser />

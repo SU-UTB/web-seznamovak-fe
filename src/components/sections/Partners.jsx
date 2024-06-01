@@ -31,7 +31,7 @@ const Partners = () => {
             />
           </Link>
           <PartnerList items={unionList} baseSize={64} />
-          <PartnerList items={partnerList} baseSize={32} />
+          {/* <PartnerList items={partnerList} baseSize={32} /> */}
         </div>
       </div>
     </section>

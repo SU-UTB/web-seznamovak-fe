@@ -6,7 +6,7 @@ const InfoText = () => {
         FAKT!
       </p>
       <p className="mb-4">
-        <span className="font-bold">Celouniverzitní Seznamovák UTB</span> již 6.
+        <span className="font-bold">Celouniverzitní Seznamovák UTB</span> již 7.
         rokem přichází na scénu. Tuto nabombenou akci pod záštitou Univerzity
         Tomáše Bati ve Zlíně pro Tebe připravuje
         <span className="font-bold">&nbsp;Studentská unie UTB</span> - parta
