@@ -5,7 +5,7 @@ const Notification = () => {
     <div className="px-4 lg:px-0 flex flex-col items-center w-full">
       <h2 className="font-bold mb-2 text-beige text-2xl lg:text-4xl">
         REGISTRACE SE SPUSTÍ <br className="md:hidden" />
-        <span className="text-3xl lg:text-5xl text-orange"> 14. ČERVENCE</span>
+        <span className="text-3xl lg:text-5xl text-orange"> 20. ČERVENCE</span>
       </h2>
       <p className="font-bold mb-2 text-beige text-xl">v 15:00</p>
       {/* <a

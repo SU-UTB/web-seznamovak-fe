@@ -12,7 +12,7 @@ const Navbar = () => {
   const menuLinks = [
     { sectionLink: 'prihlaska', sectionName: 'PŘIHLÁŠKA' },
     { sectionLink: 'informace', sectionName: 'INFORMACE' },
-    { sectionLink: 'instruktori', sectionName: 'INSTRUKTOŘI' },
+    // { sectionLink: 'instruktori', sectionName: 'INSTRUKTOŘI' },
     // { sectionLink: 'faq', sectionName: 'FAQ' },
     { sectionLink: 'partneri', sectionName: 'PARTNEŘI' },
     { sectionLink: 'kontakt', sectionName: 'KONTAKT' },
