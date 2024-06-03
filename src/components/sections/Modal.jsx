@@ -31,10 +31,11 @@ const Modal = ({ isOpen, onClose }) => {
           <p>
             Na tomto webu prozatím najdeš aktuální info k{' '}
             <strong>Seznamováku UTB - 2024</strong>, ale brzy se spustí nový web
-            seznamováku, kde uvidíš manažery, se kterými zajiješ to nejšílenější
-            léto v životě, formulář, kterým se budeš na Seznamovák registrovat a
+            seznamováku, kde uvidíš manažery, se kterými zažiješ to nejšílenější
+            léto v životě! Formulář, kterým se budeš na Seznamovák registrovat a
             naše partnery, kteří nám k tomu všemu pomohli.
           </p>
+          <p></p>
         </div>
       </div>
     </div>
