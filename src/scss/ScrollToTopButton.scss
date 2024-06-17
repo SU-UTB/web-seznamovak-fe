@@ -1,0 +1,48 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    .scroll-button {
+        height: 8vh;
+        width: 8vh;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s, transform 0.3s;
+        display: flex; /* Use flexbox to center content */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        i {
+            font-size: 24px; /* Ensure the icon is the correct size */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .scroll-button {
+            height: 5vh;
+            width: 5vh;
+
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+}

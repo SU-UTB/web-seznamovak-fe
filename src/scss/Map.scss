@@ -1,0 +1,32 @@
+#map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Adjust height as needed */
+  padding: 3%; /* Remove padding for space around the map */
+  margin: 0; /* Remove margin to ensure no extra space */
+
+  .map-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Full width */
+    height: 80vh; /* Full height */
+    max-width: calc(80vh * (16 / 9)); /* Maintain 16:9 aspect ratio based on viewport height */
+    border-radius: 25px;
+    box-shadow: 15px 15px 15px -3px rgba(34, 43, 69, 0.3);
+
+    .map-iframe {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  #map {
+    padding: 10% 5% 10% 5%;
+  }
+}

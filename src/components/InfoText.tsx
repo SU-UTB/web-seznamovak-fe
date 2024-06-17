@@ -15,7 +15,7 @@ const InfoText = () => {
       </p>
       <p className="mb-4">
         Je libo kamarády na celý život? Zážitky, kterými se můžeš chlubit
-        kámošům u piva? Či letní lásku nečekanou? U nás můžeš dělat co chceš,
+        kámošům u piva? Či letní nečekanou lásku? U nás můžeš dělat co chceš,
         jít spát kdy chceš a hlavně...
         <span className="font-bold">&nbsp;Být sám sebou!</span>
       </p>
@@ -25,8 +25,8 @@ const InfoText = () => {
         se ti bude těžce odjíždět.
       </p>
       <p className="mb-4">
-        Jdeš do toho že jo? Tak pošli přihlášku a dojeď za námi na Bystřičku. My
-        se Tě už nemůžeme dočkat.
+        Jdeš do toho, že jo? Tak pošli přihlášku a dojeď za námi na Bystřičku. My
+        se Tě už nemůžeme dočkat!
       </p>
       <p className="font-bold">Začíná to UTeBe, začíná to na Seznamováku!</p>
     </div>

@@ -15,7 +15,7 @@ const Accordion: React.FC<AccordionProps> = ({
   setShowed,
 }) => {
   return (
-    <li className="bg-[#181F31] mb-4 px-4 md:px-8 py-4 flex flex-col justify-center">
+    <li className="bg-[#333F30] mb-4 px-4 md:px-8 py-4 flex flex-col justify-center">
       <button
         type="button"
         className="font-bold uppercase text-lg text-left sm:text-xl md:text-2xl w-full flex justify-between items-center transition"

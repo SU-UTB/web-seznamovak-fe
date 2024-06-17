@@ -61,12 +61,14 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
               alt={`facebook: ${title}`}
               width={128}
               height={128}
+              style={{borderRadius: "15px"}}
             />
             <img
               src={backFbImg}
               alt={`facebook: ${title}`}
               width={128}
               height={128}
+              style={{borderRadius: "15px"}}
             />
           </ReactCardFlip>
         </Link>
@@ -86,12 +88,14 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
               alt={`instagram: ${title}`}
               width={128}
               height={128}
+              style={{borderRadius: "15px"}}
             />
             <img
               src={backIgImg}
               alt={`instagram: ${title}`}
               width={128}
               height={128}
+              style={{borderRadius: "15px"}}
             />
           </ReactCardFlip>
         </Link>

@@ -11,7 +11,7 @@ const Faq = () => {
   return (
     <section id="faq">
       <div className="container mx-auto px-4 md:px-8">
-        <SectionTitle title="FAQ" color="" />
+        <SectionTitle title="FAQ" color="#627A3F" />
         <ul className="text-beige text-left lg:w-4/5 mx-auto pb-20">
           {faqs.map((faq) => (
             <Accordion

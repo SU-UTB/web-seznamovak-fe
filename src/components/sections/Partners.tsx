@@ -14,7 +14,7 @@ const Partners = () => {
   return (
     <section id="partneri">
       <div className="relative z-30 bg-white">
-        <SectionTitle title="Partneři" color="" />
+        <SectionTitle title="Partneři" color="#222B45" />
         <FacultyList items={facultyList} />
         <div className="w-full px-6 lg:px-0 py-16 flex flex-col items-center gap-y-16">
           <Link

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import ReactCardFlip from 'react-card-flip'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -11,18 +10,23 @@ import 'swiper/css'
 import '../../scss/Instructors.scss'
 
 const Instructors = () => {
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleCardFlip = (index: number) => {
-    setFlippedIndex(flippedIndex === index ? null : index)
-  }
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
 
   return (
     <section id="instruktori">
-      <div className="mx-auto text-left lg:w-3/5">
+      <div className="mx-auto text-left lg:w-3/5 px-4">
         <SectionTitle
-          title="A tito frajeři tě budou celým seznamovákem provázet."
-          color="#FDECBE"
+          title="S těmito frajery zažiješ nejednu soutěž o imunitu a nejednu kmenovou radu"
+          color="#FBFFE6"
+          fontSize='25px'
         />
       </div>
       <div className="pb-16 mx-4">
@@ -49,26 +53,28 @@ const Instructors = () => {
           {instructors.map((instructor, index) => (
             <SwiperSlide key={instructor.pic}>
               <div
-                className="flex flex-col instructor-card gap-y-4"
-                onMouseEnter={() => handleCardFlip(index)}
-                onMouseLeave={() => handleCardFlip(index)}
+                className="flex flex-col instructor-card gap-y-4 relative"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
               >
-                <ReactCardFlip
-                  isFlipped={flippedIndex === index}
-                  flipDirection="horizontal"
-                >
-                  <img
-                    className="instruktorsFront"
-                    src={instructor.pic}
-                    alt={instructor.name}
-                  />
-                  {/* TODO: change the second image src, use the same width and height proportions */}
-                  <img
-                    className="instruktorsFront"
-                    src={instructor.backPic}
-                    alt={instructor.name}
-                  />
-                </ReactCardFlip>
+                <img
+                  className="instruktorsFront"
+                  src={instructor.pic}
+                  alt={instructor.name}
+                  loading="lazy"
+                  style={{ borderRadius: '15px',
+                          boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+                />
+                <img
+                  className={`absolute top-0 left-0 instruktorsBack transition-opacity duration-500 ${
+                    hoveredIndex === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  src={instructor.backPic}
+                  alt={instructor.name}
+                  loading='lazy'
+                  style={{ borderRadius: '15px',
+                    boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+                />
                 <h5 className="text-xl font-bold md:text-3xl xl:text-4xl text-beige">
                   {instructor.name}
                 </h5>

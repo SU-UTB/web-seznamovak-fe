@@ -29,6 +29,7 @@ const TurnusItem: React.FC<TurnusItemProps> = ({
   if (!currentPlaces) return
 
   const available = currentPlaces > 0 && !outOfStock
+  //const available = false
 
   return (
     <div className="mx-4 mb-32 turnus lg:mb-12 xl:mb-0">
@@ -38,15 +39,18 @@ const TurnusItem: React.FC<TurnusItemProps> = ({
           <Oval color="#FDECBE" secondaryColor="lightblue" />
         </div>
       )}
-      {error && <p className="text-2xl text-beige">Neco se pokazilo...</p>}
+      {error && <p className="text-2xl text-beige">Něco se pokazilo...</p>}
       <div>
         <p className="mb-8 text-3xl font-medium" style={{ color: `${color}` }}>
           {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
         </p>
         <Link
           to={regLink}
-          className="block px-6 py-3 text-2xl font-bold text-beige"
-          style={{ backgroundColor: `${color}` }}
+          className="block px-6 py-3 text-2xl font-bold"
+          style={{ backgroundColor: `${color}`,
+                    color: '#222B45',
+                    borderRadius: '10px',
+                    boxShadow: '0px 0px 30px -3px rgba(209, 186, 121, 0.6)' }}
         >
           {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
         </Link>
