@@ -2,19 +2,19 @@ export const faqs = [
   {
     question: 'Co Je seznamovák?',
     answer:
-      'Jedinečná akce, která propojuje studenty všech fakult Univerzity Tomáše Bati ve Zlíně! Potkáš tam nové kámoše, spolužáky a získáš potřebné informace a užitečné rady od starších mazáků. A hlavně zažiješ spousta (ne)zapomenutelných zážitků. Po Seznamováku už nebude Zlín “velkou neznámou”, ale stane se pro tebe domovem. Jdeš do toho s námi? Podej si přihlášku. Začíná to UTeBe na Seznamováku!',
+      'Jedinečná akce, která propojuje studenty všech fakult Univerzity Tomáše Bati ve Zlíně! Potkáš tam nové kámoše, spolužáky a získáš potřebné informace a užitečné rady od starších mazáků. A hlavně zažiješ spoustu (ne)zapomenutelných zážitků. Po Seznamováku už nebude Zlín ,,velkou neznámou”, ale stane se pro Tebe domovem. Jdeš do toho s námi? Podej si přihlášku. Začíná to UTeBe na Seznamováku!',
     showed: false,
   },
   {
     question: 'JAKÁ JE CENA A CO JE V NÍ ZAHRNUTO?',
     answer:
-      'Celková cena za turnus je 3 399 kč. Nevratnou zálohu 2 399 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.',
+      'Celková cena za turnus je 3 399 Kč. Nevratnou zálohu 2 399 Kč pošleš při přihlášení a zbylých 1 000 Kč zaplatíš hotově až na místě. Platba bude akceptována pouze v českých korunách, takže Eura nech doma. Cena zahrnuje ubytování v chatkách, kompletní stravu 5x denně a nadupaný program po celý pobyt.',
     showed: false,
   },
   {
     question: 'JAK SE TAM DOSTANU?',
     answer:
-      'Na našem webu najdeš jak jízdní řád, tak mapu. Ze zastávky Bystřička; u Nováků se vydáš směrem jízdy, za hlukem. Není se kde ztratit! Přidej se do události na Facebooku pro první nebo druhý turnus, kde najdeš info a brzy i parťáky, se kterými se můžeš domluvit na spolujízdu autem. Jestli budeš řídit ty nebo se budeš chtít jen svést, to už je na tobě, nezapomeň ale, že ten, kdo nedojel na seznamovák v kufru, jakoby nežil…',
+      'Na našem webu najdeš jak jízdní řád, tak mapu. Ze zastávky Bystřička, u Nováků se vydáš směrem jízdy, za hlukem. Není se kde ztratit! Přidej se do události na Facebooku pro první nebo druhý turnus, kde najdeš info a brzy i parťáky, se kterými se můžeš domluvit na spolujízdu autem. Jestli budeš řídit Ty nebo se budeš chtít jen svézt, to už je na tobě, nezapomeň ale, že ten, kdo nedojel na seznamovák v kufru, jakoby nežil…',
     showed: false,
   },
   {

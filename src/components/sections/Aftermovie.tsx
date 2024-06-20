@@ -2,26 +2,27 @@ import '../../scss/Aftermovie.scss'
 
 const Aftermovie = () => {
   const ytSources = [
-    'https://www.youtube.com/embed/kR-IGHd-260',
-    'https://www.youtube.com/embed/3USX4ZVBYuw',
-    'https://www.youtube.com/embed/I_tYUzDFuTw',
+    'https://www.youtube.com/embed/kR-IGHd-260'
   ]
 
   return (
     <section id="aftermovie">
       {ytSources.map((ytSrc) => (
-        <iframe
-          className="w-full relative z-30"
-          key={ytSrc}
-          src={ytSrc}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          title="teaser"
-          loading="lazy"
-        ></iframe>
+        <div className="video-wrapper" key={ytSrc}>
+          <div className="video-container">
+            <iframe
+              className="video-iframe z-30"
+              src={ytSrc}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              title="teaser"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
       ))}
     </section>
-  )
+  );
 }
 
 export default Aftermovie

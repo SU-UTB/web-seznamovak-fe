@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     { sectionLink: 'informace', sectionName: 'INFORMACE' },
     { sectionLink: 'instruktori', sectionName: 'INSTRUKTOŘI' },
     { sectionLink: 'faq', sectionName: 'FAQ' },
-    { sectionLink: 'partneri', sectionName: 'PARTNEŘI' },
+    // { sectionLink: 'partneri', sectionName: 'PARTNEŘI' },
     { sectionLink: 'kontakt', sectionName: 'KONTAKT' },
   ]
 
@@ -29,10 +29,14 @@ const Navbar: React.FC = () => {
       socialIconImg: fbIcon,
       socialPlatform: 'facebook',
     },
-  ]
+  ];
+
+  const closeMenu = () => {
+    setIsNavOpened(false);
+  };
 
   return (
-    <header className="sticky h-16 top-0 w-full bg-dark_blu z-50">
+    <header className="sticky h-16 top-0 w-full bg-blue z-50">
       <nav className="flex flex-col items-center relative">
         <HamburgerBtn
           onClick={() => setIsNavOpened(!isNavOpened)}
@@ -40,7 +44,7 @@ const Navbar: React.FC = () => {
         />
         <ul
           className={
-            'bg-dark_blu flex flex-col lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
+            'bg-blue flex flex-col lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
             (isNavOpened
               ? 'translate-x-0'
               : 'lg:translate-x-0 -translate-x-full')
@@ -48,7 +52,10 @@ const Navbar: React.FC = () => {
         >
           {menuLinks.map(({ sectionLink, sectionName }) => (
             <li className="my-4" key={sectionLink}>
-              <MenuLink sectionLink={sectionLink} sectionName={sectionName} />
+              <MenuLink 
+                sectionLink={sectionLink}
+                sectionName={sectionName}
+                onClick={closeMenu} />
             </li>
           ))}
           <div className="lg:hidden flex flex-wrap my-12">

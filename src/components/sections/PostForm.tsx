@@ -133,7 +133,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
               <div className="inputBox">
                 <label>Přijmení *</label>
                 <input
-                  {...register('surname', { required: 'Nutno zadat přijmení' })}
+                  {...register('surname', { required: 'Nutno zadat příjmení' })}
                 />
                 {errors.surname && (
                   <label className="inputErrorMissing">
@@ -148,7 +148,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 <label>E-mail *</label>
                 <input
                   {...register('email', {
-                    required: 'Nutno zadat E-mail',
+                    required: 'Nutno zadat e-mail',
                     pattern: {
                       value:
                         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -205,7 +205,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Jak si přeješ abychom Tě oslovovali?</label>
+                <label>Jak si přeješ, abychom Tě oslovovali?</label>
                 <input {...register('nickname')} />
               </div>
             </div>
@@ -213,7 +213,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
             <div className="inputBox">
               <label>
                 Máš nějaké potravinové (či jiné) omezení? (Alergie, vegan,
-                vegetarián, ...) Cokoliv co bychom potřebovali vědět?
+                vegetarián...) Cokoliv, co bychom potřebovali vědět?
               </label>
               <input {...register('disability')} />
             </div>
@@ -280,7 +280,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Adresa (Ulice, číslo popisné) *</label>
+                <label>Adresa (ulice, číslo popisné) *</label>
                 <input
                   {...register('billing_information.street', {
                     required: 'Nutno zadat adresu',
@@ -354,7 +354,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                     />
                     <div>
                       <label className="text-sm">
-                        Souhlas se zpracovávním výše uvedených osobních údajů,
+                        Souhlas se zpracovávním výše uvedených osobních údajů
                         za účelem účasti na Seznamováku UTB. *
                       </label>
                       {errors.gdpr_consent && (
@@ -378,7 +378,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                       {...register('newsletter_consent')}
                     />
                     <label className="text-sm">
-                      Souhlas se zasíláním informačních emailů, týkajících se
+                      Souhlas se zasíláním informačních emailů týkajících se
                       akcí pořádaných studentskou unií.
                     </label>
                   </div>

@@ -30,7 +30,7 @@ export const facultyList = [
 
 export const unionList = [
   { link: 'https://su.utb.cz/', pic: su, picAlt: 'su' },
-  { link: 'http://www.usuh.cz/', pic: usuh, picAlt: 'usuh' },
+  { link: 'https://www.instagram.com/uniestudentuuh/', pic: usuh, picAlt: 'usuh' },
 ]
 
 export const partnerList = [

@@ -21,14 +21,15 @@ const SuSocials: React.FC<SuSocialsProps> = ({
 }) => {
   return (
     <div className="socials text-center lg:text-left relative z-30">
-      <ContactTitle title={title} color="" />
-      <p className="mb-4">{desc}</p>
+      <ContactTitle title={title} color="#222B45" />
+      <p className="mb-4 text-blue">{desc}</p>
       <div className="img-links flex justify-center gap-x-6 lg:gap-x-0 lg:justify-between lg:max-w-xs mb-12">
         <Link linkTo={fbLink} linkName="">
           <img
             className="w-32 h-auto lg:px-2 xl:px-0 soc"
             src={fbImg}
             alt={`facebook: ${title}`}
+            style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
           />
         </Link>
         <Link linkTo={igLink} linkName="">
@@ -36,6 +37,7 @@ const SuSocials: React.FC<SuSocialsProps> = ({
             className="w-32 h-auto lg:px-2 xl:px-0 soc"
             src={igImg}
             alt={`instagram: ${title}`}
+            style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
           />
         </Link>
       </div>
