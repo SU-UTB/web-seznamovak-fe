@@ -141,10 +141,10 @@ const instructors = [
     backPic: s_erik,
   },
   {
-    name: 'Zuz',
+    name: 'Sara',
     desc: '',
-    pic: n_zuzka,
-    backPic: s_zuzka,
+    pic: n_sara,
+    backPic: s_sara,
   },
   {
     name: 'Barča',
@@ -171,10 +171,10 @@ const instructors = [
     backPic: s_maty,
   },
   {
-    name: 'Sara',
+    name: 'Zuz',
     desc: '',
-    pic: n_sara,
-    backPic: s_sara,
+    pic: n_zuzka,
+    backPic: s_zuzka,
   },
   {
     name: 'Fuky',
