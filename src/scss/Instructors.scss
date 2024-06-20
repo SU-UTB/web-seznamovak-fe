@@ -25,10 +25,37 @@
   .swiper-button-prev,
   .swiper-button-next {
     color: #fdecbe;
-    height: 20px;
+    width: 30px; /* Set width for the button */
+    height: 30px; /* Set height for the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(34, 43, 69, 0.6); /* Set background color */
+    border-radius: 50%; /* Make the button round */
+    padding: 25px; /* Add padding to the button */
+
     &:after {
       font-size: 20px;
       font-weight: 600;
     }
   }
+
+  .instruktori-card {
+    position: relative;
+    overflow: hidden;
+  
+    .instruktorsFront,
+    .instruktorsBack {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+  
+    .instruktorsBack {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+  
 }
+

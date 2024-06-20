@@ -1,6 +1,63 @@
 #aftermovie {
-  iframe {
-    height: 60vh;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 5%; // Add padding for space around the video
+  background: url('../assets/img/aftermovie.webp');
+  background-size: 100vw;
+  
+  .video-wrapper {
+    position: relative;
+    width: 100%; // Full width with some padding
+    height: 80vh; // Full height minus the padding
+    max-width: calc(80vh * (16 / 9)); // Maintain 16:9 aspect ratio
+    margin: auto; // Center the video
+  
+    .video-container {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      box-shadow: 15px 15px 15px -3px rgba(34,43,69,0.3);
+      border-radius: 25px; // Adjust the radius as needed for rounded corners
+    
+      .video-iframe {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    }
+  }
+}
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  #aftermovie {
+    height: auto;
+    // margin: 3% 2% 3% 2%;
+    padding: 4%;
+    background: none;
+    background-color: #C2D379;
+    overflow: visible;
+
+    .video-wrapper {
+      height: auto; // vwLet height adjust based on width
+      max-height: calc(80vw * (9 / 16)); // 16:9 aspect ratio based on width
+      padding-top: 56.25%; // 16:9 aspect ratio (height = width * 9 / 16)
+      max-width: 100vw; // Ensure it doesn't exceed viewport width
+      overflow: visible;
+      z-index: 30;
+      border-radius: 25px;
+      box-shadow: 15px 15px 15px -3px rgba(34,43,69,0.3);
+  
+      .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 }
