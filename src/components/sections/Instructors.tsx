@@ -75,7 +75,7 @@ const Instructors = () => {
                   style={{ borderRadius: '15px',
                     boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
                 />
-                <h5 className="text-xl font-bold md:text-3xl xl:text-4xl text-beige">
+                <h5 className="text-4xl font-bold md:text-3xl xl:text-4xl text-beige">
                   {instructor.name}
                 </h5>
               </div>

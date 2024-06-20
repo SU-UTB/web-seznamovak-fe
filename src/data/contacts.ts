@@ -38,7 +38,7 @@ export const managersSocials = [
     backIgImg: surv_sarka_ig,
   },
   {
-    name: 'peťa',
+    name: 'péťa',
     fbLink: 'https://www.facebook.com/profile.php?id=100090846374725',
     fbImg: norm_peta_fb,
     backFbImg: surv_peta_fb,

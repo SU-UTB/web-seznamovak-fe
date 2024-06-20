@@ -4,6 +4,8 @@
   align-items: center;
   height: 100vh;
   padding: 5%; // Add padding for space around the video
+  background: url('../assets/img/aftermovie.webp');
+  background-size: 100vw;
   
   .video-wrapper {
     position: relative;
@@ -35,15 +37,18 @@
 @media (max-width: 768px) {
   #aftermovie {
     height: auto;
-    margin: 3% 2% 3% 2%;
-    padding: 1%;
+    // margin: 3% 2% 3% 2%;
+    padding: 4%;
+    background: none;
+    background-color: #C2D379;
+    overflow: visible;
 
     .video-wrapper {
       height: auto; // vwLet height adjust based on width
       max-height: calc(80vw * (9 / 16)); // 16:9 aspect ratio based on width
       padding-top: 56.25%; // 16:9 aspect ratio (height = width * 9 / 16)
       max-width: 100vw; // Ensure it doesn't exceed viewport width
-      overflow: hidden;
+      overflow: visible;
       z-index: 30;
       border-radius: 25px;
       box-shadow: 15px 15px 15px -3px rgba(34,43,69,0.3);

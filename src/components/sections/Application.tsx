@@ -12,11 +12,11 @@ const Application = () => {
   const shouldStartRegistration = Date.now() >= startDate
   //const shouldStartRegistration = true
 
-  const { /*data,*/ isLoading, error } = useFetchReservations()
+  const { data, isLoading, error } = useFetchReservations()
 
   return (
     <section id="prihlaska">
-      <div className="flex flex-wrap justify-around w-full pt-32 mx-auto lg:w-4/5 lg:pb-16">
+      <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5 lg:pb-16">
         {!shouldStartRegistration && (
           <div className="w-full notify-headline">
             <Notification />
@@ -40,8 +40,8 @@ const Application = () => {
               outOfStock={false}
               title="1. Turnus"
               date="19. 8. - 22. 8. 2024"
-              //currentPlaces={data?.firstBatchCapacity}
-              currentPlaces={1}
+              currentPlaces={data?.firstBatchCapacity}
+              //currentPlaces={1}
               totalPlaces={96}
               color="#C2D379"
               isLoading={isLoading}

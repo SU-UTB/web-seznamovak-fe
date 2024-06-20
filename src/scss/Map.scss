@@ -5,6 +5,8 @@
   height: auto; /* Adjust height as needed */
   padding: 3%; /* Remove padding for space around the map */
   margin: 0; /* Remove margin to ensure no extra space */
+  background-color: #D1BA7988;
+  z-index: -1000;
 
   .map-container {
     overflow: hidden;

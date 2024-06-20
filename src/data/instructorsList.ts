@@ -85,6 +85,12 @@ import s_vivi from '../assets/img/instruktori/surv_vivi.webp'
 import n_zuzka from '../assets/img/instruktori/norm_zuzka.webp'
 import s_zuzka from '../assets/img/instruktori/surv_zuzka.webp'
 
+import n_misa from '../assets/img/instruktori/norm_misa.webp'
+import s_misa from '../assets/img/instruktori/surv_misa.webp'
+
+import n_karel from '../assets/img/instruktori/norm_karel.webp'
+import s_karel from '../assets/img/instruktori/surv_karel.webp'
+
 const instructors = [
   {
     name: 'Sárka',
@@ -93,7 +99,7 @@ const instructors = [
     backPic: s_sarka,
   },
   {
-    name: 'Peťa',
+    name: 'Péťa',
     desc: '',
     pic: n_peta,
     backPic: s_peta,
@@ -123,6 +129,12 @@ const instructors = [
     backPic: s_bury,
   },
   {
+    name: 'Tínka',
+    desc: '',
+    pic: n_tinka,
+    backPic: s_tinka,
+  },
+  {
     name: 'Erula',
     desc: '',
     pic: n_erik,
@@ -147,6 +159,12 @@ const instructors = [
     backPic: s_jirka,
   },
   {
+    name: 'Míša',
+    desc: '',
+    pic: n_misa,
+    backPic: s_misa,
+  },
+  {
     name: 'Maty',
     desc: '',
     pic: n_maty,
@@ -165,7 +183,7 @@ const instructors = [
     backPic: s_luky,
   },
   {
-    name: 'Vivi',
+    name: 'Pivi',
     desc: '',
     pic: n_vivi,
     backPic: s_vivi,
@@ -195,12 +213,6 @@ const instructors = [
     backPic: s_paja,
   },
   {
-    name: 'Tínka',
-    desc: '',
-    pic: n_tinka,
-    backPic: s_tinka,
-  },
-  {
     name: 'Verča',
     desc: '',
     pic: n_verca,
@@ -211,6 +223,12 @@ const instructors = [
     desc: '',
     pic: n_vanes,
     backPic: s_vanes,
+  },
+  {
+    name: 'Karel',
+    desc: '',
+    pic: n_karel,
+    backPic: s_karel,
   },
   {
     name: 'Maya',
@@ -225,7 +243,7 @@ const instructors = [
     backPic: s_terka,
   },
   {
-    name: 'Tea',
+    name: 'Tejka',
     desc: '',
     pic: n_tea,
     backPic: s_tea,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css'; //npm install @fortawesome/fontawesome-free
+import arrowUpIcon from '../../assets/img/up-arrow.png';
 
 import '../../scss/ScrollToTopButton.scss';
 
@@ -60,7 +60,7 @@ const ScrollToTopButton: React.FC = () => {
     return (
         <div className={`scroll-to-top ${isVisible ? 'visible' : ''}`}>
             <button onClick={scrollToTop} className="scroll-button">
-                <i className="fas fa-arrow-up"></i>
+                <img src={arrowUpIcon} alt="Scroll to top" />
             </button>
         </div>
     );

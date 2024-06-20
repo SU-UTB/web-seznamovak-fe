@@ -1,5 +1,5 @@
 import React from 'react'
-import imageLogo from '../../assets/img/banner/su_logo.webp'
+import imageLogo from '../../assets/img/logo.png'
 
 interface HeaderProps {
   label: string
