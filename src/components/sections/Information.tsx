@@ -22,7 +22,7 @@ const Information = () => {
     >
       <div className="info-container lg:mx-auto 3xl:w-3/5">
         <div className="info-table w-full lg:flex lg:flex-col lg:items-end md:px-16 lg:px-32 2xl:px-52 3xl:px-16 py-12">
-          <div className="info-price mb-8 lg:w-1/2 xl:w-2/5 3xl:w-full 3xl:max-w-md">
+          <div className="info-price mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-dark_beige lg:text-dark_beige text-2xl uppercase font-extrabold">
               Kolik to stojí?
             </h4>
@@ -31,10 +31,10 @@ const Information = () => {
             </p>
             <p className="text-beige lg:text-beige">
               Zálohu {depositCZK.toString()} Kč / 105 € pošleš při přihlášení a
-              zbylých 1 000 Kč zaplatíš až na místě.
+              zbylých<br/>1 000 Kč zaplatíš až na místě.
             </p>
           </div>
-          <div className="info-place mb-8 lg:w-1/2 xl:w-2/5 3xl:w-full 3xl:max-w-md">
+          <div className="info-place mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-dark_beige lg:text-dark_beige text-2xl uppercase font-extrabold">
               KDE BUDU?
             </h4>
@@ -47,7 +47,7 @@ const Information = () => {
               ))}
             </div>
           </div>
-          <div className="info-prepare-or-die lg:w-1/2 xl:w-2/5 3xl:w-full 3xl:max-w-md">
+          <div className="info-prepare-or-die lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-dark_beige lg:text-dark_beige text-2xl uppercase font-extrabold">
               JAK SE MÁM PŘIPRAVIT?
             </h4>

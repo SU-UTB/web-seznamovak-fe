@@ -26,7 +26,7 @@ const SuSocials: React.FC<SuSocialsProps> = ({
       <div className="img-links flex justify-center gap-x-6 lg:gap-x-0 lg:justify-between lg:max-w-xs mb-12">
         <Link linkTo={fbLink} linkName="">
           <img
-            className="w-32 h-auto lg:px-2 xl:px-0 soc"
+            className="w-32 h-auto lg:px-0 xl:px-0 soc"
             src={fbImg}
             alt={`facebook: ${title}`}
             style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
@@ -34,7 +34,7 @@ const SuSocials: React.FC<SuSocialsProps> = ({
         </Link>
         <Link linkTo={igLink} linkName="">
           <img
-            className="w-32 h-auto lg:px-2 xl:px-0 soc"
+            className="w-32 h-auto lg:px-0 xl:px-0 soc"
             src={igImg}
             alt={`instagram: ${title}`}
             style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
