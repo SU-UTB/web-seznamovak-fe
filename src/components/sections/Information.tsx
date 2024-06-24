@@ -31,7 +31,7 @@ const Information = () => {
             </p>
             <p className="text-beige lg:text-beige">
               Zálohu {depositCZK.toString()} Kč / 105 € pošleš při přihlášení a
-              zbylých<br/>1 000 Kč zaplatíš až na místě.
+              zbylých<br/>1000 Kč zaplatíš až na místě.
             </p>
           </div>
           <div className="info-place mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
