@@ -40,7 +40,7 @@ const Application = () => {
               outOfStock={false}
               title="1. Turnus"
               date="19. 8. - 22. 8. 2024"
-              currentPlaces={data?.firstBatchCapacity}
+              currentPlaces={data?.firstBatchCapacity}  //  OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
               //currentPlaces={1}
               totalPlaces={96}
               color="#C2D379"
@@ -52,8 +52,8 @@ const Application = () => {
               outOfStock={false}
               title="2. Turnus"
               date="26. 8. - 29. 8. 2024"
-              //currentPlaces={data?.secondBatchCapacity}
-              currentPlaces={1} // TESTOVACÍ KÓD - ZMĚNIT ↑
+              currentPlaces={data?.secondBatchCapacity} //  OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
+              //currentPlaces={1} // TESTOVACÍ KÓD - ZMĚNIT ↑
               totalPlaces={96}
               color="#C2D379"
               isLoading={isLoading}
