@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { useState } from 'react';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import instructors from '../../data/instructorsList'
-import SectionTitle from '../atoms/SectionTitle'
+import instructors from '../../data/instructorsList';
+import SectionTitle from '../atoms/SectionTitle';
 
-import 'swiper/css/navigation'
-import 'swiper/css'
-import '../../scss/Instructors.scss'
+import 'swiper/css/navigation';
+import 'swiper/css';
+import '../../scss/Instructors.scss';
 
 const Instructors = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -18,6 +18,10 @@ const Instructors = () => {
 
   const handleMouseLeave = () => {
     setHoveredIndex(null);
+  };
+
+  const handleClick = (index: number) => {
+    setHoveredIndex(hoveredIndex === index ? null : index);
   };
 
   return (
@@ -56,14 +60,17 @@ const Instructors = () => {
                 className="flex flex-col instructor-card gap-y-4 relative"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => handleClick(index)}
               >
                 <img
                   className="instruktorsFront"
                   src={instructor.pic}
                   alt={instructor.name}
                   loading="lazy"
-                  style={{ borderRadius: '15px',
-                          boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+                  style={{
+                    borderRadius: '15px',
+                    boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)',
+                  }}
                 />
                 <img
                   className={`absolute top-0 left-0 instruktorsBack transition-opacity duration-500 ${
@@ -71,9 +78,11 @@ const Instructors = () => {
                   }`}
                   src={instructor.backPic}
                   alt={instructor.name}
-                  loading='lazy'
-                  style={{ borderRadius: '15px',
-                    boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+                  loading="lazy"
+                  style={{
+                    borderRadius: '15px',
+                    boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)',
+                  }}
                 />
                 <h5 className="text-4xl font-bold md:text-3xl xl:text-4xl text-beige">
                   {instructor.name}
@@ -85,7 +94,7 @@ const Instructors = () => {
         </Swiper>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Instructors
+export default Instructors;
