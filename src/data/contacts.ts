@@ -3,17 +3,8 @@ import igSU from '../assets/img/contact/igSU.webp'
 import fbSUWebp from '../assets/img/contact/fbSU.webp'
 import igSUWebp from '../assets/img/contact/igSU.webp'
 
-import norm_sarka_fb from '../assets/img/contact/norm_sarka_fb.webp'
-import norm_sarka_ig from '../assets/img/contact/norm_sarka_ig.webp'
-
-import surv_sarka_fb from '../assets/img/contact/surv_sarka_fb.webp'
-import surv_sarka_ig from '../assets/img/contact/surv_sarka_ig.webp'
-
-import norm_peta_fb from '../assets/img/contact/norm_peta_fb.webp'
-import norm_peta_ig from '../assets/img/contact/norm_peta_ig.webp'
-
-import surv_peta_fb from '../assets/img/contact/surv_peta_fb.webp'
-import surv_peta_ig from '../assets/img/contact/surv_peta_ig.webp'
+import sarka_gif from '../assets/img/contact/sarka_loop.gif'
+import peta_gif from '../assets/img/contact/peta_loop.gif'
 
 export const suSocials = {
   name: 'STUDENTSKÁ UNIE',
@@ -31,19 +22,15 @@ export const managersSocials = [
   {
     name: 'sárka',
     fbLink: 'https://www.facebook.com/sara.forejtova.9/',
-    fbImg: norm_sarka_fb,
-    backFbImg: surv_sarka_fb,
+    fbImg: sarka_gif,
     igLink: 'https://www.instagram.com/sara_forejt/',
-    igImg: norm_sarka_ig,
-    backIgImg: surv_sarka_ig,
+    igImg: sarka_gif,
   },
   {
     name: 'péťa',
     fbLink: 'https://www.facebook.com/profile.php?id=100090846374725',
-    fbImg: norm_peta_fb,
-    backFbImg: surv_peta_fb,
+    fbImg: peta_gif,
     igLink: 'https://www.instagram.com/petasedlo/',
-    igImg: norm_peta_ig,
-    backIgImg: surv_peta_ig,
+    igImg: peta_gif,
   },
 ]

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import ContactTitle from '../atoms/ContactTitle'
 import Link from '../atoms/Link'
-import ReactCardFlip from 'react-card-flip'
 import { AnalyticsEvents, Firebase } from '../../utils/firebase'
 
 interface ContactSocialsProps {
@@ -9,10 +8,8 @@ interface ContactSocialsProps {
   desc: string
   fbLink: string
   fbImg: string
-  backFbImg: string
   igLink: string
   igImg: string
-  backIgImg: string
   index: number
 }
 
@@ -21,10 +18,8 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
   desc,
   fbLink,
   fbImg,
-  backFbImg,
   igLink,
   igImg,
-  backIgImg,
   index,
 }) => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
@@ -52,25 +47,13 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             Firebase.instance.aLog(AnalyticsEvents.contactFbClicked, title)
           }
         >
-          <ReactCardFlip
-            isFlipped={flippedIndex === index}
-            flipDirection="horizontal"
-          >
-            <img
+          <img
               src={fbImg}
               alt={`facebook: ${title}`}
               width={128}
               height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              style={{borderRadius: "15px", boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)'}}
             />
-            <img
-              src={backFbImg}
-              alt={`facebook: ${title}`}
-              width={128}
-              height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
-            />
-          </ReactCardFlip>
         </Link>
         <Link
           linkName=""
@@ -79,25 +62,13 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             Firebase.instance.aLog(AnalyticsEvents.contactIgClicked, title)
           }
         >
-          <ReactCardFlip
-            isFlipped={flippedIndex === index}
-            flipDirection="horizontal"
-          >
-            <img
+          <img
               src={igImg}
               alt={`instagram: ${title}`}
               width={128}
               height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              style={{borderRadius: "15px", boxShadow: '0px 0px 15px 7px rgba(219,0,183,0.7)'}}
             />
-            <img
-              src={backIgImg}
-              alt={`instagram: ${title}`}
-              width={128}
-              height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
-            />
-          </ReactCardFlip>
         </Link>
       </div>
     </div>
