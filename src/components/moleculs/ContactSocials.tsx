@@ -8,8 +8,10 @@ interface ContactSocialsProps {
   desc: string;
   fbLink: string;
   fbImg: string;
+  fbOverlay: string;
   igLink: string;
   igImg: string;
+  igOverlay: string;
   index: number;
 }
 
@@ -18,12 +20,11 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
   desc,
   fbLink,
   fbImg,
+  fbOverlay,
   igLink,
   igImg,
+  igOverlay,
 }) => {
-  // Define the paths to your overlay images
-  const fbOverlayImg = 'src/assets/img/contact/overlay_facebook.png'; // Adjust this path
-  const igOverlayImg = 'src/assets/img/contact/overlay_instagram.png'; // Adjust this path
 
   return (
     <div className="relative z-30 socials lg:mt-auto">
@@ -48,7 +49,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
               style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)' }}
             />
             <img
-              src={fbOverlayImg}
+              src={fbOverlay}
               style={styles.overlayImage}
             />
           </div>
@@ -69,7 +70,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
               style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(220,0,170,0.7)' }}
             />
             <img
-              src={igOverlayImg}
+              src={igOverlay}
               style={styles.overlayImage}
             />
           </div>

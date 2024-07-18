@@ -6,6 +6,9 @@ import igSUWebp from '../assets/img/contact/igSU.webp'
 import sarka_gif from '../assets/img/contact/sarka_loop.gif'
 import peta_gif from '../assets/img/contact/peta_loop.gif'
 
+import overlay_fb from '../assets/img/contact/overlay_facebook.png'
+import overlay_ig from '../assets/img/contact/overlay_instagram.png'
+
 export const suSocials = {
   name: 'STUDENTSKÁ UNIE',
   desc: 'Jsme tu pro Tebe, pokud se budeš chtít na cokoliv zeptat, ozvi se nám na profil.',
@@ -23,14 +26,18 @@ export const managersSocials = [
     name: 'sárka',
     fbLink: 'https://www.facebook.com/sara.forejtova.9/',
     fbImg: sarka_gif,
+    fbOverlay: overlay_fb,
     igLink: 'https://www.instagram.com/sara_forejt/',
     igImg: sarka_gif,
+    igOverlay: overlay_ig,
   },
   {
     name: 'péťa',
     fbLink: 'https://www.facebook.com/profile.php?id=100090846374725',
     fbImg: peta_gif,
+    fbOverlay: overlay_fb,
     igLink: 'https://www.instagram.com/petasedlo/',
     igImg: peta_gif,
+    igOverlay: overlay_ig,
   },
 ]

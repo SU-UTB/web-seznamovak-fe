@@ -38,8 +38,10 @@ const Contact = () => {
                 title={manager.name}
                 fbLink={manager.fbLink}
                 fbImg={manager.fbImg}
+                fbOverlay={manager.fbOverlay}
                 igLink={manager.igLink}
                 igImg={manager.igImg}
+                igOverlay={manager.igOverlay}
               />
             ))}
           </div>
