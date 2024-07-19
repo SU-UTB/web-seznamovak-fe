@@ -97,19 +97,19 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
     }))
 
     await api
-  .post('reservations', filteredData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  })
-  .then((res) => {
-    console.log(res);
-    setIsSubmitSuccessful(true);
-  })
-  .catch((e) => {
-    console.error(e);
-    alert('Nastala chyba při odesílání dat. Kontaktujte správce');
-    setIsSubmitSuccessful(false);
-  });
-
+    .post('reservations', filteredData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+    .then((res) => {
+      console.log(res);
+      setIsSubmitSuccessful(true);
+      alert('Úspěšně zaregistrováno ✅');
+    })
+    .catch((e) => {
+      console.error(e);
+      setIsSubmitSuccessful(false);
+      alert('❌ Nastala chyba při odesílání dat. Kontaktujte správce');
+    });
   }
 
   return (
