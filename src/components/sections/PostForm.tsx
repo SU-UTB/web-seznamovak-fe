@@ -86,27 +86,30 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
   }, [])
 
   const handleSave = async (formValues: FormValues) => {
+    
     const filteredData = Object.fromEntries(
       Object.entries({
         ...formValues,
         image: img ? img[0] : null,
-      }).filter(
-        ([key, value]) => key !== 'batch' && value !== null && value !== ''
-      )
-    )
+      // }).filter(
+      //   ([key, value]) => key !== 'batch' && value !== null && value !== ''
+      // )
+    }))
 
     await api
-      .post('reservations', filteredData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-      .then((res) => {
-        console.log(res)
-        setIsSubmitSuccessful(true)
-      })
-      .catch((e) => {
-        console.error(e)
-        setIsSubmitSuccessful(false)
-      })
+  .post('reservations', filteredData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+  .then((res) => {
+    console.log(res);
+    setIsSubmitSuccessful(true);
+  })
+  .catch((e) => {
+    console.error(e);
+    alert('Nastala chyba při odesílání dat. Kontaktujte správce');
+    setIsSubmitSuccessful(false);
+  });
+
   }
 
   return (
