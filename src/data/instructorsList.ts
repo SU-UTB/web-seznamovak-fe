@@ -91,6 +91,9 @@ import s_misa from '../assets/img/instruktori/surv_misa.webp'
 import n_karel from '../assets/img/instruktori/norm_karel.webp'
 import s_karel from '../assets/img/instruktori/surv_karel.webp'
 
+import n_tona from '../assets/img/instruktori/norm_tona.webp'
+import s_tona from '../assets/img/instruktori/surv_tona.webp'
+
 const instructors = [
   {
     name: 'Sárka',
@@ -175,6 +178,12 @@ const instructors = [
     desc: '',
     pic: n_zuzka,
     backPic: s_zuzka,
+  },
+  {
+    name: 'Tóňa',
+    desc: '',
+    pic: n_tona,
+    backPic: s_tona,
   },
   {
     name: 'Fuky',

@@ -30,7 +30,7 @@ const Information = () => {
               {totalPriceCZK.toString()} Kč / 145 €
             </p>
             <p className="text-beige lg:text-beige">
-              Zálohu {depositCZK.toString()} Kč / 105 € pošleš při přihlášení a
+              Zálohu {depositCZK.toString()} Kč / 102 € pošleš při přihlášení a
               zbylých<br/>1000 Kč zaplatíš až na místě.
             </p>
           </div>

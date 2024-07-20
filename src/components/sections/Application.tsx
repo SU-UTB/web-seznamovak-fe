@@ -8,9 +8,9 @@ import useFetchReservations from '../../hooks/useFetchReservations'
 
 const Application = () => {
   // year:month(0-11):day:hour:minute:second
-  const startDate = new Date(2024, 7, 20, 15, 0, 0).getTime() // NEZAPOMENOUT 20.7.2024 15:00
+  const startDate = new Date(2024, 6, 20, 15, 0, 0).getTime() // NEZAPOMENOUT 20.7.2024 15:00
   const shouldStartRegistration = Date.now() >= startDate
-  //const shouldStartRegistration = true
+  // const shouldStartRegistration = true
 
   const { data, isLoading, error } = useFetchReservations()
 
@@ -42,7 +42,7 @@ const Application = () => {
               date="19. 8. - 22. 8. 2024"
               currentPlaces={data?.firstBatchCapacity}  //  OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
               //currentPlaces={1}
-              totalPlaces={96}
+              totalPlaces={100}
               color="#C2D379"
               isLoading={isLoading}
               error={error}
@@ -54,7 +54,7 @@ const Application = () => {
               date="26. 8. - 29. 8. 2024"
               currentPlaces={data?.secondBatchCapacity} //  OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
               //currentPlaces={1} // TESTOVACÍ KÓD - ZMĚNIT ↑
-              totalPlaces={96}
+              totalPlaces={100}
               color="#C2D379"
               isLoading={isLoading}
               error={error}
