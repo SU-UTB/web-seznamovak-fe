@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import ContactTitle from '../atoms/ContactTitle'
-import Link from '../atoms/Link'
-import ReactCardFlip from 'react-card-flip'
-import { AnalyticsEvents, Firebase } from '../../utils/firebase'
+import React from 'react';
+import ContactTitle from '../atoms/ContactTitle';
+import Link from '../atoms/Link';
+import { AnalyticsEvents, Firebase } from '../../utils/firebase';
 
 interface ContactSocialsProps {
-  title: string
-  desc: string
-  fbLink: string
-  fbImg: string
-  backFbImg: string
-  igLink: string
-  igImg: string
-  backIgImg: string
-  index: number
+  title: string;
+  desc: string;
+  fbLink: string;
+  fbImg: string;
+  fbOverlay: string;
+  igLink: string;
+  igImg: string;
+  igOverlay: string;
+  index: number;
 }
 
 const ContactSocials: React.FC<ContactSocialsProps> = ({
@@ -21,17 +20,11 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
   desc,
   fbLink,
   fbImg,
-  backFbImg,
+  fbOverlay,
   igLink,
   igImg,
-  backIgImg,
-  index,
+  igOverlay,
 }) => {
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
-
-  const handleCardFlip = (index: number) => {
-    setFlippedIndex(flippedIndex === index ? null : index)
-  }
 
   return (
     <div className="relative z-30 socials lg:mt-auto">
@@ -39,12 +32,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
         <ContactTitle title={title} color="" />
       </div>
       <p className="mb-4">{desc}</p>
-      <div
-        className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs"
-        onMouseEnter={() => handleCardFlip(index)}
-        onMouseLeave={() => handleCardFlip(index)}
-      >
-        {/* TODO: create custom component (SocialContactImgLink) */}
+      <div className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs">
         <Link
           linkName=""
           linkTo={fbLink}
@@ -52,25 +40,19 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             Firebase.instance.aLog(AnalyticsEvents.contactFbClicked, title)
           }
         >
-          <ReactCardFlip
-            isFlipped={flippedIndex === index}
-            flipDirection="horizontal"
-          >
+          <div style={styles.container}>
             <img
               src={fbImg}
               alt={`facebook: ${title}`}
               width={128}
               height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)' }}
             />
             <img
-              src={backFbImg}
-              alt={`facebook: ${title}`}
-              width={128}
-              height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              src={fbOverlay}
+              style={styles.overlayImage}
             />
-          </ReactCardFlip>
+          </div>
         </Link>
         <Link
           linkName=""
@@ -79,29 +61,45 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             Firebase.instance.aLog(AnalyticsEvents.contactIgClicked, title)
           }
         >
-          <ReactCardFlip
-            isFlipped={flippedIndex === index}
-            flipDirection="horizontal"
-          >
+          <div style={styles.container}>
             <img
               src={igImg}
               alt={`instagram: ${title}`}
               width={128}
               height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(220,0,170,0.7)' }}
             />
             <img
-              src={backIgImg}
-              alt={`instagram: ${title}`}
-              width={128}
-              height={128}
-              style={{borderRadius: "15px", boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
+              src={igOverlay}
+              style={styles.overlayImage}
             />
-          </ReactCardFlip>
+          </div>
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactSocials
+const styles = {
+  container: {
+    position: 'relative' as 'relative',
+    width: 'auto',
+    height: 'auto',
+  },
+  image: {
+    borderRadius: '15px',
+    width: '128px',
+    height: 'auto',
+  },
+  overlayImage: {
+    position: 'absolute' as 'absolute',
+    top: '0',
+    left: '0',
+    width: '128px',
+    height: 'auto',
+    borderRadius: '15px',
+    pointerEvents: 'none' as 'none', // Ensures the overlay image does not interfere with click events
+  },
+};
+
+export default ContactSocials;
