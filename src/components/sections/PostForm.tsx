@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import api from '../../api/api'
 import { Oval } from 'react-loader-spinner'
 import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { reservationFormSchema } from '../../utils/reservationFormSchema'
 import Confirm from '../form/Confirm'
 
 interface PostFormProps {
@@ -17,7 +19,7 @@ interface FormValues {
   year: string
   nickname: string
   disability: string
-  image: FileList | null
+  image: FileList
   roommate: string
   billing_information: {
     city: string
@@ -39,6 +41,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
     handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm<FormValues>({
+    resolver: zodResolver(reservationFormSchema),
     defaultValues: {
       batch: batch,
       name: '',
@@ -48,7 +51,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
       year: '',
       nickname: '',
       disability: '',
-      image: null,
+      image: {} as FileList,
       roommate: '',
       billing_information: {
         city: '',
@@ -86,30 +89,32 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
   }, [])
 
   const handleSave = async (formValues: FormValues) => {
-    
+
     const filteredData = Object.fromEntries(
       Object.entries({
         ...formValues,
         image: img ? img[0] : null,
-      // }).filter(
-      //   ([key, value]) => key !== 'batch' && value !== null && value !== ''
-      // )
-    }))
+      })
+      .filter(
+        ([value]) => value !== null && value !== ''
+      )
+    )
 
     await api
-  .post('reservations', filteredData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  })
-  .then((res) => {
-    console.log(res);
-    setIsSubmitSuccessful(true);
-  })
-  .catch((e) => {
-    console.error(e);
-    alert('Nastala chyba při odesílání dat. Kontaktujte správce');
-    setIsSubmitSuccessful(false);
-  });
-
+      .post('reservations', filteredData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((res) => {
+        console.log(res)
+        setIsSubmitSuccessful(true)
+      })
+      .catch((e) => {
+        console.error(e)
+        alert(
+          'Nastala chyba při odesílání dat. Zkuste to prosím znovu později. Při opakovaných potížích nás kontaktujte.'
+        )
+        setIsSubmitSuccessful(false)
+      })
   }
 
   return (
@@ -225,7 +230,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
               <div className="inputBox">
                 <label>Nahrání fotografie *</label>
                 <label className="imageLabel" htmlFor="image">
-                  {!img
+                  {!img.length
                     ? 'Stiskněte pro nahrání fotky'
                     : img[0]?.name?.slice(-20)}
                 </label>

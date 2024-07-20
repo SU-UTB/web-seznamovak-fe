@@ -24,11 +24,11 @@ const TurnusItem: React.FC<TurnusItemProps> = ({
   isLoading,
   error,
   regLink,
-  outOfStock = false,
+  // outOfStock = false,
 }) => {
-  if (!currentPlaces) return
+  if (!currentPlaces && currentPlaces !== 0) return
 
-  const available = currentPlaces > 0 && !outOfStock
+  const available = currentPlaces > 0
   //const available = false
 
   return (
