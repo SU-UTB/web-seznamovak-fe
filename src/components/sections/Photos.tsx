@@ -1,17 +1,21 @@
 import '../../scss/Photos.scss'
 import SectionTitle from '../atoms/SectionTitle'
 
+// Importing the images using ES6 module imports
+import t1 from '../../assets/img/turnus1.webp'
+import t2 from '../../assets/img/turnus2.webp'
+
 const Photos = () => {
   const photoSources = [
     {
       id: 1,
-      src: 'src/assets/img/turnus1.webp',
+      src: t1, // Use imported image
       alt: '1. turnus',
       galleryLink: 'https://photos.app.goo.gl/nAHZX9H2h9A4wVVu5', // Replace with actual gallery link
     },
     {
       id: 2,
-      src: 'src/assets/img/turnus2.webp',
+      src: t2, // Use imported image
       alt: '2. turnus',
       galleryLink: 'https://photos.app.goo.gl/DVo6cMq7n2TMut4u5', // Replace with actual gallery link
     },
