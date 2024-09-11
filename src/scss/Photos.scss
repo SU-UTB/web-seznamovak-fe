@@ -1,0 +1,80 @@
+#photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0% 5% 5% 5%;
+    flex-wrap: wrap; // Allows wrapping of photo cards for smaller screens
+    background-color: #222B45; // Example background color
+  
+    .photos-container {
+      display: flex;
+      flex-wrap: wrap; // Ensure the cards stack on smaller screens
+      justify-content: center;
+      gap: 2rem; // Add spacing between the cards
+      width: 100%;
+      max-width: 1200px; // Max width for the container
+    }
+  
+    .photo-card {
+      position: relative;
+      width: calc(33.33% - 2rem); // 3 cards per row on larger screens, subtract gap space
+      padding-bottom: 33.33%; // Maintain a 1:1 aspect ratio
+      border-radius: 15px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0);
+      transition: transform 0.3s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.05); // Slightly enlarge the card on hover
+      }
+  
+      .photo-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.3s ease-in-out;
+  
+        .photo-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 1rem;
+          background: rgba(51, 63, 48, 0.8);
+          color: #FBFFE6;
+          text-align: center;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  
+  // Media query for tablets and mobile devices
+  @media (max-width: 768px) {
+    #photos {
+      padding: 0% 3% 7% 3%;
+      
+      .photos-container {
+        gap: 1rem;
+      }
+  
+      .photo-card {
+        width: calc(50% - 1rem); // 2 cards per row on tablets
+        padding-bottom: 50%; // Maintain the aspect ratio
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .photo-card {
+      width: 100%; // Full width on mobile devices
+      padding-bottom: 100%; // Keep the 1:1 aspect ratio
+    }
+  }
+  

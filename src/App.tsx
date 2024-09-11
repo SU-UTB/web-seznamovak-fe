@@ -1,5 +1,6 @@
 import Navbar from './components/moleculs/Navbar'
 import Aftermovie from './components/sections/Aftermovie'
+import Photos from './components/sections/Photos'
 import Instructors from './components/sections/Instructors'
 import Application from './components/sections/Application'
 import Contact from './components/sections/Contact'
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Navbar />
       <Overlay />
       <Application />
+      <Photos />
       <Aftermovie />
       <Map />
       <Instructors />
