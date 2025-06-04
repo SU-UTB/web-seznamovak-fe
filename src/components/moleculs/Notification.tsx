@@ -1,13 +1,14 @@
 import '../../scss/Notification.scss'
+import { REGISTRATION_START_DATE_TEXT, REGISTRATION_START_TIME_TEXT } from '../../data/constants'
 
 const Notification = () => {
   return (
     <div className="px-4 lg:px-0 flex flex-col items-center w-full">
-      <h2 className="font-bold mb-2 text-beige text-2xl lg:text-4xl">
+      <h2 className="font-bold mb-2 text-onPrimaryDark text-2xl lg:text-4xl">
         REGISTRACE SE SPUSTÍ <br className="md:hidden" />
-        <span className="text-3xl lg:text-5xl text-dark_beige"> 20. ČERVENCE</span>
+        <span className="text-3xl lg:text-5xl text-secondaryDark">{REGISTRATION_START_DATE_TEXT}</span>
       </h2>
-      <p className="font-bold mb-2 text-beige text-xl">v 15:00</p>
+      <p className="hidden font-bold mb-2 text-secondaryDark text-xl">{REGISTRATION_START_TIME_TEXT}</p>
       {/* <a
         className="button"
         href="https://docs.google.com/forms/d/e/1FAIpQLSeJa9s0eo8eBFntavLecKhKv2laoQ9WS5nGpviRlHgSFAsJ7Q/viewform"
@@ -16,9 +17,9 @@ const Notification = () => {
       >
         CHCI UPOZORNĚNÍ
       </a> */}
-      <p className="text-lg text-beige">
+      <p className="text-lg text-onPrimaryDark">
         Seznamovák má kapacitu pouze na{' '}
-        <b><span className="text-3xl lg:text-3xl text-dark_beige">200&nbsp;</span></b>
+        <b><span className="text-3xl lg:text-3xl text-secondaryDark">200&nbsp;</span></b>
         účastníků.
         <br />
         {/* Nastav si upozornění a my Ti spuštění registrací připomeneme! */}

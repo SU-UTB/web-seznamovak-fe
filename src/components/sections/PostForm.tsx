@@ -139,7 +139,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Přijmení *</label>
+                <label>Příjmení *</label>
                 <input
                   {...register('surname', { required: 'Nutno zadat příjmení' })}
                 />
@@ -228,6 +228,13 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="problem">
               <div className="inputBox">
+                <label>
+                  Chceš být na pokoji s kamarádem/kamarádkou? Napiš nám
+                  jeho/její jméno!
+                </label>
+                <input {...register('roommate')} />
+              </div>
+              <div className="inputBox">
                 <label>Nahrání fotografie *</label>
                 <label className="imageLabel" htmlFor="image">
                   {!img.length
@@ -261,13 +268,6 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                     {errors.image.message}
                   </label>
                 )}
-              </div>
-              <div className="inputBox">
-                <label>
-                  Chceš být na pokoji s kamarádem/kamarádkou? Napiš nám
-                  jeho/její jméno!
-                </label>
-                <input {...register('roommate')} />
               </div>
             </div>
 

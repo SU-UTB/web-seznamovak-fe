@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-
 label{
     font-size: 20px;
-    color: rgba(251, 255, 230, 1);
+    color: #D5CAE7;
     font-weight: 700;
 }
 
@@ -13,9 +10,8 @@ label{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 31, 50, 1);
     padding: 18px;
-    background: url('./assets/img/bckg.webp') no-repeat bottom;
+    background-color: #391D66;
     background-size: cover;
 }
 
@@ -28,39 +24,27 @@ label{
 
 }
 
-.formHead{
-    background-color: rgba(194, 211, 121, 1);
+.formHead, .formHeadSecond{
+    background-color: #D5CAE7;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 150px;
     flex-direction: row;
-    border-radius: 20px;
-}
-
-.formHeadSecond{
-    background-color: rgba(243, 165, 72, 1);
-    margin: 50px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 150px;
-    flex-direction: row;
-    border-radius: 20px;
 }
 
 .textHead{
     font-size: 50px;
     font-weight: 700;
-    color: rgba(34, 43, 69, 1);
+    color: #592DA1;
     margin: 0 30px;
 }
 
 .dateHead, .dateHeadSecond{
     font-size: 40px;
     font-weight: 700;
-    color: rgba(51, 63, 48, 1);
+    color: #592DA1;
     margin: 0 30px;
 }
 
@@ -108,7 +92,7 @@ label{
 }
 
 .textPopis{
-    color: rgba(251, 255, 230, 1);
+    color: #DFCFF7;
     font-size: 28px;
     font-weight: 700;
     margin-top: 50px;
@@ -139,10 +123,9 @@ label{
     outline: none;
     font-size: 1rem;
     margin-top: 12px;
-    border: 1px solid rgba(194, 211, 121, 1);
     padding: 0 15px;
-    background-color: rgba(251, 255, 230, 1);
-    border-radius: 7px;
+    background-color: #FCEEC6;
+    color: #592DA1;
     overflow: hidden;
 }
 
@@ -181,23 +164,18 @@ input[type="file"]{
     border: none;
     height: 60px;
     width: 350px;
-    background-color: rgba(194, 211, 121, 1);
+    background-color: #DFCFF7;
     font-size: 25px;
     font-weight: bold;
-    color: rgba(34, 43, 69, 1);
+    color: #592DA1;
     text-align: center;
     margin: 30px;
-    border-radius: 15px;
     transition: .5s;
 }
 
-.submitButton:hover{
-    background-color: rgb(98, 122, 63);
-    transition: .5s;
-}
-
-.submitButtonSecond:hover{
-    background-color: rgb(98, 122, 63);
+.submitButton:hover, .submitButtonSecond:hover{
+    background-color: #BE9FEF;
+    color: #FCEEC6;
     transition: .5s;
 }
 
@@ -213,23 +191,16 @@ input[type="file"]{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    border: 3px dashed rgba(253, 236, 190, 1);
-    border-radius: 10px;
+    border: 3px dashed #FCEEC6;
     min-height: 40px;
     padding: 1rem;
     margin-top: 1em;
     transition: .3s;
 }
 
-.imageLabel:hover{
-    border: 3px dashed rgba(194, 211, 121, 1);
-    color: rgba(194, 211, 121, 1);
-    transition: .3s;
-}
-
-.imageLabelSecond:hover{
-    border: 3px dashed rgba(194, 211, 121, 1);
-    color: rgba(194, 211, 121, 1);
+.imageLabel:hover, .imageLabelSecond:hover{
+    border: 3px dashed #F5CD54;
+    color: #F5CD54;
     transition: .3s;
 }
 
@@ -247,18 +218,41 @@ input[type="file"]{
     margin-top: 35px;
 }
 
-.inputCheckBox input {
-    position: relative;
-    min-height: 24px;
-    min-width: 24px;
-    margin-right: 40px;
-    outline: none;
-    font-size: 1rem;
-    color: #707070;
-    border: 1px solid #ddd;
-    padding: 0 15px;
-    background-color: rgba(253, 236, 190, 1);
+.inputCheckBox input[type="checkbox"] {
+    appearance: none; /* Remove default checkbox style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    background-color: #FCEEC6;
+    border: none;
+    border-radius: 0;
+
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
 }
+
+.inputCheckBox input[type="checkbox"]:checked {
+    background-color: #FCEEC6; /* Keep same color when checked */
+    position: relative;
+}
+
+.inputCheckBox input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
 
 .checkBox {
     display: flex;
@@ -285,7 +279,6 @@ input[type="file"]{
 .homeButtonImg{
     width: 60px;
     height: 60px;
-    border-radius: 10px;
     overflow: hidden;
 }
 

@@ -1,12 +1,12 @@
 const InfoText = () => {
   return (
-    <div className="info-text py-6 mb-20 lg:mb-96 px-8 mt-16 text-beige mx-4 sm:w-4/5 lg:w-3/5 sm:mx-auto text-lg text-left">
+    <div className="info-text py-6 mb-20 px-8 mt-16 text-beige mx-4 sm:w-4/5 lg:w-3/5 sm:mx-auto bg-primaryLight rounded-3xl text-onPrimaryDark text-lg text-left">
       <p className="mb-4">
         Právě se rozmýšlíš nad nejlepším rozhodnutím svého života. Jo, jakože
         FAKT!
       </p>
       <p className="mb-4">
-        <span className="font-bold">Celouniverzitní Seznamovák UTB</span> již 7.
+        <span className="font-bold">Celouniverzitní Seznamovák UTB</span> již 8.
         rokem přichází na scénu. Tuto nabombenou akci pod záštitou Univerzity
         Tomáše Bati ve Zlíně pro Tebe připravuje
         <span className="font-bold">&nbsp;Studentská unie UTB</span> - parta

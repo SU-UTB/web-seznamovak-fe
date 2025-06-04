@@ -41,19 +41,17 @@ const TurnusItem: React.FC<TurnusItemProps> = ({
       )}
       {error && <p className="text-2xl text-beige">Něco se pokazilo...</p>}
       <div>
-        <p className="mb-8 text-3xl font-medium" style={{ color: `${color}` }}>
+        <p className={`mb-8 text-3xl font-medium text-${color}`}>
           {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
         </p>
         <Link
           to={regLink}
-          className="block px-6 py-3 text-2xl font-bold"
-          style={{ backgroundColor: `${color}`,
-                    color: '#222B45',
-                    borderRadius: '10px',
-                    boxShadow: '0px 0px 30px -3px rgba(209, 186, 121, 0.6)' }}
+          className={`block px-6 py-3 text-2xl font-bold rounded-[10px] shadow-[0px_0px_30px_-3px_rgba(209,186,121,0.6)]`}
+          style={{ color: '#70308C', backgroundColor: '#F2BC1B' }}
         >
           {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
         </Link>
+
       </div>
     </div>
   )
