@@ -5,7 +5,7 @@ import logo from '../../assets/img/logo.svg'
 const Overlay: React.FC = () => {
 
   return (
-    <div className="overlay relative pt-12 bg-primaryDark h-[35vh] md:h-[50vh] w-screen m-0 overflow-y-hidden flex items-center justify-center">
+    <div className="overlay relative pt-12 bg-primaryDark h-[35vh] md:h-[50vh] w-full m-0 overflow-y-hidden flex items-center justify-center">
       {/* <div className="pattern"></div> */}
       {/* <div className="pattern-mobile"></div> */}
       {/* <div className="image"></div> */}
