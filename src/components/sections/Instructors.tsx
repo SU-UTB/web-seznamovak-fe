@@ -30,7 +30,6 @@ const Instructors = () => {
         <SectionTitle
           title="S těmito frajery zažiješ nejednu soutěž o imunitu a nejednu kmenovou radu"
           color="#FBFFE6"
-          fontSize='25px'
         />
       </div>
       <div className="pb-16 mx-4">

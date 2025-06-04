@@ -1,6 +1,6 @@
 import Navbar from './components/moleculs/Navbar'
 import Aftermovie from './components/sections/Aftermovie'
-import Instructors from './components/sections/Instructors'
+//import Instructors from './components/sections/Instructors'
 import Application from './components/sections/Application'
 import Contact from './components/sections/Contact'
 import Faq from './components/sections/Faq'
