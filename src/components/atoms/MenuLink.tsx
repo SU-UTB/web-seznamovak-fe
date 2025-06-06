@@ -1,68 +1,71 @@
-import React from 'react';
-import '../../scss/Navbar.scss';
-import { AnalyticsEvents, Firebase } from '../../utils/firebase';
+import React from 'react'
+import { AnalyticsEvents, Firebase } from '../../utils/firebase'
 
 interface MenuLinkProps {
-  sectionLink: string;
-  sectionName: string;
-  onClick?: () => void; // Define onClick as optional prop
+  sectionLink: string
+  sectionName: string
+  onClick?: () => void
 }
 
 const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
-  t /= d / 2;
-  if (t < 1) return c / 2 * t * t * t + b;
-  t -= 2;
-  return c / 2 * (t * t * t + 2) + b;
-};
+  t /= d / 2
+  if (t < 1) return (c / 2) * t * t * t + b
+  t -= 2
+  return (c / 2) * (t * t * t + 2) + b
+}
 
 const smoothScrollTo = (endY: number, duration: number) => {
-  const startY = window.scrollY;
-  const distance = endY - startY;
-  let startTime: number | null = null;
+  const startY = window.scrollY
+  const distance = endY - startY
+  let startTime: number | null = null
 
   const step = (currentTime: number) => {
-    if (!startTime) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const nextY = easeInOutCubic(timeElapsed, startY, distance, duration);
+    if (!startTime) startTime = currentTime
+    const timeElapsed = currentTime - startTime
+    const nextY = easeInOutCubic(timeElapsed, startY, distance, duration)
 
-    window.scrollTo(0, nextY);
+    window.scrollTo(0, nextY)
 
     if (timeElapsed < duration) {
-      requestAnimationFrame(step);
+      requestAnimationFrame(step)
     } else {
-      window.scrollTo(0, endY); // Ensure we end up at the exact position
+      window.scrollTo(0, endY)
     }
-  };
+  }
 
-  requestAnimationFrame(step);
-};
+  requestAnimationFrame(step)
+}
 
-const MenuLink: React.FC<MenuLinkProps> = ({ sectionLink, sectionName, onClick }) => {
+const MenuLink: React.FC<MenuLinkProps> = ({
+  sectionLink,
+  sectionName,
+  onClick,
+}) => {
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (onClick) {
-      onClick(); // Call onClick if it's defined
-    }
-    Firebase.instance.aLog(AnalyticsEvents.navClicked, sectionName);
+    e.preventDefault()
+    onClick?.()
+    Firebase.instance.aLog(AnalyticsEvents.navClicked, sectionName)
 
-    // Scroll to the section
-    const section = document.getElementById(sectionLink);
+    const section = document.getElementById(sectionLink)
     if (section) {
-      const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
-      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - (navbarHeight/2);
-      smoothScrollTo(sectionTop, 600); // 600ms duration for smooth scroll
+      const navbarHeight = document.querySelector('header')?.offsetHeight || 0
+      const sectionTop =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight / 2
+      smoothScrollTo(sectionTop, 600)
     }
-  };
+  }
 
   return (
     <a
-      className="navbutton"
       href={`#${sectionLink}`}
       onClick={handleClick}
+      className="font-semibold text-onPrimaryDark text-[22px] text-center px-[15px] py-[10px] rounded-[10px] transition-all duration-300 flex-grow animate-fadein hover:bg-secondary hover:text-primaryLight"
     >
       {sectionName}
     </a>
-  );
-};
+  )
+}
 
-export default MenuLink;
+export default MenuLink

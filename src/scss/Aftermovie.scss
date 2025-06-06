@@ -4,7 +4,8 @@
   align-items: center;
   height: 100vh;
   padding: 5%; // Add padding for space around the video
-  background: url('../assets/img/aftermovie.webp');
+  // background: url('../assets/img/aftermovie.webp');
+  background-color: #DFCFF7;
   background-size: 100vw;
   
   .video-wrapper {
@@ -40,7 +41,7 @@
     // margin: 3% 2% 3% 2%;
     padding: 4%;
     background: none;
-    background-color: #C2D379;
+    background-color: #DFCFF7;
 
     .video-wrapper {
       height: auto; // vwLet height adjust based on width

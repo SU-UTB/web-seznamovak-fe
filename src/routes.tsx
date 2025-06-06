@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import App from './App'
 import Turnus from './components/sections/Turnus'
+import {turnus1, turnus2} from '../src/data/constants'
 
 const Routing: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Routing: React.FC = () => {
             <Turnus
               turnusNumber={1}
               label="1. Turnus"
-              date="19.8. - 22.8. 2024"
+              date={turnus1.displayDate}
             />
           }
         />
@@ -24,7 +25,7 @@ const Routing: React.FC = () => {
             <Turnus
               turnusNumber={2}
               label="2. Turnus"
-              date="26.8. - 29.8. 2024"
+              date={turnus2.displayDate}
             />
           }
         />

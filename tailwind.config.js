@@ -21,9 +21,29 @@ module.exports = {
         beige: "#FBFFE6",
         light_brown: "#D1BA79",
         white: "#FFFFFF",
+        /* 2025 */
+        primaryDark: "#391D66",
+        primary: "#592DA1",
+        primaryLight: "#7E3FE0",
+        onPrimaryDark: "#DFCFF7",
+        onPrimaryLight: "#D5CAE7",
+        secondaryDark: "#F3A310",
+        secondary: "#F2BC1B",
+        secondaryLight: "#F2D027",
+        secondary4Dark: "#FCE8C3",
+      },
+      animation: {
+        fadein: 'fadein 0.2s ease 0.5s forwards',
+      },
+      keyframes: {
+        fadein: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
     },
     fontFamily: {
+      gilroy: ['Gilroy', 'sans-serif'],
       mont: ["Montserrat", "sans-serif"],
     },
   },

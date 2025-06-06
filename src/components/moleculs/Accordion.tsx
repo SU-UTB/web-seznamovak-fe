@@ -15,7 +15,7 @@ const Accordion: React.FC<AccordionProps> = ({
   setShowed,
 }) => {
   return (
-    <li className="bg-[#313C5A] mb-4 px-4 md:px-8 py-4 flex flex-col justify-center"
+    <li className="bg-primaryLight mb-4 px-4 md:px-8 py-4 flex flex-col justify-center"
     style={{ borderRadius: '15px',
       boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)'}}
     >

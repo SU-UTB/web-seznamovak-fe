@@ -4,7 +4,7 @@ import SocialIcon from '../atoms/SocialIcon'
 import fbIcon from '../../assets/img/navbar/fb.svg'
 import igIcon from '../../assets/img/navbar/ig.svg'
 import HamburgerBtn from '../atoms/HamburgerBtn'
-import '../../scss/Navbar.scss'
+//import '../../scss/Navbar.scss'
 
 const Navbar: React.FC = () => {
   const [isNavOpened, setIsNavOpened] = useState(false)
@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   const menuLinks = [
     { sectionLink: 'prihlaska', sectionName: 'PŘIHLÁŠKA' },
     { sectionLink: 'informace', sectionName: 'INFORMACE' },
-    { sectionLink: 'instruktori', sectionName: 'INSTRUKTOŘI' },
+    //{ sectionLink: 'instruktori', sectionName: 'INSTRUKTOŘI' },
     { sectionLink: 'faq', sectionName: 'FAQ' },
     // { sectionLink: 'partneri', sectionName: 'PARTNEŘI' },
     { sectionLink: 'kontakt', sectionName: 'KONTAKT' },
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky h-16 top-0 w-full bg-blue z-50">
+    <header className="sticky h-16 top-0 w-full bg-primary z-50">
       <nav className="flex flex-col items-center relative">
         <HamburgerBtn
           onClick={() => setIsNavOpened(!isNavOpened)}
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
         />
         <ul
           className={
-            'bg-blue flex flex-col lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
+            'flex flex-col bg-primary lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
             (isNavOpened
               ? 'translate-x-0'
               : 'lg:translate-x-0 -translate-x-full')

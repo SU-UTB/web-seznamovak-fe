@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactTitle from '../atoms/ContactTitle';
-import Link from '../atoms/Link';
-import { AnalyticsEvents, Firebase } from '../../utils/firebase';
+//import Link from '../atoms/Link';
+//import { AnalyticsEvents, Firebase } from '../../utils/firebase';
 
 interface ContactSocialsProps {
   title: string;
@@ -18,12 +18,12 @@ interface ContactSocialsProps {
 const ContactSocials: React.FC<ContactSocialsProps> = ({
   title,
   desc,
-  fbLink,
+  /* fbLink,
   fbImg,
   fbOverlay,
   igLink,
   igImg,
-  igOverlay,
+  igOverlay, */
 }) => {
 
   return (
@@ -32,7 +32,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
         <ContactTitle title={title} color="" />
       </div>
       <p className="mb-4">{desc}</p>
-      <div className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs">
+      {/* <div className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs">
         <Link
           linkName=""
           linkTo={fbLink}
@@ -75,12 +75,12 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             />
           </div>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-const styles = {
+/* const styles = {
   container: {
     position: 'relative' as 'relative',
     width: 'auto',
@@ -100,6 +100,6 @@ const styles = {
     borderRadius: '15px',
     pointerEvents: 'none' as 'none', // Ensures the overlay image does not interfere with click events
   },
-};
+}; */
 
 export default ContactSocials;

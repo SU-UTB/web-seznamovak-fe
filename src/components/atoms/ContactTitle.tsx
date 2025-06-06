@@ -7,14 +7,12 @@ interface ContactTitleProps {
 
 const ContactTitle: React.FC<ContactTitleProps> = ({
   title,
-  color = '#222B45',
+  color,
 }) => {
-  const colorRegex = new RegExp('^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$')
 
   return (
     <h2
-      className="py-2 text-2xl md:text-4xl xl:text-4xl uppercase font-bold"
-      style={{ color: `${colorRegex.test(color) ? color : '#222B45'}` }}
+      className={`py-2 text-2xl md:text-4xl xl:text-4xl uppercase font-bold text-${color}`}
     >
       {title}
     </h2>

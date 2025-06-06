@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           <h2>Nový web je na cestě!</h2>
           <p>
             Na tomto webu prozatím najdeš aktuální info k{' '}
-            <strong>Seznamováku UTB - 2024</strong>, ale brzy se spustí nový web
+            <strong>Seznamováku UTB - 2025</strong>, ale brzy se spustí nový web
             Seznamováku, kde uvidíš manažery, se kterými zažiješ to nejšílenější
             léto v životě! Formulář, kterým se budeš na Seznamovák registrovat, a
             naše partnery, kteří nám k tomu všemu pomohli.
