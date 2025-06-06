@@ -18,8 +18,8 @@ const Notification = () => {
         CHCI UPOZORNĚNÍ
       </a> */}
       <p className="text-lg text-onPrimaryDark">
-        Seznamovák má kapacitu pouze na{' '}
-        <b><span className="text-3xl lg:text-3xl text-secondaryDark">200&nbsp;</span></b>
+        Každý turnus má kapacitu pouze {' '}
+        <b><span className="text-3xl lg:text-3xl text-secondaryDark">100&nbsp;</span></b>
         účastníků.
         <br />
         {/* Nastav si upozornění a my Ti spuštění registrací připomeneme! */}
