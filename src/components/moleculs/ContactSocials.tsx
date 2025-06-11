@@ -21,7 +21,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
   title,
   desc,
   fbLink,
-  fbImg,
+  //fbImg,
   fbOverlay,
   /*igLink,
   igImg,
