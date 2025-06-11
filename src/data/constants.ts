@@ -19,7 +19,7 @@ export interface Turnus {
     displayDate: "25. 8. - 28. 8. 2025",
   };
 
-  export const REGISTRATION_START_DATE = new Date(2025, 6, 7, 15, 0, 0); // July 7, 2025, 15:00:00
-  export const REGISTRATION_START_DATE_TEXT: string = "7. července";
+  export const REGISTRATION_START_DATE = new Date(2025, 6, 17, 15, 0, 0); // July 17, 2025, 15:00:00
+  export const REGISTRATION_START_DATE_TEXT: string = "17. července";
   export const REGISTRATION_START_TIME_TEXT: string = "v 15:00";
   
