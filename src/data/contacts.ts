@@ -24,7 +24,7 @@ export const suSocials = {
 export const managersSocials = [
   {
     name: 'Barča',
-    fbLink: 'https://www.facebook.com/sara.forejtova.9/',
+    fbLink: 'https://www.facebook.com/profile.php?id=100069335040798',
     fbImg: sarka_gif,
     fbOverlay: overlay_fb,
     igLink: 'https://www.instagram.com/sara_forejt/',
@@ -33,7 +33,7 @@ export const managersSocials = [
   },
   {
     name: 'Dejv',
-    fbLink: 'https://www.facebook.com/profile.php?id=100090846374725',
+    fbLink: 'https://www.facebook.com/david.kubis.33',
     fbImg: peta_gif,
     fbOverlay: overlay_fb,
     igLink: 'https://www.instagram.com/petasedlo/',

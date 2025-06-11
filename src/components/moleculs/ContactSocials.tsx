@@ -1,7 +1,9 @@
 import React from 'react';
 import ContactTitle from '../atoms/ContactTitle';
-//import Link from '../atoms/Link';
-//import { AnalyticsEvents, Firebase } from '../../utils/firebase';
+import Link from '../atoms/Link';
+import { AnalyticsEvents, Firebase } from '../../utils/firebase';
+
+import logo from '../../assets/img/logo.svg'
 
 interface ContactSocialsProps {
   title: string;
@@ -18,12 +20,12 @@ interface ContactSocialsProps {
 const ContactSocials: React.FC<ContactSocialsProps> = ({
   title,
   desc,
-  /* fbLink,
+  fbLink,
   fbImg,
   fbOverlay,
-  igLink,
+  /*igLink,
   igImg,
-  igOverlay, */
+  igOverlay,*/
 }) => {
 
   return (
@@ -32,7 +34,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
         <ContactTitle title={title} color="" />
       </div>
       <p className="mb-4">{desc}</p>
-      {/* <div className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs">
+      <div className="flex justify-center mx-auto mb-12 img-links gap-x-6 lg:justify-between lg:max-w-xs">
         <Link
           linkName=""
           linkTo={fbLink}
@@ -41,20 +43,31 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
           }
         >
           <div style={styles.container}>
-            <img
+            {/*<img
               src={fbImg}
               alt={`facebook: ${title}`}
               width={128}
               height={128}
               style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)' }}
-            />
+            />*/}
+            <div style={{
+              ...styles.image, 
+              width: 128, 
+              height: 227, 
+              boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)',
+              display: 'grid',
+              placeItems: 'center',
+              padding: '8px'
+              }}>
+                <img src={logo} alt={`Facebook: ${title}`} />
+            </div>
             <img
               src={fbOverlay}
               style={styles.overlayImage}
             />
           </div>
         </Link>
-        <Link
+        {/* <Link
           linkName=""
           linkTo={igLink}
           onClick={() =>
@@ -74,13 +87,13 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
               style={styles.overlayImage}
             />
           </div>
-        </Link>
-      </div> */}
+        </Link> */}
+      </div>
     </div>
   );
 };
 
-/* const styles = {
+const styles = {
   container: {
     position: 'relative' as 'relative',
     width: 'auto',
@@ -100,6 +113,6 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
     borderRadius: '15px',
     pointerEvents: 'none' as 'none', // Ensures the overlay image does not interfere with click events
   },
-}; */
+};
 
 export default ContactSocials;
