@@ -100,6 +100,13 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
       )
     )
 
+    if (filteredData.disability === '') {
+      filteredData.disability = '---';
+    }
+    if (filteredData.roommate === '') {
+      filteredData.roommate = '---';
+    }
+
     await api
       .post('reservations', filteredData, {
         headers: { 'Content-Type': 'multipart/form-data' },
