@@ -76,7 +76,7 @@ const Gallery = () => {
                 to { transform: translateX(0); }
               }
               .animate-scroll-right {
-                animation: scroll-left 250s linear infinite;
+                animation: scroll-left 150s linear infinite;
               }
             `}
           </style>
