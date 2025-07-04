@@ -1,5 +1,25 @@
 import SectionTitle from '../atoms/SectionTitle';
-// Helper function to get a random item from an array
+
+import gal1 from '../../assets/img/gallery/gal1.webp';
+import gal2 from '../../assets/img/gallery/gal2.webp';
+import gal3 from '../../assets/img/gallery/gal3.webp';
+import gal4 from '../../assets/img/gallery/gal4.webp';
+import gal5 from '../../assets/img/gallery/gal5.webp';
+import gal6 from '../../assets/img/gallery/gal6.webp';
+import gal7 from '../../assets/img/gallery/gal7.webp';
+import gal8 from '../../assets/img/gallery/gal8.webp';
+import gal9 from '../../assets/img/gallery/gal9.webp';
+import gal10 from '../../assets/img/gallery/gal10.webp';
+import gal11 from '../../assets/img/gallery/gal11.webp';
+import gal12 from '../../assets/img/gallery/gal12.webp';
+import gal13 from '../../assets/img/gallery/gal13.webp';
+import gal14 from '../../assets/img/gallery/gal14.webp';
+import gal15 from '../../assets/img/gallery/gal15.webp';
+import gal16 from '../../assets/img/gallery/gal16.webp';
+import gal17 from '../../assets/img/gallery/gal17.webp';
+import gal18 from '../../assets/img/gallery/gal18.webp';
+
+
 const getRandomItem = <T,>(arr: T[]): T => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
@@ -15,33 +35,16 @@ const imageWidths = [
     'w-56 sm:w-96',
   ];  
 
-// Array of image paths
-const imagePaths = [
-  '/src/assets/img/gallery/gal1.webp',
-  '/src/assets/img/gallery/gal2.webp',
-  '/src/assets/img/gallery/gal3.webp',
-  '/src/assets/img/gallery/gal4.webp',
-  '/src/assets/img/gallery/gal5.webp',
-  '/src/assets/img/gallery/gal6.webp',
-  '/src/assets/img/gallery/gal7.webp',
-  '/src/assets/img/gallery/gal8.webp',
-  '/src/assets/img/gallery/gal9.webp',
-  '/src/assets/img/gallery/gal10.webp',
-  '/src/assets/img/gallery/gal11.webp',
-  '/src/assets/img/gallery/gal12.webp',
-  '/src/assets/img/gallery/gal13.webp',
-  '/src/assets/img/gallery/gal14.webp',
-  '/src/assets/img/gallery/gal15.webp',
-  '/src/assets/img/gallery/gal16.webp',
-  '/src/assets/img/gallery/gal17.webp',
-  '/src/assets/img/gallery/gal18.webp',
-];
-
-const allImages = imagePaths.map((path, index) => ({
-  id: index,
-  src: path,
-  widthClass: getRandomItem(imageWidths),
-}));
+const imageVariables = [
+    gal1, gal2, gal3, gal4, gal5, gal6, gal7, gal8, gal9,
+    gal10, gal11, gal12, gal13, gal14, gal15, gal16, gal17, gal18
+  ];
+  
+const allImages = imageVariables.map((img, index) => ({
+    id: index,
+    src: img,
+    widthClass: getRandomItem(imageWidths),
+}));  
 
 // We split the images into two separate arrays, one for each row of the gallery.
 const row1Images = allImages.slice(0, allImages.length / 2);
