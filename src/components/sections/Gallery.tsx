@@ -51,44 +51,36 @@ const row1Images = allImages.slice(0, allImages.length / 2);
 const row2Images = allImages.slice(allImages.length / 2);
 
 
-// --- React Component ---
 const Gallery = () => {
 
-  // This component renders the entire gallery section.
   return (
-    <div className="bg-[#FEFBF2] font-sans antialiased text-gray-800 flex items-center justify-center">
+    <div className="antialiased flex items-center justify-center">
       <div className="w-full bg-primaryDark">        
         <SectionTitle title="GALERIE" color="onPrimaryDark"/>
         <div className="relative w-full overflow-hidden py-6">
-           {/* We add a custom CSS style block for the scrolling animations. */}
           <style>
             {`
-              @keyframes scroll-left {
+              @keyframes scroll-left-upper {
                 from { transform: translateX(0); }
-                to { transform: translateX(-100%); }
+                to { transform: translateX(-50%); }
               }
-              .animate-scroll-left {
-                animation: scroll-left 250s linear infinite;
+              .animate-scroll-upper {
+                animation: scroll-left-upper 80s linear infinite;
               }
               
-              @keyframes scroll-right {
-                from { transform: translateX(-100%); }
-                to { transform: translateX(0); }
+              @keyframes scroll-left-lower {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
               }
-              .animate-scroll-right {
-                animation: scroll-left 150s linear infinite;
+              .animate-scroll-lower {
+                animation: scroll-left-lower 80s linear infinite;
               }
             `}
           </style>
 
-          {/* Top Row - Scrolls from right to left */}
           <div className="flex mb-4">
-            {/* The inner container uses flex and will be animated.
-              We duplicate the images ([...row1Images, ...row1Images]) to create a seamless loop.
-              As the first set of images scrolls out of view, the second identical set scrolls in.
-            */}
-            <div className="flex items-center space-x-4 animate-scroll-left pause-on-hover">
-              {[...row1Images, ...row1Images].map((image, index) => (
+            <div className="flex items-center space-x-4 animate-scroll-upper min-w-max">
+              {[...row1Images].map((image, index) => (
                 <div key={`row1-${image.id}-${index}`} className={`flex-shrink-0 ${image.widthClass} h-40`}>
                   <img
                     src={image.src}
@@ -101,9 +93,8 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Bottom Row - Scrolls from left to right */}
           <div className="flex">
-            <div className="flex items-center space-x-4 animate-scroll-right pause-on-hover">
+            <div className="flex items-center space-x-4 animate-scroll-lower min-w-max">
               {[...row2Images, ...row2Images].map((image, index) => (
                 <div key={`row2-${image.id}-${index}`} className={`flex-shrink-0 ${image.widthClass} h-40`}>
                   <img
