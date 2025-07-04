@@ -4,6 +4,7 @@ import Aftermovie from './components/sections/Aftermovie'
 import Application from './components/sections/Application'
 import Contact from './components/sections/Contact'
 import Faq from './components/sections/Faq'
+import Gallery from './components/sections/Gallery'
 import Map from './components/sections/Map'
 // import Partners from './components/sections/Partners'
 import Overlay from './components/sections/Overlay'
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Overlay />
       <Application />
       <Aftermovie />
+      <Gallery />
       <Map />
       {/* <Instructors /> */}
       <Faq />
