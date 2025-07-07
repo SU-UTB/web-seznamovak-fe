@@ -1,292 +1,162 @@
-import n_sarka from '../assets/img/instruktori/norm_sarka.webp'
-import s_sarka from '../assets/img/instruktori/surv_sarka.webp'
+import anna_d from '/src/assets/img/instruktori/anna_d.webp';
+import barca_h from '/src/assets/img/instruktori/barca_h.webp';
+import barca_v from '/src/assets/img/instruktori/barca_v.webp';
+import bety from '/src/assets/img/instruktori/bety.webp';
+import honza from '/src/assets/img/instruktori/honza.webp';
+import jirka_p from '/src/assets/img/instruktori/jirka_p.webp';
+import karel from '/src/assets/img/instruktori/karel.webp';
+import katarina from '/src/assets/img/instruktori/katarina.webp';
+import kuba from '/src/assets/img/instruktori/kuba.webp';
+import luky_f from '/src/assets/img/instruktori/luky_f.webp';
+import luky_k from '/src/assets/img/instruktori/luky_k.webp';
+import marta from '/src/assets/img/instruktori/marta.webp';
+import maty from '/src/assets/img/instruktori/maty.webp';
+import pavel from '/src/assets/img/instruktori/pavel.webp';
+import peta from '/src/assets/img/instruktori/peta.webp';
+import sara from '/src/assets/img/instruktori/sara.webp';
+import simon from '/src/assets/img/instruktori/simon.webp';
+import tea from '/src/assets/img/instruktori/tea.webp';
+import terka from '/src/assets/img/instruktori/terka.webp';
+import timea from '/src/assets/img/instruktori/timea.webp';
+import tinka from '/src/assets/img/instruktori/tinka.webp';
+import tona from '/src/assets/img/instruktori/tona.webp';
+import vanes from '/src/assets/img/instruktori/vanes.webp';
+import viki from '/src/assets/img/instruktori/viki.webp';
+import vivi from '/src/assets/img/instruktori/vivi.webp';
+import zuzka from '/src/assets/img/instruktori/zuzka.webp';
 
-import n_peta from '../assets/img/instruktori/norm_peta.webp'
-import s_peta from '../assets/img/instruktori/surv_peta.webp'
-
-import n_maty from '../assets/img/instruktori/norm_maty.webp'
-import s_maty from '../assets/img/instruktori/surv_maty.webp'
-
-import n_bury from '../assets/img/instruktori/norm_bury.webp'
-import s_bury from '../assets/img/instruktori/surv_bury.webp'
-
-import n_lea from '../assets/img/instruktori/norm_lea.webp'
-import s_lea from '../assets/img/instruktori/surv_lea.webp'
-
-import n_vojta from '../assets/img/instruktori/norm_vojta.webp'
-import s_vojta from '../assets/img/instruktori/surv_vojta.webp'
-
-import n_pavel from '../assets/img/instruktori/norm_pavel.webp'
-import s_pavel from '../assets/img/instruktori/surv_pavel.webp'
-
-import n_dejvi from '../assets/img/instruktori/norm_dejvi.webp'
-import s_dejvi from '../assets/img/instruktori/surv_dejvi.webp'
-
-import n_barca from '../assets/img/instruktori/norm_barca.webp'
-import s_barca from '../assets/img/instruktori/surv_barca.webp'
-
-import n_bety from '../assets/img/instruktori/norm_bety.webp'
-import s_bety from '../assets/img/instruktori/surv_bety.webp'
-
-import n_ema from '../assets/img/instruktori/norm_ema.webp'
-import s_ema from '../assets/img/instruktori/surv_ema.webp'
-
-import n_erik from '../assets/img/instruktori/norm_erik.webp'
-import s_erik from '../assets/img/instruktori/surv_erik.webp'
-
-import n_jirka from '../assets/img/instruktori/norm_jirka.webp'
-import s_jirka from '../assets/img/instruktori/surv_jirka.webp'
-
-import n_jolana from '../assets/img/instruktori/norm_jolana.webp'
-import s_jolana from '../assets/img/instruktori/surv_jolana.webp'
-
-import n_kacka from '../assets/img/instruktori/norm_kacka.webp'
-import s_kacka from '../assets/img/instruktori/surv_kacka.webp'
-
-import n_katarina from '../assets/img/instruktori/norm_katarina.webp'
-import s_katarina from '../assets/img/instruktori/surv_katarina.webp'
-
-import n_luky from '../assets/img/instruktori/norm_luky.webp'
-import s_luky from '../assets/img/instruktori/surv_luky.webp'
-
-import n_max from '../assets/img/instruktori/norm_max.webp'
-import s_max from '../assets/img/instruktori/surv_max.webp'
-
-import n_maya from '../assets/img/instruktori/norm_maya.webp'
-import s_maya from '../assets/img/instruktori/surv_maya.webp'
-
-import n_miso from '../assets/img/instruktori/norm_miso.webp'
-import s_miso from '../assets/img/instruktori/surv_miso.webp'
-
-import n_paja from '../assets/img/instruktori/norm_paja.webp'
-import s_paja from '../assets/img/instruktori/surv_paja.webp'
-
-import n_sara from '../assets/img/instruktori/norm_sara.webp'
-import s_sara from '../assets/img/instruktori/surv_sara.webp'
-
-import n_tea from '../assets/img/instruktori/norm_tea.webp'
-import s_tea from '../assets/img/instruktori/surv_tea.webp'
-
-import n_terka from '../assets/img/instruktori/norm_terka.webp'
-import s_terka from '../assets/img/instruktori/surv_terka.webp'
-
-import n_tinka from '../assets/img/instruktori/norm_tinka.webp'
-import s_tinka from '../assets/img/instruktori/surv_tinka.webp'
-
-import n_vanes from '../assets/img/instruktori/norm_vanes.webp'
-import s_vanes from '../assets/img/instruktori/surv_vanes.webp'
-
-import n_verca from '../assets/img/instruktori/norm_verca.webp'
-import s_verca from '../assets/img/instruktori/surv_verca.webp'
-
-import n_vivi from '../assets/img/instruktori/norm_vivi.webp'
-import s_vivi from '../assets/img/instruktori/surv_vivi.webp'
-
-import n_zuzka from '../assets/img/instruktori/norm_zuzka.webp'
-import s_zuzka from '../assets/img/instruktori/surv_zuzka.webp'
-
-import n_misa from '../assets/img/instruktori/norm_misa.webp'
-import s_misa from '../assets/img/instruktori/surv_misa.webp'
-
-import n_karel from '../assets/img/instruktori/norm_karel.webp'
-import s_karel from '../assets/img/instruktori/surv_karel.webp'
-
-import n_tona from '../assets/img/instruktori/norm_tona.webp'
-import s_tona from '../assets/img/instruktori/surv_tona.webp'
 
 const instructors = [
   {
+    name: 'Barča',
+    desc: '',
+    pic: barca_v,
+  },
+  {
     name: 'Sárka',
     desc: '',
-    pic: n_sarka,
-    backPic: s_sarka,
+    pic: sara,
   },
   {
-    name: 'Péťa',
+    name: 'Honza',
     desc: '',
-    pic: n_peta,
-    backPic: s_peta,
-  },
-  {
-    name: 'Dejvi',
-    desc: '',
-    pic: n_dejvi,
-    backPic: s_dejvi,
+    pic: honza,
   },
   {
     name: 'Bety',
     desc: '',
-    pic: n_bety,
-    backPic: s_bety,
-  },
-  {
-    name: 'Katun',
-    desc: '',
-    pic: n_kacka,
-    backPic: s_kacka,
-  },
-  {
-    name: 'Bury',
-    desc: '',
-    pic: n_bury,
-    backPic: s_bury,
-  },
-  {
-    name: 'Tínka',
-    desc: '',
-    pic: n_tinka,
-    backPic: s_tinka,
-  },
-  {
-    name: 'Erula',
-    desc: '',
-    pic: n_erik,
-    backPic: s_erik,
-  },
-  {
-    name: 'Sara',
-    desc: '',
-    pic: n_sara,
-    backPic: s_sara,
-  },
-  {
-    name: 'Barča',
-    desc: '',
-    pic: n_barca,
-    backPic: s_barca,
-  },
-  {
-    name: 'Jirka',
-    desc: '',
-    pic: n_jirka,
-    backPic: s_jirka,
-  },
-  {
-    name: 'Míša',
-    desc: '',
-    pic: n_misa,
-    backPic: s_misa,
-  },
-  {
-    name: 'Maty',
-    desc: '',
-    pic: n_maty,
-    backPic: s_maty,
-  },
-  {
-    name: 'Zuz',
-    desc: '',
-    pic: n_zuzka,
-    backPic: s_zuzka,
-  },
-  {
-    name: 'Tóňa',
-    desc: '',
-    pic: n_tona,
-    backPic: s_tona,
-  },
-  {
-    name: 'Fuky',
-    desc: '',
-    pic: n_luky,
-    backPic: s_luky,
-  },
-  {
-    name: 'Pivi',
-    desc: '',
-    pic: n_vivi,
-    backPic: s_vivi,
-  },
-  {
-    name: 'Max',
-    desc: '',
-    pic: n_max,
-    backPic: s_max,
-  },
-  {
-    name: 'Katy',
-    desc: '',
-    pic: n_katarina,
-    backPic: s_katarina,
-  },
-  {
-    name: 'Mišo',
-    desc: '',
-    pic: n_miso,
-    backPic: s_miso,
-  },
-  {
-    name: 'Pája',
-    desc: '',
-    pic: n_paja,
-    backPic: s_paja,
-  },
-  {
-    name: 'Verča',
-    desc: '',
-    pic: n_verca,
-    backPic: s_verca,
-  },
-  {
-    name: 'Vanes',
-    desc: '',
-    pic: n_vanes,
-    backPic: s_vanes,
-  },
-  {
-    name: 'Karel',
-    desc: '',
-    pic: n_karel,
-    backPic: s_karel,
-  },
-  {
-    name: 'Maya',
-    desc: '',
-    pic: n_maya,
-    backPic: s_maya,
-  },
-  {
-    name: 'Terka',
-    desc: '',
-    pic: n_terka,
-    backPic: s_terka,
-  },
-  {
-    name: 'Tejka',
-    desc: '',
-    pic: n_tea,
-    backPic: s_tea,
-  },
-  {
-    name: 'Jolča',
-    desc: '',
-    pic: n_jolana,
-    backPic: s_jolana,
-  },
-  {
-    name: 'Lea',
-    desc: '',
-    pic: n_lea,
-    backPic: s_lea,
-  },
-  {
-    name: 'Vojta',
-    desc: '',
-    pic: n_vojta,
-    backPic: s_vojta,
+    pic: bety,
   },
   {
     name: 'Pavel',
     desc: '',
-    pic: n_pavel,
-    backPic: s_pavel,
+    pic: pavel,
   },
   {
-    name: 'Emča',
+    name: 'Katy',
     desc: '',
-    pic: n_ema,
-    backPic: s_ema,
+    pic: katarina,
   },
-]
+  {
+    name: 'Kraťák',
+    desc: '',
+    pic: luky_k,
+  },
+  {
+    name: 'Tínka',
+    desc: '',
+    pic: tinka,
+  },
+  {
+    name: 'Barča',
+    desc: '',
+    pic: barca_h,
+  },
+  {
+    name: 'Jirka',
+    desc: '',
+    pic: jirka_p,
+  },
+  {
+    name: 'Tímea',
+    desc: '',
+    pic: timea,
+  },
+  {
+    name: 'Tejka',
+    desc: '',
+    pic: tea,
+  },
+  {
+    name: 'Maty',
+    desc: '',
+    pic: maty,
+  },
+  {
+    name: 'Zuz',
+    desc: '',
+    pic: zuzka,
+  },
+  {
+    name: 'Tóňa',
+    desc: '',
+    pic: tona,
+  },
+  {
+    name: 'Anička',
+    desc: '',
+    pic: anna_d,
+  },
+  {
+    name: 'Fuky',
+    desc: '',
+    pic: luky_f,
+  },
+  {
+    name: 'Pivi',
+    desc: '',
+    pic: vivi,
+  },
+  {
+    name: 'Šimon',
+    desc: '',
+    pic: simon,
+  },
+  {
+    name: 'Terka',
+    desc: '',
+    pic: terka,
+  },
+  {
+    name: 'Kuba',
+    desc: '',
+    pic: kuba,
+  },
+  {
+    name: 'Marťa',
+    desc: '',
+    pic: marta,
+  },
+  {
+    name: 'Péťa',
+    desc: '',
+    pic: peta,
+  },
+  {
+    name: 'Viki',
+    desc: '',
+    pic: viki,
+  },
+  {
+    name: 'Vanes',
+    desc: '',
+    pic: vanes,
+  },
+  {
+    name: 'Karel',
+    desc: '',
+    pic: karel,
+  },
+];
 
-export default instructors
+export default instructors;

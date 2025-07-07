@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,7 +10,7 @@ import 'swiper/css';
 import '../../scss/Instructors.scss';
 
 const Instructors = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  /* const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
@@ -22,14 +22,14 @@ const Instructors = () => {
 
   const handleClick = (index: number) => {
     setHoveredIndex(hoveredIndex === index ? null : index);
-  };
+  }; */
 
   return (
-    <section id="instruktori">
+    <section id="instruktori" className='bg-primaryLight'>
       <div className="mx-auto text-left lg:w-3/5 px-4">
         <SectionTitle
-          title="S těmito frajery zažiješ nejednu soutěž o imunitu a nejednu kmenovou radu"
-          color="#FBFFE6"
+          title="S těmito frajery zažiješ nejednu divokou jízdu"
+          color="onPrimaryDark"
         />
       </div>
       <div className="pb-16 mx-4">
@@ -53,13 +53,13 @@ const Instructors = () => {
             },
           }}
         >
-          {instructors.map((instructor, index) => (
+          {instructors.map((instructor, {/*index*/}) => (
             <SwiperSlide key={instructor.pic}>
               <div
                 className="flex flex-col instructor-card gap-y-4 relative"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick(index)}
+                // onMouseEnter={() => handleMouseEnter(index)}
+                // onMouseLeave={handleMouseLeave}
+                // onClick={() => handleClick(index)}
               >
                 <img
                   className="instruktorsFront"
@@ -71,7 +71,7 @@ const Instructors = () => {
                     boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)',
                   }}
                 />
-                <img
+                {/* <img
                   className={`absolute top-0 left-0 instruktorsBack transition-opacity duration-500 ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                   }`}
@@ -82,12 +82,11 @@ const Instructors = () => {
                     borderRadius: '15px',
                     boxShadow: '15px 15px 15px -3px rgba(0,0,0,0.2)',
                   }}
-                />
-                <h5 className="text-4xl font-bold md:text-3xl xl:text-4xl text-beige">
+                /> */}
+                {/* <h5 className="text-4xl font-bold md:text-3xl xl:text-4xl text-beige">
                   {instructor.name}
-                </h5>
+                </h5> */}
               </div>
-              {/* TODO: create custom component (InstructorFlipCard) */}
             </SwiperSlide>
           ))}
         </Swiper>
