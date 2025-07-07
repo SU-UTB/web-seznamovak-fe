@@ -100,6 +100,9 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
       )
     )
 
+    if (filteredData.nickname === '') {
+      filteredData.nickname = '---';
+    }
     if (filteredData.disability === '') {
       filteredData.disability = '---';
     }
