@@ -28,6 +28,7 @@ label{
     background-color: #D5CAE7;
     margin-bottom: 50px;
     display: flex;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     height: 150px;
@@ -50,6 +51,7 @@ label{
 
 .imgLogo {
     margin: 0 20px;
+    height: 90%;
 }
 
 .headContainer{
@@ -162,6 +164,7 @@ input[type="file"]{
 
 .submitButton, .submitButtonSecond {
     border: none;
+    border-radius: 10px;
     height: 60px;
     width: 350px;
     background-color: #DFCFF7;
@@ -234,6 +237,7 @@ input[type="file"]{
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
+    min-width: 20px;
 }
 
 .inputCheckBox input[type="checkbox"]:checked {
@@ -280,14 +284,16 @@ input[type="file"]{
     width: 60px;
     height: 60px;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .confirm{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(194, 211, 121, 1);
-    color: rgba(34, 43, 69, 1);
+    border-radius: 10px;
+    background-color: #D5CAE7;
+    color: #592DA1;
     height: 20rem;
     font-size: 35px;
     font-weight: 700;
