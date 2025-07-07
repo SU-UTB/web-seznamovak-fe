@@ -1,6 +1,6 @@
-import ochrana from '../assets/pdf/Ochrana_osobnich_udaju_SU_Seznamovak_UTB_2024.pdf'
-import souhlas from '../assets/pdf/Souhlas_se_zpracovanim_osobnich_udaju_Seznamovak_UTB_2024.pdf'
-import podminky from '../assets/pdf/ucastnicke-podminky-2024.pdf'
+import ochrana from '../assets/pdf/Ochrana_osobnich_udaju_SU_Seznamovak_UTB_2025.pdf'
+import souhlas from '../assets/pdf/Souhlas_se_zpracovanim_osobnich_udaju_Seznamovak_UTB_2025.pdf'
+import podminky from '../assets/pdf/ucastnicke-podminky-2025.pdf'
 
 export const documents = [
   { file: ochrana, desc: 'Ochrana osobních údaju Seznamovák UTB (PDF soubor)' },
