@@ -9,6 +9,7 @@ function isFileList(value: unknown): value is FileList {
 export const reservationFormSchema = z.object({
   batch: z.number().min(1, 'Nutné číslo turnusu'),
   name: z.string().min(1, 'Nutno zadat jméno'),
+  nickname: z.string().optional(),
   disability: z.string().optional(),
   roommate: z.string().optional(),
   surname: z.string().min(1, 'Nutno zadat přijmení'),
