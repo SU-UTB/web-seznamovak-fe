@@ -1,6 +1,4 @@
 #instruktori {
-  background: url('./../assets/img/bg_instructors.webp') no-repeat center;
-  background-size: cover;
 
   .swiper {
     z-index: 30;
@@ -12,6 +10,7 @@
     justify-content: center;
     margin: 0;
     width: 433px;
+    user-select: none;
   }
 
   .swiper-button-prev {
@@ -24,7 +23,7 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    color: #fdecbe;
+    color: #DFCFF7;
     width: 30px; /* Set width for the button */
     height: 30px; /* Set height for the button */
     display: flex;
