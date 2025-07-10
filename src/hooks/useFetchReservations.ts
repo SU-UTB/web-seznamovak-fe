@@ -4,8 +4,6 @@ import api from '../api/api'
 export interface ReservationData {
   firstBatchCapacity: number
   secondBatchCapacity: number
-  firstBatchUpdatedAt: string // for debug
-  secondBatchUpdatedAt: string // for debug
 }
 
 const useFetchReservations = () => {
