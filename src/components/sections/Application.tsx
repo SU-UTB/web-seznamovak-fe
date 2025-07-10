@@ -19,10 +19,16 @@ const Application = () => {
 
   const { data, isLoading, error } = useFetchReservations();
 
+  // for debug
+  const debugRegistrationStart = data?.firstBatchUpdatedAt ? Date.parse(data.firstBatchUpdatedAt) : 0;
+  const debugRegistrationEnd = data?.secondBatchUpdatedAt ? Date.parse(data.secondBatchUpdatedAt) : 0;
+  const isDebugRegistrationOpen = nowUTC >= debugRegistrationStart && nowUTC <= debugRegistrationEnd;
+
+
   return (
     <section id="prihlaska" className='bg-primaryDark '>
       <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5 lg:pb-16">
-        {!isRegistrationOpen  && (
+        {(!isRegistrationOpen && !isDebugRegistrationOpen) && (
           <div className="w-full notify-headline">
             <Notification />
             <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5">
@@ -41,7 +47,7 @@ const Application = () => {
             </div>
           </div>
         )}
-        {isRegistrationOpen  && (
+        {(isRegistrationOpen || isDebugRegistrationOpen) && (
           <>
             <TurnusItem
               outOfStock={false}
