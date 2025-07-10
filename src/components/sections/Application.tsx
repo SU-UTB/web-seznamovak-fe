@@ -22,7 +22,7 @@ const Application = () => {
   return (
     <section id="prihlaska" className='bg-primaryDark '>
       <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5 lg:pb-16">
-        {!isRegistrationOpen  && (
+        {!isRegistrationOpen && (
           <div className="w-full notify-headline">
             <Notification />
             <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5">
@@ -41,7 +41,7 @@ const Application = () => {
             </div>
           </div>
         )}
-        {isRegistrationOpen  && (
+        {isRegistrationOpen && (
           <>
             <TurnusItem
               outOfStock={false}

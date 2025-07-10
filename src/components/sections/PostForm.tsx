@@ -35,6 +35,12 @@ interface FormValues {
 const PostForm: React.FC<PostFormProps> = ({ batch }) => {
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false)
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [isSubmitSuccessful])
+
   const {
     register,
     watch,

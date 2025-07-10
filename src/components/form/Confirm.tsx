@@ -8,7 +8,7 @@ const Confirm: React.FC<ConfirmProps> = ({ turnus }) => {
   return (
     <div className="confirm">
       <div className="confirmContainer">
-        Registrace na {turnus}. turnus proběhla v pořádku. Očekávejte potvrzovací e-mail.
+        Registrace na {turnus}. turnus proběhla v pořádku. Očekávej potvrzovací e-mail.<br />Doporučujeme zkontrolovat také Spam nebo Hromadné zprávy.
       </div>
     </div>
   )
