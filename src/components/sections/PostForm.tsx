@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { reservationFormSchema } from '../../utils/reservationFormSchema'
 import Confirm from '../form/Confirm'
+import podminky from '../../assets/pdf/ucastnicke-podminky-2025.pdf'
+import souhlas from '../../assets/pdf/Souhlas_se_zpracovanim_osobnich_udaju_Seznamovak_UTB_2025.pdf'
 
 interface PostFormProps {
   batch: number
@@ -96,25 +98,22 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
   const handleSave = async (formValues: FormValues) => {
 
+    const rawData = {
+      ...formValues,
+      image: img ? img[0] : null,
+      
+      nickname: formValues.nickname?.trim() || '---',
+      disability: formValues.disability?.trim() || '---',
+      roommate: formValues.roommate?.trim() || '---',
+      gdpr_consent: formValues.gdpr_consent ? 1 : 0,
+      newsletter_consent: formValues.newsletter_consent ? 1 : 0,
+    }
+
     const filteredData = Object.fromEntries(
-      Object.entries({
-        ...formValues,
-        image: img ? img[0] : null,
-      })
-      .filter(
-        ([value]) => value !== null && value !== ''
+      Object.entries(rawData).filter(
+        ([, value]) => value !== null && value !== undefined
       )
     )
-
-    if (filteredData.nickname === '') {
-      filteredData.nickname = '---';
-    }
-    if (filteredData.disability === '') {
-      filteredData.disability = '---';
-    }
-    if (filteredData.roommate === '') {
-      filteredData.roommate = '---';
-    }
 
     await api
       .post('reservations', filteredData, {
@@ -142,9 +141,12 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
       ) : (
         <div className="formInput">
           <form onSubmit={handleSubmit(handleSave)}>
+            <a className="text-onPrimaryLight font-bold">
+              (<span style={{color: 'red'}}>*</span>) - Povinné
+            </a>
             <div className="column">
               <div className="inputBox">
-                <label>Jméno *</label>
+                <label>Jméno <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('name', { required: 'Nutno zadat jméno' })}
                 />
@@ -155,7 +157,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Příjmení *</label>
+                <label>Příjmení <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('surname', { required: 'Nutno zadat příjmení' })}
                 />
@@ -169,7 +171,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="column">
               <div className="inputBox">
-                <label>E-mail *</label>
+                <label>E-mail <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('email', {
                     required: 'Nutno zadat e-mail',
@@ -188,7 +190,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Fakulta *</label>
+                <label>Fakulta <span style={{color: 'red'}}>*</span></label>
                 <select
                   {...register('faculty_id', {
                     required: 'Nutno vybrat fakultu',
@@ -211,7 +213,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="column">
               <div className="inputBox">
-                <label>Do kterého ročníku nastupuješ? *</label>
+                <label>Do kterého ročníku nastupuješ? <span style={{color: 'red'}}>*</span></label>
                 <select
                   {...register('year', { required: 'Nutno vybrat ročník' })}
                 >
@@ -251,10 +253,10 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 <input {...register('roommate')} />
               </div>
               <div className="inputBox">
-                <label>Nahrání fotografie *</label>
+                <label>Fotografie (na které tě jde poznat) <span style={{color: 'red'}}>*</span></label>
                 <label className="imageLabel" htmlFor="image">
                   {!img.length
-                    ? 'Stiskněte pro nahrání fotky'
+                    ? 'Stiskni pro nahrání fotky'
                     : img[0]?.name?.slice(-20)}
                 </label>
                 <input
@@ -291,7 +293,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="column">
               <div className="inputBox">
-                <label>Obec *</label>
+                <label>Obec <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('billing_information.city', {
                     required: 'Nutno zadat obec',
@@ -304,7 +306,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Adresa (ulice, číslo popisné) *</label>
+                <label>Adresa (ulice, číslo popisné) <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('billing_information.street', {
                     required: 'Nutno zadat adresu',
@@ -320,7 +322,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="column">
               <div className="inputBox">
-                <label>PSČ *</label>
+                <label>PSČ <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('billing_information.postal_code', {
                     required: 'Nutno zadat PSČ',
@@ -333,7 +335,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 )}
               </div>
               <div className="inputBox">
-                <label>Telefonní kontakt *</label>
+                <label>Telefonní kontakt <span style={{color: 'red'}}>*</span></label>
                 <input
                   {...register('billing_information.phone', {
                     required: 'Nutno zadat kontakt',
@@ -348,7 +350,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
             </div>
 
             <div className="inputBox">
-              <label>Země *</label>
+              <label>Země <span style={{color: 'red'}}>*</span></label>
               <input
                 {...register('billing_information.country', {
                   required: 'Nutno zadat zemi',
@@ -372,15 +374,35 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                     <input
                       className="cursor-pointer"
                       type="checkbox"
+                      id="gdpr_consent"
                       {...register('gdpr_consent', {
                         required: 'Nutno odsouhlasit zpracování GDPR',
                       })}
                     />
                     <div>
-                      <label className="text-sm">
-                        Souhlas se zpracovávním výše uvedených osobních údajů
-                        za účelem účasti na Seznamováku UTB. *
+                      <label htmlFor="gdpr_consent" className="text-sm">
+                        Souhlasím se{" "}
+                        <a
+                          href={souhlas}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="italic underline"
+                        >
+                          zpracováním
+                        </a>{" "}
+                        výše uvedených údajů a s{" "}
+                        <a
+                          href={podminky}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="italic underline"
+                        >
+                          účastnickými podmínkami
+                        </a>{" "}
+                        za účelem účasti na Seznamováku UTB.{" "}
+                        <span style={{ color: 'red' }}>*</span>
                       </label>
+
                       {errors.gdpr_consent && (
                         <label className="inputErrorMissing text-sm">
                           {errors.gdpr_consent.message}

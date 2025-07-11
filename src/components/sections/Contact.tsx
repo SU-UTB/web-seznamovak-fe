@@ -42,6 +42,8 @@ const Contact = () => {
                 igLink={manager.igLink}
                 igImg={manager.igImg}
                 igOverlay={manager.igOverlay}
+                phone={manager.phone}
+                email={manager.email}
               />
             ))}
           </div>
