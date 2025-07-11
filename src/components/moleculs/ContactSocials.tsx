@@ -2,6 +2,7 @@ import React from 'react';
 import ContactTitle from '../atoms/ContactTitle';
 import Link from '../atoms/Link';
 import { AnalyticsEvents, Firebase } from '../../utils/firebase';
+import EmailLink from '../atoms/EmailLink';
 
 import logo from '../../assets/img/logo.svg'
 
@@ -15,6 +16,8 @@ interface ContactSocialsProps {
   igImg: string;
   igOverlay: string;
   index: number;
+  email?: string;
+  phone?: string;
 }
 
 const ContactSocials: React.FC<ContactSocialsProps> = ({
@@ -23,9 +26,11 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
   fbLink,
   //fbImg,
   fbOverlay,
-  /*igLink,
-  igImg,
-  igOverlay,*/
+  igLink,
+  //igImg,
+  igOverlay,
+  email,
+  phone,
 }) => {
 
   return (
@@ -67,7 +72,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
             />
           </div>
         </Link>
-        {/* <Link
+        <Link
           linkName=""
           linkTo={igLink}
           onClick={() =>
@@ -75,19 +80,34 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
           }
         >
           <div style={styles.container}>
-            <img
+            {/* <img
               src={igImg}
               alt={`instagram: ${title}`}
               width={128}
               height={128}
               style={{ ...styles.image, boxShadow: '0px 0px 15px 7px rgba(220,0,170,0.7)' }}
-            />
+            /> */}
+            <div style={{
+              ...styles.image, 
+              width: 128, 
+              height: 227, 
+              boxShadow: '0px 0px 15px 7px rgba(56,89,153,1)',
+              display: 'grid',
+              placeItems: 'center',
+              padding: '8px'
+              }}>
+                <img src={logo} alt={`Instagram: ${title}`} />
+            </div>
             <img
               src={igOverlay}
               style={styles.overlayImage}
             />
           </div>
-        </Link> */}
+        </Link>
+      </div>
+      <div className="text-center text-primary -mt-8 mb-4">
+        {email && <EmailLink email={email} />}
+        {phone && <p>{phone}</p>}
       </div>
     </div>
   );
@@ -95,7 +115,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
 
 const styles = {
   container: {
-    position: 'relative' as 'relative',
+    position: 'relative',
     width: 'auto',
     height: 'auto',
   },
@@ -105,14 +125,14 @@ const styles = {
     height: 'auto',
   },
   overlayImage: {
-    position: 'absolute' as 'absolute',
+    position: 'absolute',
     top: '0',
     left: '0',
     width: '128px',
     height: 'auto',
     borderRadius: '15px',
-    pointerEvents: 'none' as 'none', // Ensures the overlay image does not interfere with click events
+    pointerEvents: 'none', // Ensures the overlay image does not interfere with click events
   },
-};
+} as const;
 
 export default ContactSocials;
