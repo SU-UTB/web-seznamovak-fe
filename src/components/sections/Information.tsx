@@ -2,8 +2,8 @@ import Link from '../atoms/Link'
 //import '../../scss/Information.scss'
 
 const Information = () => {
-  const totalPriceCZK = 3399
-  const depositCZK = totalPriceCZK - 1000
+  //const totalPriceCZK = 3399
+  //const depositCZK = totalPriceCZK - 1000
 
   const links = [
     { linkName: 'Mapa zde', linkTo: 'https://goo.gl/maps/mTdBDjBknPJoU5Yr8/' },
@@ -25,7 +25,7 @@ const Information = () => {
           <div className="info-price mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md"> */}
       <div className="info-container">
         <div className="info-table w-full lg:flex lg:flex-col lg:items-center md:px-16 lg:px-32 2xl:px-52 3xl:px-16 py-12">
-          <div className="info-price mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
+          {/* <div className="info-price mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-secondaryDark text-2xl uppercase font-extrabold">
               Kolik to stojí?
             </h4>
@@ -36,7 +36,7 @@ const Information = () => {
               Zálohu {depositCZK.toString()} Kč / 102 € pošleš při přihlášení a
               zbylých<br/>1000 Kč zaplatíš až na místě.
             </p>
-          </div>
+          </div> */}
           <div className="info-place mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
             <h4 className="text-secondaryDark text-2xl uppercase font-extrabold">
               KDE BUDU?

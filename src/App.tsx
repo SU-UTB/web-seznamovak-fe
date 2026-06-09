@@ -1,14 +1,13 @@
 import Navbar from './components/moleculs/Navbar'
 import Aftermovie from './components/sections/Aftermovie'
-import Instructors from './components/sections/Instructors'
 import Application from './components/sections/Application'
 import Contact from './components/sections/Contact'
 import Faq from './components/sections/Faq'
 import Gallery from './components/sections/Gallery'
 import Map from './components/sections/Map'
 // import Partners from './components/sections/Partners'
-import Overlay from './components/sections/Overlay'
 import ScrollToTopButton from './components/moleculs/ScrollToTopButton'
+import Overlay from './components/sections/Overlay'
 import { AnalyticsEvents, Firebase } from './utils/firebase'
 
 const App: React.FC = () => {
@@ -22,7 +21,7 @@ const App: React.FC = () => {
       <Application />
       <Aftermovie />
       <Gallery />
-      <Instructors />
+      {/* <Instructors /> */}
       <Map />
       <Faq />
       {/* <Partners /> */}
