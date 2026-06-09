@@ -3,16 +3,39 @@ on:
     branches:
       - main
   workflow_dispatch:
+
 name: Deploy website on main push
+
 jobs:
   web-deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      # 1. Aktualizováno na v4 (řeší varování o zastaralosti)
       - name: Get latest code
-        uses: actions/checkout@v3
-      - run: yarn install && yarn build
+        uses: actions/checkout@v4
 
+      # 2. Instalace závislostí a build
+      - name: Build project
+        run: |
+          yarn install
+          yarn build
+
+      # 3. Instalace a připojení k VPN
+      - name: Connect to VPN
+        run: |
+          echo "${{ secrets.VPN_PASSWORD }}" > vpn-pass.txt
+          sudo apt-get update
+          sudo apt-get install -y openconnect
+          sudo openconnect \
+            --protocol=anyconnect \
+            --user=${{ secrets.VPN_USERNAME }} \
+            vpn.utb.cz \
+            --passwd-on-stdin < vpn-pass.txt \
+            --background
+          sleep 10
+
+      # 4. Nahrání souborů přes SFTP
       - name: Sync files  
         uses: wangyucode/sftp-upload-action@v2.0.2
         with:
@@ -21,4 +44,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: './dist/' 
           remoteDir: './www/' 
-          exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store' 
+          exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store'
