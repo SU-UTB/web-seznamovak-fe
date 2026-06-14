@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
-import { Oval } from 'react-loader-spinner'
-import TurnusHeadline from './TurnusHeadline'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import TurnusHeadline from './TurnusHeadline'
 
 interface TurnusItemProps {
   title: string
   date: string
   currentPlaces?: number
   totalPlaces: number
-  color: string
+  titleColor: string
+  dateColor: string
   isLoading: boolean
   error: Error | null
   regLink: string
@@ -20,39 +20,46 @@ const TurnusItem: React.FC<TurnusItemProps> = ({
   date,
   currentPlaces,
   totalPlaces,
-  color,
+  titleColor,
+  dateColor,
   isLoading,
   error,
   regLink,
-  // outOfStock = false,
 }) => {
-  if (!currentPlaces && currentPlaces !== 0) return
+  // Pokud nejsou data a není loading, nic neukazujeme
+  if (!isLoading && currentPlaces === undefined && currentPlaces !== 0)
+    return null
 
-  const available = currentPlaces > 0
-  //const available = false
+  const available = (currentPlaces ?? 0) > 0
 
   return (
     <div className="mx-4 mb-32 turnus lg:mb-12 xl:mb-0">
-      <TurnusHeadline title={title} date={date} color={color} />
-      {isLoading && (
-        <div className="flex justify-center">
-          <Oval color="#FDECBE" secondaryColor="lightblue" />
+      <TurnusHeadline
+        title={title}
+        date={date}
+        titleColor={titleColor}
+        dateColor={dateColor}
+      />
+
+      {error && <p className="text-2xl text-beige">Něco se pokazilo...</p>}
+
+      {isLoading ? (
+        <div className="mt-8 flex justify-center">
+          <div className="h-10 w-10 animate-spin rounded-full border-[5px] border-beige border-t-darkPink" />
+        </div>
+      ) : (
+        <div>
+          <p className={`mb-8 text-3xl font-medium ${dateColor}`}>
+            {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
+          </p>
+          <Link
+            to={regLink}
+            className={`block px-6 py-3 text-2xl font-bold rounded-[10px] bg-darkPink text-beige`}
+          >
+            {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
+          </Link>
         </div>
       )}
-      {error && <p className="text-2xl text-beige">Něco se pokazilo...</p>}
-      <div>
-        <p className={`mb-8 text-3xl font-medium text-${color}`}>
-          {available ? `Zbývá ${currentPlaces}/${totalPlaces}` : 'Vyprodáno'}
-        </p>
-        <Link
-          to={regLink}
-          className={`block px-6 py-3 text-2xl font-bold rounded-[10px] shadow-[0px_0px_30px_-3px_rgba(209,186,121,0.6)]`}
-          style={{ color: '#70308C', backgroundColor: '#F2BC1B' }}
-        >
-          {available ? 'PŘIHLÁSIT SE' : 'PŘIHLÁSIT SE JAKO NÁHRADNÍK'}
-        </Link>
-
-      </div>
     </div>
   )
 }

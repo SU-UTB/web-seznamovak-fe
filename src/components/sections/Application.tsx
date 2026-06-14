@@ -15,6 +15,7 @@ const Application = () => {
   const endDateUTC = Date.parse(REGISTRATION_END_DATE.toISOString());
   
   const isRegistrationOpen = nowUTC >= startDateUTC && nowUTC <= endDateUTC;
+  
   // const shouldStartRegistration = true
 
   const { data, isLoading, error } = useFetchReservations();
@@ -30,11 +31,15 @@ const Application = () => {
                 title="1. Turnus"
                 // Use the displayDate from turnus1 constant
                 date={turnus1.displayDate}
+                titleColor="text-darkPink"
+                dateColor="text-darkBlue"
               />
               <TurnusHeadline
                 title="2. Turnus"
                 // Use the displayDate from turnus2 constant
                 date={turnus2.displayDate}
+                titleColor="text-darkPink"
+                dateColor="text-darkBlue"
               />
             </div>
           </div>
@@ -49,7 +54,8 @@ const Application = () => {
               currentPlaces={data?.firstBatchCapacity}  // OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
               //currentPlaces={1}
               totalPlaces={100}
-              color="secondaryDark"
+              titleColor="text-darkPink"
+              dateColor="text-darkBlue"
               isLoading={isLoading}
               error={error}
               regLink="/turnus1"
@@ -62,7 +68,8 @@ const Application = () => {
               currentPlaces={data?.secondBatchCapacity} // OVĚŘIT FUNGOVÁNÍ S DATABÁZÍ
               //currentPlaces={1} // TESTOVACÍ KÓD - ZMĚNIT ↑
               totalPlaces={100}
-              color="secondaryDark"
+              titleColor="text-darkPink"
+              dateColor="text-darkBlue"
               isLoading={isLoading}
               error={error}
               regLink="/turnus2"
