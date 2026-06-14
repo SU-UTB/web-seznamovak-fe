@@ -18,7 +18,7 @@ const Information = () => {
   return (
     <section
       id="informace"
-      className="text-center bg-secondary4Dark lg:text-left lg:pb-4 px-4 lg:px-0"
+      className="text-center bg-beige lg:text-left lg:pb-4 px-4 lg:px-0"
     >
       {/* <div className="info-container lg:mx-auto 3xl:w-3/5">
         <div className="info-table w-full lg:flex lg:flex-col lg:items-end md:px-16 lg:px-32 2xl:px-52 3xl:px-16 py-12">
@@ -38,7 +38,7 @@ const Information = () => {
             </p>
           </div> */}
           <div className="info-place mb-8 lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
-            <h4 className="text-secondaryDark text-2xl uppercase font-extrabold">
+            <h4 className="text-darkPink text-2xl uppercase font-extrabold">
               KDE BUDU?
             </h4>
             <p className="uppercase text-3xl font-bold mb-2 text-primaryDark">
@@ -51,7 +51,7 @@ const Information = () => {
             </div>
           </div>
           <div className="info-prepare-or-die lg:w-5/12 xl:w-2/5 3xl:w-full 3xl:max-w-md">
-            <h4 className="text-secondaryDark text-2xl uppercase font-extrabold">
+            <h4 className="text-darkPink text-2xl uppercase font-extrabold">
               JAK SE MÁM PŘIPRAVIT?
             </h4>
             <p className="text-primaryDark">

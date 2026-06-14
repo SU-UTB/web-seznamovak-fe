@@ -19,10 +19,10 @@ const App: React.FC = () => {
       <Navbar />
       <Overlay />
       <Application />
-      <Aftermovie />
       <Gallery />
       {/* <Instructors /> */}
       <Map />
+      <Aftermovie />
       <Faq />
       {/* <Partners /> */}
       <Contact />

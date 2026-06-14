@@ -21,8 +21,8 @@ const SuSocials: React.FC<SuSocialsProps> = ({
 }) => {
   return (
     <div className="socials text-center lg:text-left relative z-30">
-      <ContactTitle title={title} color="secondaryDark" />
-      <p className="mb-4 text-primary">{desc}</p>
+      <ContactTitle title={title} color="darkBlue" />
+      <p className="mb-4 text-darkBlue">{desc}</p>
       <div className="img-links flex justify-center gap-x-6 lg:gap-x-0 lg:justify-between lg:max-w-xs mb-12">
         <Link linkTo={fbLink} linkName="">
           <img

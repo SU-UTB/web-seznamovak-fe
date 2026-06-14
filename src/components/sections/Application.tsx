@@ -20,7 +20,7 @@ const Application = () => {
   const { data, isLoading, error } = useFetchReservations();
 
   return (
-    <section id="prihlaska" className='bg-primaryDark '>
+    <section id="prihlaska" className='bg-lightPink '>
       <div className="flex flex-wrap justify-around w-full pt-16 mx-auto lg:w-4/5 lg:pb-16">
         {!isRegistrationOpen && (
           <div className="w-full notify-headline">
@@ -30,13 +30,11 @@ const Application = () => {
                 title="1. Turnus"
                 // Use the displayDate from turnus1 constant
                 date={turnus1.displayDate}
-                color="secondaryDark"
               />
               <TurnusHeadline
                 title="2. Turnus"
                 // Use the displayDate from turnus2 constant
                 date={turnus2.displayDate}
-                color="secondaryDark"
               />
             </div>
           </div>

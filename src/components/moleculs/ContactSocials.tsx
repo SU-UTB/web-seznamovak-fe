@@ -105,7 +105,7 @@ const ContactSocials: React.FC<ContactSocialsProps> = ({
           </div>
         </Link>
       </div>
-      <div className="text-center text-primary -mt-8 mb-4">
+      <div className="text-center text-darkBlue -mt-8 mb-4">
         {email && <EmailLink email={email} />}
         {phone && <p>{phone}</p>}
       </div>

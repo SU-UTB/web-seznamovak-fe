@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -18,7 +18,7 @@ module.exports = {
         dark_green: "#333F30",
         light_green: "#627A3F",
         dark_beige: "#C2D379",
-        beige: "#FBFFE6",
+        //beige: "#FBFFE6",
         light_brown: "#D1BA79",
         white: "#FFFFFF",
         /* 2025 */
@@ -31,6 +31,11 @@ module.exports = {
         secondary: "#F2BC1B",
         secondaryLight: "#F2D027",
         secondary4Dark: "#FCE8C3",
+        /* 2026 */
+        lightPink: "#FBAACA",
+        darkPink: "#EE0886",
+        beige: "#FCEDC5",
+        darkBlue: "#25283D",
       },
       animation: {
         fadein: 'fadein 0.2s ease 0.5s forwards',
