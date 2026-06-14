@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky h-16 top-0 w-full bg-primary z-50">
+    <header className="sticky h-16 top-0 w-full bg-beige z-50">
       <nav className="flex flex-col items-center relative">
         <HamburgerBtn
           onClick={() => setIsNavOpened(!isNavOpened)}
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
         />
         <ul
           className={
-            'flex flex-col bg-primary lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
+            'flex flex-col bg-beige lg:flex-row flex-wrap lg:justify-evenly items-center w-full absolute lg:static top-16 h-screen lg:h-auto lg:top-0 transition-all duration-300 ' +
             (isNavOpened
               ? 'translate-x-0'
               : 'lg:translate-x-0 -translate-x-full')

@@ -17,9 +17,9 @@ const HamburgerBtn: React.FC<HamburgerBtnProps> = ({
       }`}
       onClick={onClick}
     >
-      <div className="line1 bg-beige"></div>
-      <div className="line2 bg-beige"></div>
-      <div className="line3 bg-beige"></div>
+      <div className="line1 bg-darkPink"></div>
+      <div className="line2 bg-darkPink"></div>
+      <div className="line3 bg-darkPink"></div>
     </div>
   )
 }
