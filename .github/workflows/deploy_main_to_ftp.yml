@@ -27,13 +27,16 @@ jobs:
           echo "${{ secrets.VPN_PASSWORD }}" > vpn-pass.txt
           sudo apt-get update
           sudo apt-get install -y openconnect
+          echo "Spouštím VPN..."
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
-            vpn.utb.cz \
+            --authgroup=VPN-UTB \
             --passwd-on-stdin < vpn-pass.txt \
-            --background
-          sleep 10
+            vpn.utb.cz &
+          
+          echo "Čekám na navázání spojení..."
+          sleep 15
 
       # 4. Nahrání souborů přes SFTP
       - name: Sync files  
