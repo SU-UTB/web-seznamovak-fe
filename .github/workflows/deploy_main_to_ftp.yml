@@ -11,23 +11,31 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      # 1. Aktualizováno na v4 (řeší varování o zastaralosti)
+      # 1. Stažení nejnovějšího kódu z repozitáře
       - name: Get latest code
         uses: actions/checkout@v4
 
-      # 2. Instalace závislostí a build
+      # 2. Instalace závislostí a build webu
       - name: Build project
         run: |
           yarn install
           yarn build
 
-      # 3. Instalace a připojení k VPN
+      # 3. Instalace openconnect, oathtool a připojení k VPN s 2FA
       - name: Connect to VPN
         run: |
-          echo "${{ secrets.VPN_PASSWORD }}" > vpn-pass.txt
+          # Aktualizace repozitářů a instalace VPN klienta a 2FA generátoru
           sudo apt-get update
-          sudo apt-get install -y openconnect
-          echo "Spouštím VPN..."
+          sudo apt-get install -y openconnect oathtool
+
+          # Vygenerování aktuálního šestimístného 2FA kódu
+          TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
+          
+          # UTB VPN (AnyConnect) obvykle vyžaduje heslo na prvním řádku 
+          # a 2FA kód (Second Password) na druhém řádku vstupu.
+          printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
+
+          echo "Spouštím VPN s automatickým 2FA..."
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
@@ -38,7 +46,15 @@ jobs:
           echo "Čekám na navázání spojení..."
           sleep 15
 
-      # 4. Nahrání souborů přes SFTP
+          # Kontrola, zda VPN tunel úspěšně vznikl (vytvoří se rozhraní tun0)
+          if ip a show tun0; then
+            echo "VPN připojení bylo úspěšně navázáno."
+          else
+            echo "Chyba: Nepodařilo se připojit k VPN!"
+            exit 1
+          fi
+
+      # 4. Nahrání souborů přes SFTP do univerzitní sítě
       - name: Sync files  
         uses: wangyucode/sftp-upload-action@v2.0.2
         with:
