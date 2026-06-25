@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import homeButton from '../../assets/img/homeButton.png'
+import ArrowLeft from '../../assets/img/ArrowLeft'
 
 const HomeButton: React.FC = () => {
   return (
     <div className="homeButtonWrapper">
       <div className="homeButtonImg">
-        <Link to="/">
-          <img src={homeButton} alt="Zpátky" />
+        <Link to="/" className="block w-14 h-14">
+          <ArrowLeft />
         </Link>
       </div>
     </div>
