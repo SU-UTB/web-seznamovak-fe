@@ -21,55 +21,36 @@ jobs:
           yarn install
           yarn build
 
-      # 3. Připojení k VPN a OKAMŽITÉ nahrání přes SFTP
+      # 3. Připojení k EXTERNÍ VPN a SFTP nahrávání
       - name: Connect to VPN and Deploy
         run: |
-          # Instalace VPN klienta, 2FA generátoru, směrování a SFTP klienta (lftp)
+          # Instalace potřebných balíčků včetně lftp nahrávače
           sudo apt-get update
           sudo apt-get install -y openconnect oathtool vpnc-scripts lftp
 
-          # Vygenerování aktuálního šestimístného 2FA kódu
+          # Vygenerování aktuálního šestimístného 2FA kódu z nového klíče
           TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
           
-          # Příprava přihlašovacích údajů pro VPN
+          # Příprava přihlašovacích údajů pro VPN (nový externí účet)
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
-          echo "Spouštím VPN s nativním odpojením na pozadí..."
+          echo "Spouštím VPN s EXTERNÍM účtem na pozadí..."
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
             --script=/usr/share/vpnc-scripts/vpnc-script \
-            --non-inter \
-            --no-xmlpost \
-            --background \
-            --passwd-on-stdin vpn.utb.cz < vpn-pass.txt
+            --passwd-on-stdin vpn.utb.cz < vpn-pass.txt &
+          
+          echo "Čekám 10 sekund na sestavení tunelu..."
+          sleep 10
 
-          echo "Čekám na inicializaci síťového rozhraní tun0..."
-          # Smyčka, která počká, než operační systém kartu tun0 fyzicky vytvoří
-          for i in {1..10}; do
-            if ip a show tun0 >/dev/null 2>&1; then
-              echo "Rozhraní tun0 nalezeno a připraveno!"
-              break
-            fi
-            echo "Tunel se ještě vytváří, čekám 1s..."
-            sleep 1
-          done
-
-          echo "Kontroluji konečný stav síťového rozhraní..."
-          # Kontrola, zda VPN tunel úspěšně vznikl
-          if ip a show tun0; then
-            echo "VPN připojení je aktivní. Spouštím SFTP synchronizaci..."
-            
-            # Nahrání souborů pomocí nástroje lftp (odpovídá vaší FileZille)
-            lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" sftp://${{ secrets.FTP }} -e "
-              set sftp:auto-confirm yes;
-              mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
-              quit
-            "
-            
-            echo "Synchronizace úspěšně dokončena!"
-          else
-            echo "Chyba: Nepodařilo se vytvořit VPN tunel (vypršel čas inicializace)!"
-            exit 1
-          fi
+          echo "Spouštím SFTP synchronizaci na loony.utb.cz..."
+          # Připojujeme se přímo na IP adresu, kterou povolilo IT oddělení
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" sftp://195.178.88.158 -e "
+            set sftp:auto-confirm yes;
+            mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
+            quit
+          "
+          
+          echo "Web byl úspěšně aktualizován přes externí VPN!"
