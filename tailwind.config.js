@@ -36,6 +36,7 @@ export default {
         darkPink: "#EE0886",
         beige: "#FCEDC5",
         darkBlue: "#25283D",
+        mintGreen: "#7ACBAC",
       },
       animation: {
         fadein: 'fadein 0.2s ease 0.5s forwards',
