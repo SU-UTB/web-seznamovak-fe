@@ -34,24 +34,29 @@ jobs:
           # Příprava přihlašovacích údajů pro VPN
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
-          echo "Spouštím VPN s automatickým 2FA..."
+          echo "Spouštím VPN s automatickým 2FA (neinteraktivně)..."
+          # Přesměrováváme logy do vpn.log, abychom viděli případné chyby na pozadí
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
             --script=/usr/share/vpnc-scripts/vpnc-script \
+            --non-inter \
+            --no-xmlpost \
             --passwd-on-stdin < vpn-pass.txt \
-            vpn.utb.cz &
+            vpn.utb.cz > vpn.log 2>&1 &
           
           echo "Čekám na navázání stabilního spojení..."
           sleep 15
+
+          # Výpis logu VPN pro kontrolu úspěšného spojení
+          cat vpn.log
 
           # Kontrola, zda VPN tunel úspěšně vznikl
           if ip a show tun0; then
             echo "VPN připojení je aktivní. Spouštím SFTP synchronizaci..."
             
             # Nahrání souborů pomocí nástroje lftp přímo uvnitř tohoto kroku
-            # -e: provede příkazy; mirror -R: synchronizuje lokální složku na vzdálenou
             lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" sftp://${{ secrets.FTP }} -e "
               set sftp:auto-confirm yes;
               mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
