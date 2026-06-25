@@ -12,6 +12,12 @@ export const faqs = [
     showed: false,
   },
   {
+    question: 'JAK PROBÍHÁ REGISTRACE?',
+    answer:
+      'Po spuštění registrací se objeví pod turnusy tlačítko. Ve formuláři je potřeba vyplnit kontaktní údaje, fakultu, ročník a další věci. Součástí je i nahrání Tvé fotografie, na které jdeš poznat. Pak už stačí jenom odeslat přihlášku a my se Ti ozveme e-mailem.',
+    showed: false,
+  },
+  {
     question: 'JAK SE TAM DOSTANU?',
     answer:
       'Na našem webu najdeš jak jízdní řád, tak mapu. Ze zastávky Bystřička, u Nováků se vydáš směrem jízdy, za hlukem. Není se kde ztratit! Přidej se do události na Facebooku pro <a style="text-decoration: underline;" href="https://fb.me/e/cn0anDI2e" target="_blank" rel="noreferrer">první</a> nebo <a style="text-decoration: underline;" href="https://fb.me/e/kxCYLrUF0" target="_blank" rel="noreferrer">druhý</a> turnus, kde najdeš info a brzy i parťáky, se kterými se můžeš domluvit na spolujízdu autem. Jestli budeš řídit Ty nebo se budeš chtít jen svézt, to už je na tobě, nezapomeň ale, že ten, kdo nedojel na seznamovák v kufru, jakoby nežil…',
