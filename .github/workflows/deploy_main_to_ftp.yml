@@ -11,30 +11,33 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      # 1. Stažení nejnovějšího kódu z repozitáře
+      # 1. Aktualizováno na v4
       - name: Get latest code
         uses: actions/checkout@v4
 
-      # 2. Instalace závislostí a build webu
+      # 2. Instalace závislostí a build
       - name: Build project
         run: |
           yarn install
           yarn build
 
-      # 3. Připojení k EXTERNÍ VPN a SFTP nahrávání
-      - name: Connect to VPN and Deploy
+      # 3. Instalace a připojení k VPN (Zde vynutíme přežití procesu)
+      - name: Connect to VPN
         run: |
-          # Instalace potřebných balíčků včetně lftp nahrávače
+          # Instalace VPN klienta, 2FA generátoru a směrovacích skriptů
           sudo apt-get update
-          sudo apt-get install -y openconnect oathtool vpnc-scripts lftp
+          sudo apt-get install -y openconnect oathtool vpnc-scripts
 
-          # Vygenerování aktuálního šestimístného 2FA kódu z nového klíče
+          # Vygenerování aktuálního 2FA kódu
           TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
-          
-          # Příprava přihlašovacích údajů pro VPN (nový externí účet)
-          printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
-          echo "Spouštím VPN s EXTERNÍM účtem na pozadí..."
+          # Příprava přihlašovacích údajů (heslo na 1. řádek, 2FA kód na 2. řádek)
+          printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
+          
+          echo "Spouštím VPN..."
+          # Nastavením RUNNER_TRACKING_ID="" zakážeme GitHubu zabít VPN na konci tohoto kroku
+          export RUNNER_TRACKING_ID=""
+          
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
@@ -42,15 +45,23 @@ jobs:
             --script=/usr/share/vpnc-scripts/vpnc-script \
             --passwd-on-stdin vpn.utb.cz < vpn-pass.txt &
           
-          echo "Čekám 10 sekund na sestavení tunelu..."
-          sleep 10
+          echo "Čekám na navázání spojení..."
+          sleep 15
 
-          echo "Spouštím SFTP synchronizaci na loony.utb.cz..."
-          # Připojujeme se přímo na IP adresu, kterou povolilo IT oddělení
-          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" sftp://195.178.88.158 -e "
-            set sftp:auto-confirm yes;
-            mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
-            quit
-          "
-          
-          echo "Web byl úspěšně aktualizován přes externí VPN!"
+          # Rychlé ověření existence tunelu
+          if ip a show tun0; then
+            echo "VPN je připravena pro SFTP krok!"
+          else
+            echo "Varování: Tunel tun0 nebyl včas detekován, pokračuji dál."
+          fi
+
+      # 4. Nahrání souborů přes SFTP (Vaše původní akce)
+      - name: Sync files  
+        uses: wangyucode/sftp-upload-action@v2.0.2
+        with:
+          host: ${{ secrets.FTP }}  # Zde doporučuji mít IP adresu 195.178.88.158
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: './dist/' 
+          remoteDir: './www/' 
+          exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store'
