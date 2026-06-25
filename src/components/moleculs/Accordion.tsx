@@ -40,7 +40,11 @@ const Accordion: React.FC<AccordionProps> = ({
           (showed === title ? 'max-h-80 mt-2 opacity-100' : 'max-h-0 opacity-0')
         }
       >
-        {content}
+        {typeof content === 'string' ? (
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        ) : (
+          content
+        )}
       </div>
     </li>
   )
