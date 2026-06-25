@@ -14,7 +14,7 @@ export const faqs = [
   {
     question: 'JAK PROBÍHÁ REGISTRACE?',
     answer:
-      'Po spuštění registrací se objeví pod turnusy tlačítko. Ve formuláři je potřeba vyplnit kontaktní údaje, fakultu, ročník a další věci. Součástí je i nahrání Tvé fotografie, na které jdeš poznat. Pak už stačí jenom odeslat přihlášku a my se Ti ozveme e-mailem.',
+      'Po spuštění registrací se objeví pod turnusy tlačítka. Ve formuláři je potřeba vyplnit kontaktní údaje, fakultu, ročník a další věci. Součástí je i nahrání Tvé fotografie, na které jdeš poznat. Pak už stačí jenom odeslat přihlášku a my se Ti ozveme e-mailem.',
     showed: false,
   },
   {
