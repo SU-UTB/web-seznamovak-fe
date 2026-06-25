@@ -34,24 +34,20 @@ jobs:
           # Příprava přihlašovacích údajů pro VPN
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
-          echo "Spouštím VPN s automatickým 2FA na pozadí..."
-          # Použijeme nohup a přesměrování vstupu < vpn-pass.txt, aby proces bezpečně odplul na pozadí
-          sudo nohup openconnect \
+          echo "Spouštím VPN s nativním odpojením na pozadí..."
+          # Parametr --background zajistí, že openconnect sám počká na spojení, 
+          # vytvoří tun0 a teprve pak pustí skript k dalšímu řádku.
+          sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
             --script=/usr/share/vpnc-scripts/vpnc-script \
             --non-inter \
             --no-xmlpost \
-            --passwd-on-stdin vpn.utb.cz < vpn-pass.txt > vpn.log 2>&1 &
-          
-          echo "Čekám na navázání stabilního spojení (15s)..."
-          sleep 15
+            --background \
+            --passwd-on-stdin vpn.utb.cz < vpn-pass.txt
 
-          echo "=== VÝPIS LOGU Z VPN ==="
-          cat vpn.log
-          echo "========================"
-
+          echo "Kontroluji stav síťového rozhraní..."
           # Kontrola, zda VPN tunel úspěšně vznikl
           if ip a show tun0; then
             echo "VPN připojení je aktivní. Spouštím SFTP synchronizaci..."
@@ -65,6 +61,6 @@ jobs:
             
             echo "Synchronizace úspěšně dokončena!"
           else
-            echo "Chyba: Nepodařilo se vytvořit VPN tunel! Podívejte se na výpis logu výše."
+            echo "Chyba: Nepodařilo se vytvořit VPN tunel!"
             exit 1
           fi
