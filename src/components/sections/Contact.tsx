@@ -12,7 +12,7 @@ import SuSocials from '../moleculs/SuSocials'
 
 const Contact = () => {
   return (
-    <section id="kontakt" className="bg-beige text-darkBlue px-4 lg:px-0">
+    <section id="kontakt" className="bg-[#117872] text-beige px-4 lg:px-0">
       <SectionTitle title="kontakt" color="darkBlue" />
       <div className="lg:grid lg:grid-cols-2 lg:content-end text-center lg:text-left mx-auto lg:w-4/5 gap-x-16">
         <div>
