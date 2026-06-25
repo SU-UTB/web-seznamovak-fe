@@ -21,7 +21,7 @@ jobs:
           yarn install
           yarn build
 
-      # 3. Sloučený krok: Připojení VPN + Nahrání souborů (FileZilla simulace)
+      # 3. Sloučený krok: Připojení VPN + Nahrání souborů bez interaktivních SSH dotazů
       - name: Connect to VPN and Sync Files
         run: |
           # Instalace VPN, MFA generátoru, síťových skriptů a SFTP klienta (lftp)
@@ -46,10 +46,11 @@ jobs:
           sleep 10
 
           echo "Spouštím bezpečný SFTP přenos dat..."
-          # lftp se připojí na IP adresu povolenou IT oddělením
-          # mirror -R zajistí zrcadlové nahrání složky dist do www (včetně podsložek)
-          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" sftp://195.178.88.158 -e "
+          # Zde definujeme explicitní parametry pro SSH, aby lftp nečekalo na schválení serverového otisku klíče
+          lftp -e "
             set sftp:auto-confirm yes;
+            set sftp:connect-program \"ssh -a -x -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=/dev/null\";
+            open -u \"${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}\" sftp://195.178.88.158;
             mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
             quit
           "
