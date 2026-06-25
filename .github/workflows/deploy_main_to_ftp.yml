@@ -26,7 +26,7 @@ jobs:
         run: |
           # Instalace VPN klienta, 2FA generátoru a směrovacího skriptu
           sudo apt-get update
-          sudo apt-get install -y openconnect oathtool vpnc-script
+          sudo apt-get install -y openconnect oathtool vpnc-scripts
 
           # Vygenerování aktuálního šestimístného kódu (jako z Google Authenticatoru)
           TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
