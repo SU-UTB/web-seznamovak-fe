@@ -11,7 +11,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      # 1. Stažení kódu z repozitáře
+      # 1. Aktualizováno na v4 (řeší varování o zastaralosti)
       - name: Get latest code
         uses: actions/checkout@v4
 
@@ -21,38 +21,30 @@ jobs:
           yarn install
           yarn build
 
-      # 3. Sloučený krok: Připojení VPN + Nahrání souborů bez interaktivních SSH dotazů
-      - name: Connect to VPN and Sync Files
+      # 3. Instalace a připojení k VPN
+      - name: Connect to VPN
         run: |
-          # Instalace VPN, MFA generátoru, síťových skriptů a SFTP klienta (lftp)
+          echo "${{ secrets.VPN_PASSWORD }}" > vpn-pass.txt
           sudo apt-get update
-          sudo apt-get install -y openconnect oathtool vpnc-scripts lftp
-
-          # Vygenerování aktuálního 6místného MFA kódu
-          TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
-
-          # Příprava přihlašovacích údajů pro VPN
-          printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
-          
-          echo "Spouštím VPN s novým externím účtem..."
+          sudo apt-get install -y openconnect
+          echo "Spouštím VPN..."
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
-            --script=/usr/share/vpnc-scripts/vpnc-script \
-            --passwd-on-stdin vpn.utb.cz < vpn-pass.txt &
+            --passwd-on-stdin < vpn-pass.txt \
+            vpn.utb.cz &
           
-          echo "Čekám 10 sekund na stabilizaci tunelu..."
-          sleep 10
+          echo "Čekám na navázání spojení..."
+          sleep 15
 
-          echo "Spouštím bezpečný SFTP přenos dat..."
-          # Zde definujeme explicitní parametry pro SSH, aby lftp nečekalo na schválení serverového otisku klíče
-          lftp -e "
-            set sftp:auto-confirm yes;
-            set sftp:connect-program \"ssh -a -x -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=/dev/null\";
-            open -u \"${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}\" sftp://195.178.88.158;
-            mirror -R --delete --exclude-glob .git* --exclude-glob .idea* ./dist/ ./www/;
-            quit
-          "
-          
-          echo "Synchronizace úspěšně dokončena, web je aktualizován!"
+      # 4. Nahrání souborů přes SFTP
+      - name: Sync files  
+        uses: wangyucode/sftp-upload-action@v2.0.2
+        with:
+          host: ${{ secrets.FTP }}  
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: './dist/' 
+          remoteDir: './www/' 
+          exclude: '.git*,**/.git*,**/.git*/**,**/.idea*,**/.idea*/**.DS_Store'
