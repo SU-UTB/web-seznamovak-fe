@@ -24,15 +24,14 @@ jobs:
       # 3. Instalace openconnect, oathtool a připojení k VPN s 2FA
       - name: Connect to VPN
         run: |
-          # Aktualizace repozitářů a instalace VPN klienta a 2FA generátoru
+          # Instalujeme openconnect, oathtool a navíc balíček vpnc (kvůli routování sítě)
           sudo apt-get update
-          sudo apt-get install -y openconnect oathtool
+          sudo apt-get install -y openconnect oathtool vpnc
 
           # Vygenerování aktuálního šestimístného 2FA kódu
           TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
           
-          # UTB VPN (AnyConnect) obvykle vyžaduje heslo na prvním řádku 
-          # a 2FA kód (Second Password) na druhém řádku vstupu.
+          # Příprava vstupu pro autentizaci
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
           echo "Spouštím VPN s automatickým 2FA..."
@@ -40,17 +39,18 @@ jobs:
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
+            --script=/etc/vpnc/vpnc-script \
             --passwd-on-stdin < vpn-pass.txt \
             vpn.utb.cz &
           
           echo "Čekám na navázání spojení..."
           sleep 15
 
-          # Kontrola, zda VPN tunel úspěšně vznikl (vytvoří se rozhraní tun0)
+          # Kontrola, zda VPN tunel úspěšně vznikl
           if ip a show tun0; then
-            echo "VPN připojení bylo úspěšně navázáno."
+            echo "VPN připojení bylo úspěšně navázáno a síťové rozhraní existuje."
           else
-            echo "Chyba: Nepodařilo se připojit k VPN!"
+            echo "Chyba: Nepodařilo se vytvořit tunel!"
             exit 1
           fi
 
