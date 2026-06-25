@@ -35,8 +35,6 @@ jobs:
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
           echo "Spouštím VPN s nativním odpojením na pozadí..."
-          # Parametr --background zajistí, že openconnect sám počká na spojení, 
-          # vytvoří tun0 a teprve pak pustí skript k dalšímu řádku.
           sudo openconnect \
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
@@ -47,7 +45,18 @@ jobs:
             --background \
             --passwd-on-stdin vpn.utb.cz < vpn-pass.txt
 
-          echo "Kontroluji stav síťového rozhraní..."
+          echo "Čekám na inicializaci síťového rozhraní tun0..."
+          # Smyčka, která počká, než operační systém kartu tun0 fyzicky vytvoří
+          for i in {1..10}; do
+            if ip a show tun0 >/dev/null 2>&1; then
+              echo "Rozhraní tun0 nalezeno a připraveno!"
+              break
+            fi
+            echo "Tunel se ještě vytváří, čekám 1s..."
+            sleep 1
+          done
+
+          echo "Kontroluji konečný stav síťového rozhraní..."
           # Kontrola, zda VPN tunel úspěšně vznikl
           if ip a show tun0; then
             echo "VPN připojení je aktivní. Spouštím SFTP synchronizaci..."
@@ -61,6 +70,6 @@ jobs:
             
             echo "Synchronizace úspěšně dokončena!"
           else
-            echo "Chyba: Nepodařilo se vytvořit VPN tunel!"
+            echo "Chyba: Nepodařilo se vytvořit VPN tunel (vypršel čas inicializace)!"
             exit 1
           fi
