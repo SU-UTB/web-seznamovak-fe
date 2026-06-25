@@ -21,17 +21,17 @@ jobs:
           yarn install
           yarn build
 
-      # 3. Instalace openconnect, oathtool a připojení k VPN s 2FA
+      # 3. Instalace openconnect, oathtool a připojení k VPN s automatickým 2FA
       - name: Connect to VPN
         run: |
-          # Instalujeme openconnect, oathtool a navíc balíček vpnc (kvůli routování sítě)
+          # Instalace VPN klienta, 2FA generátoru a směrovacího skriptu
           sudo apt-get update
-          sudo apt-get install -y openconnect oathtool vpnc
+          sudo apt-get install -y openconnect oathtool vpnc-script
 
-          # Vygenerování aktuálního šestimístného 2FA kódu
+          # Vygenerování aktuálního šestimístného kódu (jako z Google Authenticatoru)
           TOKEN=$(oathtool --base32 --totp "${{ secrets.VPN_2FA_SECRET }}")
           
-          # Příprava vstupu pro autentizaci
+          # Příprava přihlašovacích údajů (heslo na 1. řádku, 2FA kód na 2. řádku)
           printf "%s\n%s\n" "${{ secrets.VPN_PASSWORD }}" "$TOKEN" > vpn-pass.txt
 
           echo "Spouštím VPN s automatickým 2FA..."
@@ -39,7 +39,7 @@ jobs:
             --protocol=anyconnect \
             --user=${{ secrets.VPN_USERNAME }} \
             --authgroup=VPN-UTB \
-            --script=/etc/vpnc/vpnc-script \
+            --script=/usr/share/vpnc-scripts/vpnc-script \
             --passwd-on-stdin < vpn-pass.txt \
             vpn.utb.cz &
           
@@ -48,9 +48,9 @@ jobs:
 
           # Kontrola, zda VPN tunel úspěšně vznikl
           if ip a show tun0; then
-            echo "VPN připojení bylo úspěšně navázáno a síťové rozhraní existuje."
+            echo "VPN připojení bylo úspěšně navázáno."
           else
-            echo "Chyba: Nepodařilo se vytvořit tunel!"
+            echo "Chyba: Nepodařilo se vytvořit VPN tunel!"
             exit 1
           fi
 
