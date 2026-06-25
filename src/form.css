@@ -1,6 +1,6 @@
 label{
     font-size: 20px;
-    color: #D5CAE7;
+    @apply text-darkPink;
     font-weight: 700;
 }
 
@@ -11,7 +11,7 @@ label{
     align-items: center;
     justify-content: center;
     padding: 18px;
-    background-color: #391D66;
+    @apply bg-beige;
     background-size: cover;
 }
 
@@ -25,7 +25,7 @@ label{
 }
 
 .formHead, .formHeadSecond{
-    background-color: #D5CAE7;
+    @apply bg-lightPink;
     margin-bottom: 50px;
     display: flex;
     border-radius: 10px;
@@ -38,14 +38,14 @@ label{
 .textHead{
     font-size: 50px;
     font-weight: 700;
-    color: #592DA1;
+    @apply text-darkPink;
     margin: 0 30px;
 }
 
 .dateHead, .dateHeadSecond{
     font-size: 40px;
     font-weight: 700;
-    color: #592DA1;
+    @apply text-darkPink;
     margin: 0 30px;
 }
 
@@ -94,7 +94,7 @@ label{
 }
 
 .textPopis{
-    color: #DFCFF7;
+    @apply text-darkPink;
     font-size: 28px;
     font-weight: 700;
     margin-top: 50px;
@@ -115,20 +115,20 @@ label{
 .formContainer .inputBox {
     width: 100%;
     margin-top: 25px;
-    color: rgba(34, 43, 69, 1);
+    color: rgba(255, 43, 69, 1);
 }
 
 .formContainer :where(.inputBox input, select) {
     position: relative;
-    height: 40px;
+    
     width: 100%;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 12px;
-    padding: 0 15px;
-    background-color: #FCEEC6;
-    color: #592DA1;
-    overflow: hidden;
+    padding: 12px 15px; 
+    line-height: 1.2;
+    @apply bg-lightPink;
+    @apply text-darkBlue;
 }
 
 @media screen and (max-width: 530px) {
@@ -136,7 +136,7 @@ label{
       flex-wrap: wrap;
     }
     .formContainer :where(.inputBox input, select){
-        font-size: 14px;
+        font-size: 1rem;
     }
   }
 
@@ -167,18 +167,18 @@ input[type="file"]{
     border-radius: 10px;
     height: 60px;
     width: 350px;
-    background-color: #DFCFF7;
+    @apply bg-lightPink;
     font-size: 25px;
     font-weight: bold;
-    color: #592DA1;
+    @apply text-darkPink;
     text-align: center;
     margin: 30px;
     transition: .5s;
 }
 
 .submitButton:hover, .submitButtonSecond:hover{
-    background-color: #BE9FEF;
-    color: #FCEEC6;
+    @apply bg-darkPink;
+    @apply text-lightPink;
     transition: .5s;
 }
 
@@ -194,16 +194,20 @@ input[type="file"]{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    border: 3px dashed #FCEEC6;
+    border: 3px dashed;
+    @apply border-lightPink;
     min-height: 40px;
     padding: 1rem;
     margin-top: 1em;
+    word-break: break-all;
+    max-width: 100%;
     transition: .3s;
 }
 
 .imageLabel:hover, .imageLabelSecond:hover{
-    border: 3px dashed #F5CD54;
-    color: #F5CD54;
+    border: 3px dashed;
+    @apply border-darkPink;
+    @apply text-darkPink;
     transition: .3s;
 }
 
@@ -230,7 +234,7 @@ input[type="file"]{
     height: 20px;
     margin-right: 10px;
 
-    background-color: #FCEEC6;
+    @apply bg-lightPink;
     border: none;
     border-radius: 0;
 
@@ -241,7 +245,7 @@ input[type="file"]{
 }
 
 .inputCheckBox input[type="checkbox"]:checked {
-    background-color: #FCEEC6; /* Keep same color when checked */
+    @apply bg-lightPink; /* Keep same color when checked */
     position: relative;
 }
 
@@ -292,8 +296,8 @@ input[type="file"]{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: #D5CAE7;
-    color: #592DA1;
+    @apply bg-lightPink;
+    @apply text-darkPink;
     height: 20rem;
     font-size: 35px;
     font-weight: 700;

@@ -1,17 +1,21 @@
-import '../../scss/Aftermovie.scss'
-
 const Aftermovie = () => {
   const ytSources = [
     'https://www.youtube.com/embed/kR-IGHd-260'
   ]
 
   return (
-    <section id="aftermovie">
+    <section 
+      id="aftermovie" 
+      className="flex justify-center items-center h-auto md:h-screen p-[4%] md:p-[5%] bg-lightPink"
+    >
       {ytSources.map((ytSrc) => (
-        <div className="video-wrapper" key={ytSrc}>
-          <div className="video-container">
+        <div 
+          className="relative w-full h-auto md:h-[80vh] max-h-[calc(80vw*(9/16))] md:max-h-none pt-[56.25%] md:pt-0 max-w-full md:max-w-[calc(80vh*(16/9))] m-auto rounded-[25px] overflow-hidden shadow-[15px_15px_15px_-3px_rgba(34,43,69,0.3)] z-30 md:z-auto" 
+          key={ytSrc}
+        >
+          <div className="absolute md:relative top-0 left-0 w-full h-full">
             <iframe
-              className="video-iframe z-30"
+              className="relative top-0 left-0 w-full h-full border-0 z-30"
               src={ytSrc}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -25,4 +29,4 @@ const Aftermovie = () => {
   );
 }
 
-export default Aftermovie
+export default Aftermovie;

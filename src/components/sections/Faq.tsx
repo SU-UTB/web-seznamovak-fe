@@ -3,13 +3,12 @@ import { useState } from 'react'
 import SectionTitle from '../atoms/SectionTitle'
 import { faqs } from '../../data/faqs'
 import Accordion from '../moleculs/Accordion'
-import '../../scss/Faq.scss'
 
 const Faq = () => {
   const [showed, setShowed] = useState<string | null>(null)
 
   return (
-    <section id="faq">
+    <section id="faq" className="bg-[#FCEDC5] bg-cover">
       <div className="container mx-auto px-4 md:px-8">
         <SectionTitle title="FAQ" color="darkBlue" />
         <ul className="text-beige text-left lg:w-4/5 mx-auto pb-20">

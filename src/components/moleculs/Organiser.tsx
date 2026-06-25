@@ -10,7 +10,7 @@ const Organiser = () => {
         <p className="mb-3">Růmy 4046, 760 01 Zlín</p>
         <EmailLink email="seznamovak@sutb.cz" />
         <p className="mb-3">Prezident Studentské unie: Matúš Varga</p>
-        <EmailLink email="prezident@sutb.cz" />
+        <EmailLink email="varga@sutb.cz" />
       </div>
     </div>
   )

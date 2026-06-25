@@ -141,7 +141,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
       ) : (
         <div className="formInput">
           <form onSubmit={handleSubmit(handleSave)}>
-            <a className="text-onPrimaryLight font-bold">
+            <a className="text-darkPink font-bold">
               (<span style={{color: 'red'}}>*</span>) - Povinné
             </a>
             <div className="column">
@@ -238,8 +238,8 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
 
             <div className="inputBox">
               <label>
-                Máš nějaké potravinové (či jiné) omezení? (Alergie, vegan,
-                vegetarián...) Cokoliv, co bychom potřebovali vědět?
+                Máš nějaké potravinové (či jiné) omezení (alergie, vegan,
+                vegetarián...)? Cokoliv, co bychom potřebovali vědět?
               </label>
               <input {...register('disability')} />
             </div>
@@ -257,7 +257,7 @@ const PostForm: React.FC<PostFormProps> = ({ batch }) => {
                 <label className="imageLabel" htmlFor="image">
                   {!img.length
                     ? 'Stiskni pro nahrání fotky'
-                    : img[0]?.name?.slice(-20)}
+                    : img[0]?.name}
                 </label>
                 <input
                   accept="image/jpeg, image/png, image/jpg"
